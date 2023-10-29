@@ -68,7 +68,11 @@ Route::get('admin/order/list', [App\Http\Controllers\OrderController::class, 'li
 //Product
 Route::get('admin/product/add', [App\Http\Controllers\ProductController::class, 'add'])->name('product.add')->can('product.add');
 Route::get('admin/product/list', [App\Http\Controllers\ProductController::class, 'list'])->name('product.list');
-Route::get('admin/product/cat', [App\Http\Controllers\ProductController::class, 'cat'])->name('product.cat');
+Route::get('admin/product/cat', [App\Http\Controllers\ProductCategoryController::class, 'index'])->name('product.cat');
+Route::post('admin/product/cat/add', [App\Http\Controllers\ProductCategoryController::class, 'add'])->name('product.cat.add');
+Route::get('admin/product/cat/edit/{id}', [App\Http\Controllers\ProductCategoryController::class, 'edit'])->name('product.cat.edit');
+Route::post('admin/product/cat/update/{id}', [App\Http\Controllers\ProductCategoryController::class, 'update'])->name('product.cat.update');
+Route::get('admin/product/cat/delete/{id}', [App\Http\Controllers\ProductCategoryController::class, 'delete'])->name('product.cat.delete');
 
 //permissions
 Route::get('admin/permission/add', [App\Http\Controllers\PermissionController::class, 'add'])->name('permission.add');
@@ -84,4 +88,10 @@ Route::post('admin/role/store', [App\Http\Controllers\RoleController::class, 'st
 Route::get('admin/role/edit/{role}', [App\Http\Controllers\RoleController::class, 'edit'])->name('role.edit');
 Route::post('admin/role/update/{role}', [App\Http\Controllers\RoleController::class, 'update'])->name('role.update');
 Route::get('admin/role/delete/{role}', [App\Http\Controllers\RoleController::class, 'delete'])->name('role.delete');
+
+});
+
+
+Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
+    \UniSharp\LaravelFilemanager\Lfm::routes();
 });

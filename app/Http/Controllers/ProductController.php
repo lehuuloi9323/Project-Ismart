@@ -13,19 +13,12 @@ class ProductController extends Controller
             return $next($request);
         });
     }
-    public function add(Request $request){
-
-        // if(! Gate::allows('product.add')){
-        //     abort(403);
-        // }
-
+    public function add(){
         return view('product.add');
     }
 
 
-    public function cat(Request $request){
-        return view('product.cat');
-    }
+
 
 
     public function list(Request $request){

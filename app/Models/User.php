@@ -52,7 +52,11 @@ class User extends Authenticatable implements MustVerifyEmail
 
     }
         return false;
-}
+    }
+
+    public function product_category(){
+        return $this->hasOne('App\Models\Product_categories');
+    }
 
 
 

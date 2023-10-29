@@ -19,7 +19,7 @@ class CreateProductCategoriesTable extends Migration
             $table->string('slug');
             $table->string('description');
             $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('parent_id');
+            $table->unsignedBigInteger('parent_id')->default(0);
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });

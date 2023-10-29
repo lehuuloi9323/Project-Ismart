@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title','Danh mục sản phẩm')
+@section('title','Sửa danh mục sản phẩm')
 
 @section('content')
 
@@ -8,17 +8,17 @@
         <div class="col-4">
             <div class="card">
                 <div class="card-header font-weight-bold">
-                    Danh mục sản phẩm
+                    Cập nhật
                 </div>
                 @if(session('status'))
                 <div class="alert alert-success">{{ Session('status') }}</div>
                 @endif
                 <div class="card-body">
-                    <form method="POST" action="{{ route('product.cat.add') }}">
+                    <form method="POST" action="{{ route('product.cat.update', $product_category->id) }}">
                         @csrf
                         <div class="form-group">
                             <label for="name">Tên danh mục</label>
-                            <input class="form-control" type="text" name="name" id="name">
+                            <input class="form-control" type="text" name="name" id="name" value="{{ $product_category->name }}">
                             @error('name')
                                 <small class="text-danger d-block">{{ $message }}</small>
                             @enderror
@@ -26,7 +26,7 @@
 
                         <div class="form-group">
                             <label for="slug">Slug</label>
-                            <input class="form-control" type="text" name="slug" id="slug">
+                            <input class="form-control" type="text" name="slug" id="slug" value="{{ $product_category->slug }}">
                             @error('slug')
                                 <small class="text-danger d-block">{{ $message }}</small>
                             @enderror
@@ -34,7 +34,7 @@
 
                         <div class="form-group">
                             <label for="name">Mô tả</label>
-                            <input class="form-control" type="text" name="description" id="description">
+                            <input class="form-control" type="text" name="description" id="description" value="{{ $product_category->description }}">
                             @error('description')
                                 <small class="text-danger d-block">{{ $message }}</small>
                             @enderror
@@ -43,10 +43,20 @@
                         <div class="form-group">
                             <label for="">Danh mục cha</label>
                             <select class="form-control" id="" name="parent_id">
+                                @if($product_category->parent_id != 0)
+                                <option value=""></option>
+                                @foreach($product_categories as $category)
+                                <option value="{{ $category->id }}" @if($category->id == $product_category->parent_id) selected @endif>
+                                    {{ $category->name }}
+                                </option>
+                                @endforeach
+
+                                @else
                                 <option selected></option>
                                 @foreach ($product_categories as $category)
                                 <option value="{{ $category->id }}">{{ $category->name }}</option>
                                 @endforeach
+                                @endif
                             </select>
                         </div>
                         {{--  <div class="form-group">
@@ -65,7 +75,7 @@
                             </div>
                         </div>  --}}
 
-                        <button type="submit" class="btn btn-primary mt-2">Thêm mới</button>
+                        <button type="submit" class="btn btn-primary mt-2">Cập nhật</button>
                     </form>
                 </div>
             </div>
@@ -96,7 +106,7 @@
                                 <td>{{ $category->description }}</td>
                                 <td>{{ $category->users->name }}</td>
                                 <td><a href="{{ route('product.cat.edit', $category->id) }}" onclick="return confirm('Bạn chắc chắn muốn sửa danh mục này ?')" class="btn btn-success btn-sm rounded-0 text-white" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
-                                    <a href="{{ route('product.cat.delete', $category->id) }}" onclick="return confirm('Bạn chắc chắn muốn xóa danh mục này ?')" class="btn btn-danger btn-sm rounded-0 text-white" onclick="return confirm('Bạn chắc chắn muốn xóa danh mục này ?')" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></a>
+                                    <a href="{{ route('product.cat.delete', $category->id) }}" onclick="return confirm('Bạn chắc chắn muốn xóa danh mục này ?')" class="btn btn-danger btn-sm rounded-0 text-white" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></a>
                                 </td>
                             </tr>
                             @endforeach

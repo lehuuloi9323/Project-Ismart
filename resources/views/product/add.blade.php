@@ -11,7 +11,7 @@
         <div class="card-body">
             <form>
                 <div class="row">
-                    <div class="col-6">
+                    <div class="col-12">
                         <div class="form-group">
                             <label for="name">Tên sản phẩm</label>
                             <input class="form-control" type="text" name="name" id="name">
@@ -21,18 +21,18 @@
                             <input class="form-control" type="text" name="name" id="name">
                         </div>
                     </div>
-                    <div class="col-6">
+                    <div class="col-12">
                         <div class="form-group">
-                            <label for="intro">Mô tả sản phẩm</label>
-                            <textarea name="" class="form-control" id="intro" cols="30" rows="5"></textarea>
+                            <label for="intro">Chi tiết sản phẩm</label>
+                            <textarea name="" class="" id="intro" cols="5" rows="15"></textarea>
                         </div>
                     </div>
                 </div>
 
 
                 <div class="form-group">
-                    <label for="intro">Chi tiết sản phẩm</label>
-                    <textarea name="" class="form-control" id="intro" cols="30" rows="5"></textarea>
+                    <label for="intro">Mô tả sản phẩm</label>
+                    <textarea name="" class="form-control" id="intro" cols="30" rows="15"></textarea>
                 </div>
 
 
