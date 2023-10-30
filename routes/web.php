@@ -67,6 +67,7 @@ Route::get('admin/order/list', [App\Http\Controllers\OrderController::class, 'li
 
 //Product
 Route::get('admin/product/add', [App\Http\Controllers\ProductController::class, 'add'])->name('product.add')->can('product.add');
+Route::post('admin/product/storeadd', [App\Http\Controllers\ProductController::class, 'storeadd'])->name('product.storeadd')->can('product.add');
 Route::get('admin/product/list', [App\Http\Controllers\ProductController::class, 'list'])->name('product.list');
 Route::get('admin/product/cat', [App\Http\Controllers\ProductCategoryController::class, 'index'])->name('product.cat');
 Route::post('admin/product/cat/add', [App\Http\Controllers\ProductCategoryController::class, 'add'])->name('product.cat.add');

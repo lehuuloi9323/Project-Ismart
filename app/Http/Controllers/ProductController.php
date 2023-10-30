@@ -16,6 +16,11 @@ class ProductController extends Controller
     public function add(){
         return view('product.add');
     }
+    public function storeadd(Request $request){
+        return $request->all();
+    }
+
+
 
 
 

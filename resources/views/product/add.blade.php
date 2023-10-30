@@ -9,7 +9,8 @@
             Thêm sản phẩm
         </div>
         <div class="card-body">
-            <form>
+            <form method="POST" action="{{ route('product.storeadd') }}">
+                @csrf
                 <div class="row">
                     <div class="col-12">
                         <div class="form-group">
@@ -24,7 +25,7 @@
                     <div class="col-12">
                         <div class="form-group">
                             <label for="intro">Chi tiết sản phẩm</label>
-                            <textarea name="" class="" id="intro" cols="5" rows="15"></textarea>
+                            <textarea name="product_detail" class="" id="intro" cols="5" rows="15"></textarea>
                         </div>
                     </div>
                 </div>
@@ -32,7 +33,7 @@
 
                 <div class="form-group">
                     <label for="intro">Mô tả sản phẩm</label>
-                    <textarea name="" class="form-control" id="intro" cols="30" rows="15"></textarea>
+                    <textarea name="product_description" class="form-control" id="intro" cols="30" rows="15"></textarea>
                 </div>
 
 
@@ -45,6 +46,24 @@
                         <option>Danh mục 3</option>
                         <option>Danh mục 4</option>
                     </select>
+                </div>
+                <div class="form-group">
+                    <div class="file-input">
+                        <label for="product_img">
+                            <i class="fas fa-upload"></i>Chọn ảnh đại diện sản phẩm
+                        </label>
+                        <input type="file" name="product_img" id="product_img" style="background-color: aliceblue;
+                        color: cornflowerblue;">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="file-input">
+                        <label for="list_product_img">
+                            <i class="fas fa-upload"></i>Thư viện ảnh sản phẩm
+                        </label>
+                        <input type="file" name="list_product_img[]" accept="image/jpeg, image/png" id="list_product_img" style="background-color: aliceblue;
+                        color: cornflowerblue;" multiple>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="">Trạng thái</label>
