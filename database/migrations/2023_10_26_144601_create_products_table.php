@@ -25,11 +25,9 @@ class CreateProductsTable extends Migration
             $table->enum('product_status',['active','inactive','out_of_stock'])->default('active');
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('category_id');
-            $table->unsignedBigInteger('trademark_id');
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('category_id')->references('id')->on('product_categories')->onDelete('cascade');
-            $table->foreign('trademark_id')->references('id')->on('product_trademarks')->onDelete('cascade');
 
         });
     }
