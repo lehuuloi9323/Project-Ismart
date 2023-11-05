@@ -8,8 +8,11 @@
         <div class="card-header font-weight-bold">
             Thêm sản phẩm
         </div>
+        @if (!empty(session('status')))
+            <div class="alert alert-success">{{ Session('status') }}</div>
+        @endif
         <div class="card-body">
-            <form method="POST" action="{{ route('product.storeadd') }}">
+            <form method="POST" action="{{ route('product.storeadd') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="row">
                     <div class="col-12">
@@ -77,7 +80,7 @@
                         <small class="text-danger d-block">{{ $message }}</small>
                     @enderror
                 </div>
-                <div class="form-group">
+                {{--  <div class="form-group">
                     <div class="file-input">
                         <label for="product_img">
                             <i class="fas fa-upload"></i>Chọn ảnh đại diện sản phẩm
@@ -88,8 +91,27 @@
                             <small class="text-danger d-block">{{ $message }}</small>
                         @enderror
                     </div>
+                </div>  --}}
 
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-btn">
+                          <a id="product_img" data-input="thumbnail" data-preview="holder" class="btn btn-primary">
+                            <i class="fa fa-picture-o"></i> Chọn ảnh đại diện sản phẩm
+                          </a>
+                        </span>
+                        <input id="thumbnail" name="product_img" class="form-control" type="text" name="filepath" value="{{ old('product_img') }}">
+                      </div>
+                      <img id="holder" style="margin-top:15px;max-height:100px;">
+                      <script>
+                        var route_prefix = "http://localhost/adminIsmart/laravel-filemanager/";
+                        $('#product_img').filemanager('image', {prefix: route_prefix});
+                      </script>
+                      @error('product_img')
+                            <small class="text-danger d-block">{{ $message }}</small>
+                        @enderror
                 </div>
+
                 <div class="form-group">
                     <div class="file-input">
                         <label for="list_product_img">

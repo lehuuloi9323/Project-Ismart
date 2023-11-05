@@ -10,7 +10,7 @@
             <div class="form-search form-inline">
                 <form action="#">
                     <input type="" class="form-control form-search" placeholder="Tìm kiếm">
-                    <input type="submit" name="btn-search" value="Tìm kiếm" class="btn btn-primary">
+                    <input type="submit" name="btn-search" value="Search" class="btn btn-primary">
                 </form>
             </div>
         </div>
@@ -28,6 +28,7 @@
                 </select>
                 <input type="submit" name="btn-search" value="Áp dụng" class="btn btn-primary">
             </div>
+
             <table class="table table-striped table-checkall">
                 <thead>
                     <tr>
@@ -45,70 +46,30 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach ($products as $product)
                     <tr class="">
                         <td>
-                            <input type="checkbox">
+                            <input type="checkbox" name="list_check[]" value="{{ $product->id }}">
                         </td>
-                        <td>1</td>
-                        <td><img src="http://via.placeholder.com/80X80" alt=""></td>
-                        <td><a href="#">Samsung Galaxy A51 (8GB/128GB)</a></td>
-                        <td>7.790.000₫</td>
-                        <td>Điện thoại</td>
-                        <td>26:06:2020 14:00</td>
-                        <td><span class="badge badge-success">Còn hàng</span></td>
+                        <td>{{ $loop->iteration }}</td>
+                        <td><img src="{{ asset('storage/photos/1/Product/'. getImageUrlForProduct($product->id)) }}" title="$product->name" style="width: 80px; height: 80px;"></td>
+                        <td><a href="#">{{ $product->name }}</a></td>
+                        <td>{{ $product->price }}</td>
+                        <td>{{ $product->Product_categories->name }}</td>
+                        <td>{{ $product->created_at }}</td>
+                        <td>
+                            @if($product->stock_quantity > 0)
+                            <span class="badge badge-success">Còn hàng</span>
+                            @else
+                            <span class="badge badge-dark">Hết hàng</span>
+                            @endif
+                        </td>
                         <td>
                             <a href="#" class="btn btn-success btn-sm rounded-0 text-white" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
                             <a href="#" class="btn btn-danger btn-sm rounded-0 text-white" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></a>
                         </td>
                     </tr>
-                    <tr>
-                        <td>
-                            <input type="checkbox">
-                        </td>
-                        <td>2</td>
-                        <td><img src="http://via.placeholder.com/80X80" alt=""></td>
-                        <td><a href="#">Điện thoại iPhone 11 Pro Max 64GB</a></td>
-                        <td>29.490.000₫</td>
-                        <td>Điện thoại</td>
-                        <td>26:06:2020 14:00</td>
-                        <td><span class="badge badge-dark">Hết hàng</span></td>
-                        <td>
-                            <a href="#" class="btn btn-success btn-sm rounded-0 text-white" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
-                            <a href="#" class="btn btn-danger btn-sm rounded-0 text-white" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input type="checkbox">
-                        </td>
-                        <td>3</td>
-                        <td><img src="http://via.placeholder.com/80X80" alt=""></td>
-                        <td><a href="#">Apple MacBook Pro Touch 2020 i5 512GB (MWP42SA/A)</a></td>
-                        <td>47.990.000₫</td>
-                        <td>Laptop</td>
-                        <td>26:06:2020 14:00</td>
-                        <td><span class="badge badge-success">Còn hàng</span></td>
-                        <td>
-                            <a href="#" class="btn btn-success btn-sm rounded-0 text-white" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
-                            <a href="#" class="btn btn-danger btn-sm rounded-0 text-white" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input type="checkbox">
-                        </td>
-                        <td>4</td>
-                        <td><img src="http://via.placeholder.com/80X80" alt=""></td>
-                        <td><a href="#">MacBook Air 2017 128GB (MQD32SA/A)</a></td>
-                        <td>19.990.000₫</td>
-                        <td>Laptop</td>
-                        <td>26:06:2020 14:00</td>
-                        <td><span class="badge badge-success">Còn hàng</span></td>
-                        <td>
-                            <a href="#" class="btn btn-success btn-sm rounded-0 text-white" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
-                            <a href="#" class="btn btn-danger btn-sm rounded-0 text-white" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></a>
-                        </td>
-                    </tr>
+                    @endforeach
                 </tbody>
             </table>
             <nav aria-label="Page navigation example">

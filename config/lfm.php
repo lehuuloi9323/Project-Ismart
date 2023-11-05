@@ -126,7 +126,7 @@ return [
      */
 
     // If true, image thumbnails would be created during upload
-    'should_create_thumbnails' => true,
+    'should_create_thumbnails' => false,
 
     'thumb_folder_name'        => 'thumbs',
 
@@ -140,6 +140,7 @@ return [
     'thumb_img_width'          => 200, // px
 
     'thumb_img_height'         => 200, // px
+
 
     /*
     |--------------------------------------------------------------------------
@@ -160,6 +161,7 @@ return [
         'png'  => 'PNG Image',
         'ppt'  => 'Microsoft PowerPoint',
         'pptx' => 'Microsoft PowerPoint',
+
     ],
 
     /*

@@ -93,6 +93,10 @@ Route::get('admin/role/delete/{role}', [App\Http\Controllers\RoleController::cla
 });
 
 
+
+// Route::group(['prefix' => 'laravel-filemanager', 'middleware'], function () {
+//     \UniSharp\LaravelFilemanager\Lfm::routes();
+// });
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
     \UniSharp\LaravelFilemanager\Lfm::routes();
 });
