@@ -8,25 +8,31 @@
         <div class="card-header font-weight-bold d-flex justify-content-between align-items-center">
             <h5 class="m-0 ">Danh sách sản phẩm</h5>
             <div class="form-search form-inline">
-                <form action="#">
-                    <input type="" class="form-control form-search" placeholder="Tìm kiếm">
+                <form method="GET">
+                    <input type="text" class="form-control form-search" placeholder="Tìm kiếm" name="keyword" value="{{ $keyword }}">
                     <input type="submit" name="btn-search" value="Search" class="btn btn-primary">
                 </form>
             </div>
         </div>
+        @if (!empty(session('status')))
+                <div class="alert alert-success">{{ Session('status') }}</div>
+                @endif
+        {{--  {{ $status }}  --}}
         <div class="card-body">
             <div class="analytic">
-                <a href="" class="text-primary">Trạng thái 1<span class="text-muted">(10)</span></a>
-                <a href="" class="text-primary">Trạng thái 2<span class="text-muted">(5)</span></a>
-                <a href="" class="text-primary">Trạng thái 3<span class="text-muted">(20)</span></a>
+                <a href="{{ request()->fullUrlWithQuery(['status'=>'active']) }}" class="text-primary">Hàng đang bán<span class="text-muted">({{ $count_active }})</span></a>
+                <a href="{{ request()->fullUrlWithQuery(['status'=>'inactive']) }}" class="text-primary">Tạm ngưng bán<span class="text-muted">({{ $count_inactive }})</span></a>
+                <a href="{{ request()->fullUrlWithQuery(['status'=>'out_of_stock']) }}" class="text-primary">Hết hàng<span class="text-muted">({{ $count_out_of_stock }})</span></a>
             </div>
             <div class="form-action form-inline py-3">
-                <select class="form-control mr-1" id="">
-                    <option>Chọn</option>
-                    <option>Tác vụ 1</option>
-                    <option>Tác vụ 2</option>
+                <form action="{{ route('product.action') }}" method="GET">
+                <select class="form-control mr-1" id="" name="actions">
+                    <option value="">Chọn</option>
+                    <option value="active">Bán sản phẩm</option>
+                    <option value="inactive">Tạm ngưng bán</option>
                 </select>
                 <input type="submit" name="btn-search" value="Áp dụng" class="btn btn-primary">
+
             </div>
 
             <table class="table table-striped table-checkall">
@@ -46,15 +52,16 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @if($products->total() > 0)
                     @foreach ($products as $product)
                     <tr class="">
                         <td>
                             <input type="checkbox" name="list_check[]" value="{{ $product->id }}">
                         </td>
                         <td>{{ $loop->iteration }}</td>
-                        <td><img src="{{ asset('storage/photos/1/Product/'. getImageUrlForProduct($product->id)) }}" title="$product->name" style="width: 80px; height: 80px;"></td>
+                        <td><img src="{{ asset('storage/photos/1/Product/'. getImageUrlForProduct($product->id)) }}" title="$product->name" style="width: 60px; height: 60px;"></td>
                         <td><a href="#">{{ $product->name }}</a></td>
-                        <td>{{ $product->price }}</td>
+                        <td>{{ number_format($product->price, 0, '', '.') }}</td>
                         <td>{{ $product->Product_categories->name }}</td>
                         <td>{{ $product->created_at }}</td>
                         <td>
@@ -65,30 +72,23 @@
                             @endif
                         </td>
                         <td>
-                            <a href="#" class="btn btn-success btn-sm rounded-0 text-white" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
-                            <a href="#" class="btn btn-danger btn-sm rounded-0 text-white" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></a>
+                            <a href="{{ route('product.edit', $product->id) }}" onclick="return confirm('Bạn chắc chắn muốn sửa sản phẩm này ?')" class="btn btn-success btn-sm rounded-0 text-white" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
+                            <a href="{{ route('product.delete', $product->id) }}" onclick="return confirm('Bạn chắc chắn muốn xóa sản phẩm này ?')" class="btn btn-danger btn-sm rounded-0 text-white" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></a>
                         </td>
                     </tr>
                     @endforeach
+                    @else
+                    <tr>
+                        <td colspan="9" style="text-align: center">Không tìm thấy bản ghi nào!
+                        </td>
+                        </tr>
+                    @endif
                 </tbody>
             </table>
+            </form>
             <nav aria-label="Page navigation example">
                 <ul class="pagination">
-                    <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Previous">
-                            <span aria-hidden="true">Trước</span>
-                            <span class="sr-only">Sau</span>
-                        </a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Next">
-                            <span aria-hidden="true">&raquo;</span>
-                            <span class="sr-only">Next</span>
-                        </a>
-                    </li>
+                    {{ $products->links() }}
                 </ul>
             </nav>
         </div>

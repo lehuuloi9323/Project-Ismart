@@ -61,6 +61,7 @@ Route::post('admin/user/update/{id}', [App\Http\Controllers\UserController::clas
 Route::get('admin/user/list', [App\Http\Controllers\UserController::class, 'list'])->name('user.list');
 Route::get('admin/user/delete/{id}', [App\Http\Controllers\UserController::class, 'delete'])->name('user.delete');
 Route::get('admin/user/action', [App\Http\Controllers\UserController::class, 'action'])->name('user.action');
+// Route::get('admin/user/checksql', [App\Http\Controllers\UserController::class, 'checksql'])->name('user.checksql');
 
 //order
 Route::get('admin/order/list', [App\Http\Controllers\OrderController::class, 'list'])->name('order.list');
@@ -69,6 +70,11 @@ Route::get('admin/order/list', [App\Http\Controllers\OrderController::class, 'li
 Route::get('admin/product/add', [App\Http\Controllers\ProductController::class, 'add'])->name('product.add')->can('product.add');
 Route::post('admin/product/storeadd', [App\Http\Controllers\ProductController::class, 'storeadd'])->name('product.storeadd')->can('product.add');
 Route::get('admin/product/list', [App\Http\Controllers\ProductController::class, 'list'])->name('product.list');
+Route::get('admin/product/action', [App\Http\Controllers\ProductController::class, 'action'])->name('product.action')->can('product.list');
+Route::get('admin/product/delete/{id}', [App\Http\Controllers\ProductController::class, 'delete'])->name('product.delete')->can('product.delete');
+Route::get('admin/product/edit/{id}', [App\Http\Controllers\ProductController::class, 'edit'])->name('product.edit')->can('product.edit');
+Route::post('admin/product/update/{id}', [App\Http\Controllers\ProductController::class, 'update'])->name('product.update')->can('product.edit');
+
 Route::get('admin/product/cat', [App\Http\Controllers\ProductCategoryController::class, 'index'])->name('product.cat');
 Route::post('admin/product/cat/add', [App\Http\Controllers\ProductCategoryController::class, 'add'])->name('product.cat.add');
 Route::get('admin/product/cat/edit/{id}', [App\Http\Controllers\ProductCategoryController::class, 'edit'])->name('product.cat.edit');

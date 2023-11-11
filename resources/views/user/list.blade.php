@@ -19,7 +19,7 @@
         @if (!empty(session('warning')))
             <div class="alert alert-warning">{{ Session('warning') }}</div>
         @endif
-        {{--  {{ $status }}  --}}
+        {{ $status }}
         <div class="card-body">
             <div class="analytic">
                 <a href="{{ request()->fullUrlWithQuery(['status'=>'all']) }}" class="text-primary">Tất cả<span class="text-muted">({{ $countAll }})</span></a>

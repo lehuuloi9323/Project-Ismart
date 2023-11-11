@@ -180,23 +180,23 @@ class UserController extends Controller
             $act = $request->input('actions');
             if($act=='block'){
                 User::destroy($list_check);
-                return redirect('user/list')->with('status', 'Khóa user thành công');
+                return redirect('admin/user/list')->with('status', 'Khóa user thành công');
             }
             if($act=='restore'){
                 User::withTrashed($list_check)
                 ->whereIn('id', $list_check)
                 ->restore();
-                return redirect('user/list')->with('status', 'Khổi phục tài khoản thành công');
+                return redirect('admin/user/list')->with('status', 'Khổi phục tài khoản thành công');
             }
             if($act = 'delete'){
                 User::withTrashed()
                 ->whereIn('id',$list_check)
                 ->forceDelete();
-                return redirect('user/list')->with('status', 'Bạn đã xóa vĩnh viễn');
+                return redirect('admin/user/list')->with('status', 'Bạn đã xóa vĩnh viễn');
             }
 
         }
-        return redirect('user/list')->with('status', 'Bạn không thể thao tác trên user của bạn');
+        return redirect('admin/user/list')->with('status', 'Bạn không thể thao tác trên user của bạn');
 
     }
 
