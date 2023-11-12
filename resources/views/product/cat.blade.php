@@ -44,8 +44,18 @@
                             <label for="">Danh mục cha</label>
                             <select class="form-control" id="" name="parent_id">
                                 <option selected></option>
-                                @foreach ($product_categories as $category)
+                                @foreach ($categories as $category)
                                 <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                    @if (count($category->children) > 0)
+                                        @foreach ($category->children as $child)
+                                            <option value="{{ $child->id }}">{{ $category->name }}->{{ $child->name }}</option>
+                                                @if(count($child->children))
+                                                    @foreach($child->children as $grandchild)
+                                                    <option value="{{ $grandchild->id }}">{{ $category->name }}->{{ $child->name }}->{{ $grandchild->name }}</option>
+                                                    @endforeach
+                                                @endif
+                                        @endforeach
+                                    @endif
                                 @endforeach
                             </select>
                         </div>
@@ -88,9 +98,12 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($product_categories as $category)
+                            @php
+                                $i = 1;
+                            @endphp
+                            @foreach ($categories as $category)
                             <tr>
-                                <th scope="row">{{ $loop->iteration }}</th>
+                                <th scope="row">{{ $i++ }}</th>
                                 <td>{{ $category->name }}</td>
                                 <td>{{ $category->slug }}</td>
                                 <td>{{ $category->description }}</td>
@@ -99,6 +112,34 @@
                                     <a href="{{ route('product.cat.delete', $category->id) }}" onclick="return confirm('Bạn chắc chắn muốn xóa danh mục này ?')" class="btn btn-danger btn-sm rounded-0 text-white" onclick="return confirm('Bạn chắc chắn muốn xóa danh mục này ?')" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></a>
                                 </td>
                             </tr>
+                                @if(count($category->children))
+                                    @foreach ($category->children as $child)
+                                    <tr>
+                                        <th scope="row">{{ $i++ }}</th>
+                                        <td>{{ $category->name }}->{{ $child->name }}</td>
+                                        <td>{{ $child->slug }}</td>
+                                        <td>{{ $child->description }}</td>
+                                        <td>{{ $child->users->name }}</td>
+                                        <td><a href="{{ route('product.cat.edit', $child->id) }}" onclick="return confirm('Bạn chắc chắn muốn sửa danh mục này ?')" class="btn btn-success btn-sm rounded-0 text-white" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
+                                            <a href="{{ route('product.cat.delete', $child->id) }}" onclick="return confirm('Bạn chắc chắn muốn xóa danh mục này ?')" class="btn btn-danger btn-sm rounded-0 text-white" onclick="return confirm('Bạn chắc chắn muốn xóa danh mục này ?')" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></a>
+                                        </td>
+                                    </tr>
+                                        @if(count($child->children))
+                                            @foreach($child->children as $grandchild)
+                                            <tr>
+                                                <th scope="row">{{ $i++ }}</th>
+                                                <td>{{ $category->name }}->{{ $child->name }}->{{ $grandchild->name }}</td>
+                                                <td>{{ $grandchild->slug }}</td>
+                                                <td>{{ $grandchild->description }}</td>
+                                                <td>{{ $grandchild->users->name }}</td>
+                                                <td><a href="{{ route('product.cat.edit', $grandchild->id) }}" onclick="return confirm('Bạn chắc chắn muốn sửa danh mục này ?')" class="btn btn-success btn-sm rounded-0 text-white" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
+                                                    <a href="{{ route('product.cat.delete', $grandchild->id) }}" onclick="return confirm('Bạn chắc chắn muốn xóa danh mục này ?')" class="btn btn-danger btn-sm rounded-0 text-white" onclick="return confirm('Bạn chắc chắn muốn xóa danh mục này ?')" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></a>
+                                                </td>
+                                            </tr>
+                                            @endforeach
+                                        @endif
+                                    @endforeach
+                                @endif
                             @endforeach
 
                         </tbody>
@@ -107,6 +148,30 @@
             </div>
         </div>
     </div>
-
 </div>
+{{--  <ul>
+    @foreach($categories as $category)
+        <li>
+            {{ $category->name }}
+
+            @if(count($category->children))
+                <ul>
+                    @foreach($category->children as $child)
+                        <li>
+                            |-{{ $child->name }}
+
+                            @if(count($child->children))
+                                <ul>
+                                    @foreach($child->children as $grandchild)
+                                        |-|-<li>{{ $grandchild->name }}</li>
+                                    @endforeach
+                                </ul>
+                            @endif
+                        </li>
+                    @endforeach
+                </ul>
+            @endif
+        </li>
+    @endforeach
+</ul>  --}}
 @endsection

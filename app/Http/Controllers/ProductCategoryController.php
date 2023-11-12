@@ -11,10 +11,12 @@ class ProductCategoryController extends Controller
     public function index(){
 
         $product_categories = Product_categories::all();
+        $categories = Product_categories::whereNull('parent_id')->with('children.children')->get();
+        // return $product_categories;
         // return $product_categories;
         // $pro_name = Product_categories::find(1)->users;
         // return $pro_name;
-        return view('product.cat', compact('product_categories'));
+        return view('product.cat', compact('product_categories', 'categories'));
     }
 
     public function add(Request $request){
@@ -34,7 +36,7 @@ class ProductCategoryController extends Controller
         'description' => 'Mô tả',
         ]);
 
-    $parent_id = $request->parent_id == ''? 0 : $request->parent_id;
+    $parent_id = $request->parent_id == ''? null : $request->parent_id;
 
     $product_category = Product_categories::create([
         'name' => ucfirst($request->name),

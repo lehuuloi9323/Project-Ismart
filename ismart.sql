@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 11, 2023 at 12:18 PM
+-- Generation Time: Nov 12, 2023 at 04:29 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -58,41 +58,31 @@ CREATE TABLE `images` (
 --
 
 INSERT INTO `images` (`id`, `url`, `name`, `size_img`, `user_id`, `created_at`, `updated_at`) VALUES
-(7, 'tai-nghe-bluetooth-airpods-pro-2nd-gen-usb-c-charge-apple-1.jpg', 'Tai nghe Bluetooth AirPods Pro Gen 2 MagSafe Charge (USB-C) Apple MTJV3', 71058, 1, '2023-11-05 00:43:41', '2023-11-05 00:43:41'),
-(8, 'tai-nghe-bluetooth-airpods-pro-2nd-gen-usb-c-charge-apple-1.jpg', 'Tai nghe Bluetooth AirPods Pro Gen 2 MagSafe Charge (USB-C) Apple MTJV3', 71058, 1, '2023-11-05 00:43:41', '2023-11-05 00:43:41'),
-(9, 'tai-nghe-bluetooth-airpods-pro-2nd-gen-usb-c-charge-apple-2.jpg', 'Tai nghe Bluetooth AirPods Pro Gen 2 MagSafe Charge (USB-C) Apple MTJV3', 46326, 1, '2023-11-05 00:43:41', '2023-11-05 00:43:41'),
-(10, 'tai-nghe-bluetooth-airpods-pro-2nd-gen-usb-c-charge-apple-4.jpg', 'Tai nghe Bluetooth AirPods Pro Gen 2 MagSafe Charge (USB-C) Apple MTJV3', 45385, 1, '2023-11-05 00:43:41', '2023-11-05 00:43:41'),
-(11, 'tai-nghe-bluetooth-airpods-pro-2nd-gen-usb-c-charge-apple-5.jpg', 'Tai nghe Bluetooth AirPods Pro Gen 2 MagSafe Charge (USB-C) Apple MTJV3', 50097, 1, '2023-11-05 00:43:41', '2023-11-05 00:43:41'),
-(12, 'tai-nghe-bluetooth-airpods-pro-2nd-gen-usb-c-charge-apple-6.jpg', 'Tai nghe Bluetooth AirPods Pro Gen 2 MagSafe Charge (USB-C) Apple MTJV3', 37166, 1, '2023-11-05 00:43:41', '2023-11-05 00:43:41'),
-(13, 'tai-nghe-bluetooth-true-wireless-ava-freego-a20-1-1.jpg', 'Tai nghe Bluetooth True Wireless AVA+ FreeGo A20', 261928, 1, '2023-11-05 03:25:30', '2023-11-10 04:33:59'),
-(22, 'tai-nghe-bluetooth-true-wireless-havit-tw945-trang-1.jpg', 'Tai nghe Bluetooth True Wireless HAVIT TW945', 487140, 1, '2023-11-05 03:30:25', '2023-11-05 03:30:25'),
-(29, 'tai-nghe-bluetooth-true-wireless-baseus-airnora-2-4.jpg', 'Tai nghe Bluetooth True Wireless Baseus AirNora 2', 51782, 1, '2023-11-05 03:37:01', '2023-11-05 03:37:01'),
-(30, 'tai-nghe-bluetooth-true-wireless-baseus-airnora-2-5.jpg', 'Tai nghe Bluetooth True Wireless Baseus AirNora 2', 48593, 1, '2023-11-05 03:37:01', '2023-11-05 03:37:01'),
-(31, 'tai-nghe-bluetooth-true-wireless-baseus-airnora-2-7.jpg', 'Tai nghe Bluetooth True Wireless Baseus AirNora 2', 53323, 1, '2023-11-05 03:37:01', '2023-11-05 03:37:01'),
-(32, 'tai-nghe-bluetooth-true-wireless-baseus-airnora-2-8.jpg', 'Tai nghe Bluetooth True Wireless Baseus AirNora 2', 48440, 1, '2023-11-05 03:37:01', '2023-11-05 03:37:01'),
-(33, 'tai-nghe-bluetooth-true-wireless-baseus-airnora-2-9.jpg', 'Tai nghe Bluetooth True Wireless Baseus AirNora 2', 36225, 1, '2023-11-05 03:37:01', '2023-11-05 03:37:01'),
-(79, 'iphone-15-pro-max-black-1-1.jpg', 'Tai nghe Bluetooth True Wireless AVA+ FreeGo A20', 55861, 1, '2023-11-10 05:07:38', '2023-11-10 05:07:38'),
-(80, 'iphone-15-pro-max-black-2-1.jpg', 'Tai nghe Bluetooth True Wireless AVA+ FreeGo A20', 22396, 1, '2023-11-10 05:07:38', '2023-11-10 05:07:38'),
-(81, 'iphone-15-pro-max-black-3-1.jpg', 'Tai nghe Bluetooth True Wireless AVA+ FreeGo A20', 26459, 1, '2023-11-10 05:07:38', '2023-11-10 05:07:38'),
-(82, 'iphone-15-pro-max-blue-1-1.jpg', 'Tai nghe Bluetooth True Wireless AVA+ FreeGo A20', 63231, 1, '2023-11-10 05:07:38', '2023-11-10 05:07:38'),
-(83, 'iphone-15-pro-max-tu-nhien-1-1.jpg', 'Tai nghe Bluetooth True Wireless AVA+ FreeGo A20', 64296, 1, '2023-11-10 05:07:38', '2023-11-10 05:07:38'),
-(84, 'iphone-15-pro-max-white-1-3.jpg', 'Tai nghe Bluetooth True Wireless AVA+ FreeGo A20', 68943, 1, '2023-11-10 05:07:38', '2023-11-10 05:07:38'),
-(85, 'iphone-15-pro-max-black-1-1.jpg', 'Tai nghe Bluetooth True Wireless HAVIT TW945', 55861, 1, '2023-11-11 04:11:34', '2023-11-11 04:11:34'),
-(86, 'iphone-15-pro-max-black-2-1.jpg', 'Tai nghe Bluetooth True Wireless HAVIT TW945', 22396, 1, '2023-11-11 04:11:34', '2023-11-11 04:11:34'),
-(87, 'iphone-15-pro-max-black-3-1.jpg', 'Tai nghe Bluetooth True Wireless HAVIT TW945', 26459, 1, '2023-11-11 04:11:34', '2023-11-11 04:11:34'),
-(88, 'iphone-15-pro-max-blue-1-1.jpg', 'Tai nghe Bluetooth True Wireless HAVIT TW945', 63231, 1, '2023-11-11 04:11:34', '2023-11-11 04:11:34'),
-(89, 'tai-nghe-bluetooth-true-wireless-havit-tw945-trang-2.jpg', 'Tai nghe Bluetooth True Wireless HAVIT TW945', 534921, 1, '2023-11-11 04:16:16', '2023-11-11 04:16:16'),
-(90, 'tai-nghe-bluetooth-true-wireless-havit-tw945-trang-3.jpg', 'Tai nghe Bluetooth True Wireless HAVIT TW945', 585235, 1, '2023-11-11 04:16:16', '2023-11-11 04:16:16'),
-(91, 'tai-nghe-bluetooth-true-wireless-havit-tw945-trang-5.jpg', 'Tai nghe Bluetooth True Wireless HAVIT TW945', 398888, 1, '2023-11-11 04:16:16', '2023-11-11 04:16:16'),
-(92, 'tai-nghe-bluetooth-true-wireless-havit-tw945-trang-7.jpg', 'Tai nghe Bluetooth True Wireless HAVIT TW945', 652905, 1, '2023-11-11 04:16:16', '2023-11-11 04:16:16'),
-(93, 'tai-nghe-bluetooth-true-wireless-havit-tw945-trang-9.jpg', 'Tai nghe Bluetooth True Wireless HAVIT TW945', 526057, 1, '2023-11-11 04:16:16', '2023-11-11 04:16:16'),
-(94, 'tai-nghe-bluetooth-true-wireless-ava-freego-a20-2-1.jpg', 'Tai nghe Bluetooth True Wireless AVA+ FreeGo A20', 334979, 1, '2023-11-11 04:16:50', '2023-11-11 04:16:50'),
-(95, 'tai-nghe-bluetooth-true-wireless-ava-freego-a20-3-1.jpg', 'Tai nghe Bluetooth True Wireless AVA+ FreeGo A20', 273832, 1, '2023-11-11 04:16:50', '2023-11-11 04:16:50'),
-(96, 'tai-nghe-bluetooth-true-wireless-ava-freego-a20-4-1.jpg', 'Tai nghe Bluetooth True Wireless AVA+ FreeGo A20', 356782, 1, '2023-11-11 04:16:50', '2023-11-11 04:16:50'),
-(97, 'tai-nghe-bluetooth-true-wireless-ava-freego-a20-6.jpg', 'Tai nghe Bluetooth True Wireless AVA+ FreeGo A20', 373212, 1, '2023-11-11 04:16:50', '2023-11-11 04:16:50'),
-(98, 'tai-nghe-bluetooth-true-wireless-ava-freego-a20-7.jpg', 'Tai nghe Bluetooth True Wireless AVA+ FreeGo A20', 372227, 1, '2023-11-11 04:16:50', '2023-11-11 04:16:50'),
-(99, 'tai-nghe-bluetooth-true-wireless-ava-freego-a20-8.jpg', 'Tai nghe Bluetooth True Wireless AVA+ FreeGo A20', 404445, 1, '2023-11-11 04:16:50', '2023-11-11 04:16:50'),
-(100, 'tai-nghe-bluetooth-true-wireless-ava-freego-a20-9.jpg', 'Tai nghe Bluetooth True Wireless AVA+ FreeGo A20', 462680, 1, '2023-11-11 04:16:50', '2023-11-11 04:16:50');
+(1, 'iphone-15-pro-max-black-1-1.jpg', 'Điện thoại iPhone 15 Pro Max 256GB', 55861, 1, '2023-11-11 20:18:17', '2023-11-11 20:18:17'),
+(2, 'iphone-15-pro-max-black-2-1.jpg', 'Điện thoại iPhone 15 Pro Max 256GB', 22396, 1, '2023-11-11 20:18:17', '2023-11-11 20:18:17'),
+(3, 'iphone-15-pro-max-black-3-1.jpg', 'Điện thoại iPhone 15 Pro Max 256GB', 26459, 1, '2023-11-11 20:18:17', '2023-11-11 20:18:17'),
+(4, 'iphone-15-pro-max-blue-1-1.jpg', 'Điện thoại iPhone 15 Pro Max 256GB', 63231, 1, '2023-11-11 20:18:17', '2023-11-11 20:18:17'),
+(5, 'iphone-15-pro-max-tu-nhien-1-1.jpg', 'Điện thoại iPhone 15 Pro Max 256GB', 64296, 1, '2023-11-11 20:18:17', '2023-11-11 20:18:17'),
+(6, 'iphone-15-pro-max-white-1-3.jpg', 'Điện thoại iPhone 15 Pro Max 256GB', 68943, 1, '2023-11-11 20:18:17', '2023-11-11 20:18:17'),
+(7, 'xiaomi-13t-pro-xanh-1.jpg', 'Điện thoại Xiaomi 13T Pro 5G', 276550, 1, '2023-11-11 20:22:13', '2023-11-11 20:22:13'),
+(8, 'vi-vn-xiaomi-13t-pro-slider--(1).jpg', 'Điện thoại Xiaomi 13T Pro 5G', 126336, 1, '2023-11-11 20:22:13', '2023-11-11 20:22:13'),
+(9, 'xiaomi-13t-pro-xanh-2.jpg', 'Điện thoại Xiaomi 13T Pro 5G', 121821, 1, '2023-11-11 20:22:13', '2023-11-11 20:22:13'),
+(10, 'xiaomi-13t-pro-xanh-3.jpg', 'Điện thoại Xiaomi 13T Pro 5G', 117080, 1, '2023-11-11 20:22:13', '2023-11-11 20:22:13'),
+(11, 'xiaomi-13t-pro-xanh-4.jpg', 'Điện thoại Xiaomi 13T Pro 5G', 539568, 1, '2023-11-11 20:22:13', '2023-11-11 20:22:13'),
+(12, 'xiaomi-13t-pro-xanh-5.jpg', 'Điện thoại Xiaomi 13T Pro 5G', 503035, 1, '2023-11-11 20:22:13', '2023-11-11 20:22:13'),
+(13, 'xiaomi-13t-pro-xanh-6.jpg', 'Điện thoại Xiaomi 13T Pro 5G', 305620, 1, '2023-11-11 20:22:13', '2023-11-11 20:22:13'),
+(14, 'xiaomi-13t-pro-xanh-9.jpg', 'Điện thoại Xiaomi 13T Pro 5G', 534518, 1, '2023-11-11 20:22:13', '2023-11-11 20:22:13'),
+(15, 'xiaomi-13t-pro-xanh-10.jpg', 'Điện thoại Xiaomi 13T Pro 5G', 413631, 1, '2023-11-11 20:22:13', '2023-11-11 20:22:13'),
+(16, 'tai-nghe-bluetooth-airpods-pro-2nd-gen-usb-c-charge-apple-1.jpg', 'Tai nghe Bluetooth AirPods Pro Gen 2 MagSafe Charge (USB-C) Apple MTJV3', 71058, 1, '2023-11-11 20:24:47', '2023-11-11 20:24:47'),
+(17, 'tai-nghe-bluetooth-airpods-pro-2nd-gen-usb-c-charge-apple-2.jpg', 'Tai nghe Bluetooth AirPods Pro Gen 2 MagSafe Charge (USB-C) Apple MTJV3', 46326, 1, '2023-11-11 20:24:47', '2023-11-11 20:24:47'),
+(18, 'tai-nghe-bluetooth-airpods-pro-2nd-gen-usb-c-charge-apple-3.jpg', 'Tai nghe Bluetooth AirPods Pro Gen 2 MagSafe Charge (USB-C) Apple MTJV3', 54136, 1, '2023-11-11 20:24:47', '2023-11-11 20:24:47'),
+(19, 'tai-nghe-bluetooth-airpods-pro-2nd-gen-usb-c-charge-apple-4.jpg', 'Tai nghe Bluetooth AirPods Pro Gen 2 MagSafe Charge (USB-C) Apple MTJV3', 45385, 1, '2023-11-11 20:24:47', '2023-11-11 20:24:47'),
+(20, 'tai-nghe-bluetooth-airpods-pro-2nd-gen-usb-c-charge-apple-5.jpg', 'Tai nghe Bluetooth AirPods Pro Gen 2 MagSafe Charge (USB-C) Apple MTJV3', 50097, 1, '2023-11-11 20:24:47', '2023-11-11 20:24:47'),
+(21, 'tai-nghe-bluetooth-airpods-pro-2nd-gen-usb-c-charge-apple-6.jpg', 'Tai nghe Bluetooth AirPods Pro Gen 2 MagSafe Charge (USB-C) Apple MTJV3', 37166, 1, '2023-11-11 20:24:47', '2023-11-11 20:24:47'),
+(22, 'ipad-air-5-m1-xam-1.jpg', 'Máy tính bảng iPad Air 5 M1 WiFi 64GB', 175551, 1, '2023-11-11 20:28:37', '2023-11-11 20:28:37'),
+(23, 'ipad-air-5-m1-xam-2.jpg', 'Máy tính bảng iPad Air 5 M1 WiFi 64GB', 87567, 1, '2023-11-11 20:28:37', '2023-11-11 20:28:37'),
+(24, 'ipad-air-5-m1-xam-3.jpg', 'Máy tính bảng iPad Air 5 M1 WiFi 64GB', 222290, 1, '2023-11-11 20:28:37', '2023-11-11 20:28:37'),
+(25, 'ipad-air-5-m1-xam-4.jpg', 'Máy tính bảng iPad Air 5 M1 WiFi 64GB', 161816, 1, '2023-11-11 20:28:37', '2023-11-11 20:28:37');
 
 -- --------------------------------------------------------
 
@@ -119,10 +109,10 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (15, '2023_09_18_112851_create_roles_table', 3),
 (16, '2023_09_18_113031_create_role_permission', 4),
 (17, '2023_09_18_113152_create_user_role', 5),
-(31, '2023_10_26_140931_create_product_categories_table', 6),
-(32, '2023_10_26_144601_create_products_table', 6),
-(33, '2023_10_30_102516_create_images_table', 6),
-(34, '2023_10_31_110100_create_product_images_table', 6);
+(39, '2023_10_26_140931_create_product_categories_table', 6),
+(40, '2023_10_26_144601_create_products_table', 6),
+(41, '2023_10_30_102516_create_images_table', 6),
+(42, '2023_10_31_110100_create_product_images_table', 6);
 
 -- --------------------------------------------------------
 
@@ -196,10 +186,10 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `name`, `description`, `slug`, `details`, `price`, `stock_quantity`, `is_feature`, `product_status`, `user_id`, `category_id`, `created_at`, `updated_at`) VALUES
-(2, 'Tai nghe Bluetooth AirPods Pro Gen 2 MagSafe Charge (USB-C) Apple MTJV3', '5990000', 'tai-nghe-bluetooth-airpods-pro-gen-2-magsafe-charge-(usb-c)-apple-mtjv3', '<p>Thời gian tai nghe: D&ugrave;ng 6 giờ<br />Thời gian hộp sạc: D&ugrave;ng 30 giờ<br />Cổng sạc: Type-CSạc kh&ocirc;ng d&acirc;y QiSạc MagSafe<br />C&ocirc;ng nghệ &acirc;m thanh: Adaptive EQActive Noise CancellationAmbient SoundChip Apple H2<br />Tương th&iacute;ch: Android, iOS, Windows<br />Tiện &iacute;ch: Sạc kh&ocirc;ng d&acirc;yC&oacute; mic thoạiSạc nhanhChống ồn chủ động ANCChống nước &amp; bụi IP54Trợ l&yacute; ảo Siri<br />Hỗ trợ kết nối: Bluetooth 5.3<br />Điều khiển bằng: Cảm ứng chạm</p>', 5990000, 10, 0, 'active', 1, 3, '2023-11-05 00:43:41', '2023-11-11 04:17:02'),
-(3, 'Tai nghe Bluetooth True Wireless AVA+ FreeGo A20', '230000', 'tai-nghe-bluetooth-true-wireless-ava+-freego-a20', '<p>Thời gian tai nghe: D&ugrave;ng 4 giờ - Sạc 1.2 giờ<br />Thời gian hộp sạc: D&ugrave;ng 20 giờ - Sạc 1.5 giờ<br />Cổng sạc: Type-C<br />Tương th&iacute;ch: Android, iOS, WindowsMacOS<br />Tiện &iacute;ch: Tương th&iacute;ch trợ l&yacute; ảoChống nước IPX3C&oacute; mic thoại<br />Hỗ trợ kết nối: Bluetooth 5.3<br />Điều khiển bằng: Cảm ứng chạm</p>', 230000, 10, 0, 'active', 1, 3, '2023-11-05 03:25:30', '2023-11-10 04:41:05'),
-(4, 'Tai nghe Bluetooth True Wireless HAVIT TW945', '320000', 'tai-nghe-bluetooth-true-wireless-havit-tw945', '<p><strong>Th&ocirc;ng số kỹ thuật Tai nghe Bluetooth True Wireless HAVIT TW945</strong></p>\r\n<p>Thời gian tai nghe: D&ugrave;ng 3 giờ - Sạc 1.5 giờ<br />Thời gian hộp sạc: D&ugrave;ng 18 giờ - Sạc 2 giờ<br />Cổng sạc: Type-C<br />C&ocirc;ng nghệ &acirc;m thanh: M&agrave;ng loa 13 mm<br />Tương th&iacute;ch: Android, iOS, WindowsMacOS<br />Tiện &iacute;ch: Tương th&iacute;ch trợ l&yacute; ảoC&oacute; mic thoạiSử dụng độc lập 1 b&ecirc;n tai ngheGame Mode<br />Hỗ trợ kết nối: Bluetooth 5.3<br />Điều khiển bằng: Cảm ứng chạm</p>', 320000, 15, 0, 'active', 1, 3, '2023-11-05 03:30:25', '2023-11-09 04:59:51'),
-(5, 'Tai nghe Bluetooth True Wireless Baseus AirNora 2', '1120000', 'tai-nghe-bluetooth-true-wireless-baseus-airnora-2', '<p><strong>Th&ocirc;ng số kỹ thuật Tai nghe Bluetooth True Wireless Baseus AirNora 2</strong></p>\r\n<p>Thời gian tai nghe: D&ugrave;ng 6.5 giờ - Sạc 1 giờ<br />Thời gian hộp sạc: D&ugrave;ng 30 giờ - Sạc 2 giờ<br />Cổng sạc: Type-C<br />C&ocirc;ng nghệ &acirc;m thanh: Adaptive EQSpatial AudioHybrid ANC<br />Tương th&iacute;ch: Android, iOS, WindowsMacOS<br />Ứng dụng kết nối: BASEUS<br />Tiện &iacute;ch: Tương th&iacute;ch trợ l&yacute; ảoĐệm tai đi k&egrave;mSạc nhanh<br />Hỗ trợ kết nối: Bluetooth 5.3<br />Điều khiển bằng: Cảm ứng chạm</p>', 1120000, 0, 0, 'active', 1, 3, '2023-11-05 03:37:01', '2023-11-05 04:29:22');
+(1, 'Điện thoại iPhone 15 Pro Max 256GB', '33900000', 'Điện-thoai-iphone-15-pro-max-256gb', '<p><strong>Cấu h&igrave;nh Điện thoại iPhone 15 Pro Max 256GB</strong></p>\r\n<p>M&agrave;n h&igrave;nh: OLED6.7\"Super Retina XDR<br />Hệ điều h&agrave;nh: iOS 17<br />Camera sau: Ch&iacute;nh 48 MP &amp; Phụ 12 MP, 12 MP<br />Camera trước: 12 MP<br />Chip: Apple A17 Pro 6 nh&acirc;n<br />RAM: 8 GB<br />Dung lượng lưu trữ: 256 GB<br />SIM: 1 Nano SIM &amp; 1 eSIMHỗ trợ 5G<br />Pin, Sạc: 4422 mAh20 W</p>', 33900000, 15, 0, 'active', 1, 11, '2023-11-11 20:18:17', '2023-11-11 20:18:17'),
+(2, 'Điện thoại Xiaomi 13T Pro 5G', '14490000', 'Điện-thoai-xiaomi-13t-pro-5g', '<p><strong>Cấu h&igrave;nh Điện thoại Xiaomi 13T Pro 5G</strong></p>\r\n<p>M&agrave;n h&igrave;nh: AMOLED6.67\"1.5K<br />Hệ điều h&agrave;nh: Android 13<br />Camera sau: Ch&iacute;nh 50 MP &amp; Phụ 50 MP, 12 MP<br />Camera trước: 20 MP<br />Chip: MediaTek Dimensity 9200+ 5G 8 nh&acirc;n<br />RAM: 12 GB<br />Dung lượng lưu trữ: 256 GB<br />SIM: 2 Nano SIMHỗ trợ 5G<br />Pin, Sạc: 5000 mAh120 W</p>', 14490000, 15, 0, 'active', 1, 7, '2023-11-11 20:22:13', '2023-11-11 20:22:13'),
+(3, 'Tai nghe Bluetooth AirPods Pro Gen 2 MagSafe Charge (USB-C) Apple MTJV3', '5990000', 'tai-nghe-bluetooth-airpods-pro-gen-2-magsafe-charge-(usb-c)-apple-mtjv3', '<p><strong>Th&ocirc;ng số kỹ thuật Tai nghe Bluetooth AirPods Pro Gen 2 MagSafe Charge (USB-C) Apple MTJV3</strong></p>\r\n<p>Thời gian tai nghe: D&ugrave;ng 6 giờ<br />Thời gian hộp sạc: D&ugrave;ng 30 giờ<br />Cổng sạc: Type-CSạc kh&ocirc;ng d&acirc;y QiSạc MagSafe<br />C&ocirc;ng nghệ &acirc;m thanh: Adaptive EQActive Noise CancellationAmbient SoundChip Apple H2<br />Tương th&iacute;ch: Android, iOS, Windows<br />Tiện &iacute;ch: Sạc kh&ocirc;ng d&acirc;yC&oacute; mic thoạiSạc nhanhChống ồn chủ động ANCChống nước &amp; bụi IP54Trợ l&yacute; ảo Siri<br />Hỗ trợ kết nối: Bluetooth 5.3<br />Điều khiển bằng: Cảm ứng chạm</p>', 5990000, 15, 0, 'active', 1, 10, '2023-11-11 20:24:47', '2023-11-11 20:24:47'),
+(4, 'Máy tính bảng iPad Air 5 M1 WiFi 64GB', '14090000', 'may-tinh-bang-ipad-air-5-m1-wifi-64gb', '<p><strong>Cấu h&igrave;nh M&aacute;y t&iacute;nh bảng iPad Air 5 M1 WiFi 64GB</strong></p>\r\n<p>M&agrave;n h&igrave;nh: 10.9\"Retina IPS LCD<br />Hệ điều h&agrave;nh: iPadOS 15<br />Chip: Apple M1<br />RAM: 8 GB<br />Dung lượng lưu trữ: 64 GB<br />Kết nối: Nghe gọi qua FaceTime<br />Camera sau: 12 MP<br />Camera trước: 12 MP<br />Pin, Sạc: 28.6 Wh (~ 7587 mAh)20 W</p>', 14090000, 15, 0, 'active', 1, 9, '2023-11-11 20:28:37', '2023-11-11 20:28:37');
 
 -- --------------------------------------------------------
 
@@ -213,7 +203,7 @@ CREATE TABLE `product_categories` (
   `slug` varchar(255) NOT NULL,
   `description` varchar(255) NOT NULL,
   `user_id` bigint(20) UNSIGNED NOT NULL,
-  `parent_id` bigint(20) UNSIGNED NOT NULL DEFAULT 0,
+  `parent_id` bigint(20) UNSIGNED DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -223,9 +213,12 @@ CREATE TABLE `product_categories` (
 --
 
 INSERT INTO `product_categories` (`id`, `name`, `slug`, `description`, `user_id`, `parent_id`, `created_at`, `updated_at`) VALUES
-(2, 'Laptop', 'laptop', 'Laptop', 1, 0, '2023-11-05 00:28:31', '2023-11-05 00:28:31'),
-(3, 'Tai nghe', 'earphone', 'Tai nghe', 1, 0, '2023-11-05 00:39:12', '2023-11-05 00:39:12'),
-(5, 'Điện thoại', 'phone', 'Điện thoại di động', 1, 0, '2023-11-08 22:55:53', '2023-11-08 22:55:53');
+(4, 'Điện thoại', 'phone', 'Điện thoại di động', 1, NULL, '2023-11-11 09:32:20', '2023-11-11 09:32:20'),
+(7, 'Xiaomi Redmi', 'xiaomi', 'Xiaomi Redmi', 1, 4, '2023-11-11 20:05:44', '2023-11-11 20:05:44'),
+(8, 'Apple', 'apple', 'Apple', 1, 4, '2023-11-11 20:06:15', '2023-11-11 20:06:15'),
+(9, 'Ipad', 'ipad', 'Ipad', 1, 8, '2023-11-11 20:06:42', '2023-11-11 20:06:42'),
+(10, 'Tai nghe', 'earphone', 'Tai nghe', 1, NULL, '2023-11-11 20:13:11', '2023-11-11 20:13:11'),
+(11, 'Iphone', 'iphone', 'Iphone', 1, 8, '2023-11-11 20:16:55', '2023-11-11 20:16:55');
 
 -- --------------------------------------------------------
 
@@ -247,31 +240,31 @@ CREATE TABLE `product_images` (
 --
 
 INSERT INTO `product_images` (`id`, `product_id`, `image_id`, `pin`, `created_at`, `updated_at`) VALUES
-(7, 2, 7, '1', '2023-11-05 00:43:41', '2023-11-05 00:43:41'),
-(8, 2, 8, '0', '2023-11-05 00:43:41', '2023-11-05 00:43:41'),
-(9, 2, 9, '0', '2023-11-05 00:43:41', '2023-11-05 00:43:41'),
-(10, 2, 10, '0', '2023-11-05 00:43:41', '2023-11-05 00:43:41'),
-(11, 2, 11, '0', '2023-11-05 00:43:41', '2023-11-05 00:43:41'),
-(12, 2, 12, '0', '2023-11-05 00:43:41', '2023-11-05 00:43:41'),
-(13, 3, 13, '1', '2023-11-05 03:25:30', '2023-11-05 03:25:30'),
-(22, 4, 22, '1', '2023-11-05 03:30:25', '2023-11-05 03:30:25'),
-(29, 5, 29, '1', '2023-11-05 03:37:01', '2023-11-05 03:37:01'),
-(30, 5, 30, '0', '2023-11-05 03:37:01', '2023-11-05 03:37:01'),
-(31, 5, 31, '0', '2023-11-05 03:37:01', '2023-11-05 03:37:01'),
-(32, 5, 32, '0', '2023-11-05 03:37:01', '2023-11-05 03:37:01'),
-(33, 5, 33, '0', '2023-11-05 03:37:01', '2023-11-05 03:37:01'),
-(55, 4, 89, '0', '2023-11-11 04:16:16', '2023-11-11 04:16:16'),
-(56, 4, 90, '0', '2023-11-11 04:16:16', '2023-11-11 04:16:16'),
-(57, 4, 91, '0', '2023-11-11 04:16:16', '2023-11-11 04:16:16'),
-(58, 4, 92, '0', '2023-11-11 04:16:16', '2023-11-11 04:16:16'),
-(59, 4, 93, '0', '2023-11-11 04:16:16', '2023-11-11 04:16:16'),
-(60, 3, 94, '0', '2023-11-11 04:16:50', '2023-11-11 04:16:50'),
-(61, 3, 95, '0', '2023-11-11 04:16:50', '2023-11-11 04:16:50'),
-(62, 3, 96, '0', '2023-11-11 04:16:50', '2023-11-11 04:16:50'),
-(63, 3, 97, '0', '2023-11-11 04:16:50', '2023-11-11 04:16:50'),
-(64, 3, 98, '0', '2023-11-11 04:16:50', '2023-11-11 04:16:50'),
-(65, 3, 99, '0', '2023-11-11 04:16:50', '2023-11-11 04:16:50'),
-(66, 3, 100, '0', '2023-11-11 04:16:50', '2023-11-11 04:16:50');
+(1, 1, 1, '1', '2023-11-11 20:18:17', '2023-11-11 20:18:17'),
+(2, 1, 2, '0', '2023-11-11 20:18:17', '2023-11-11 20:18:17'),
+(3, 1, 3, '0', '2023-11-11 20:18:17', '2023-11-11 20:18:17'),
+(4, 1, 4, '0', '2023-11-11 20:18:17', '2023-11-11 20:18:17'),
+(5, 1, 5, '0', '2023-11-11 20:18:17', '2023-11-11 20:18:17'),
+(6, 1, 6, '0', '2023-11-11 20:18:17', '2023-11-11 20:18:17'),
+(7, 2, 7, '1', '2023-11-11 20:22:13', '2023-11-11 20:22:13'),
+(8, 2, 8, '0', '2023-11-11 20:22:13', '2023-11-11 20:22:13'),
+(9, 2, 9, '0', '2023-11-11 20:22:13', '2023-11-11 20:22:13'),
+(10, 2, 10, '0', '2023-11-11 20:22:13', '2023-11-11 20:22:13'),
+(11, 2, 11, '0', '2023-11-11 20:22:13', '2023-11-11 20:22:13'),
+(12, 2, 12, '0', '2023-11-11 20:22:13', '2023-11-11 20:22:13'),
+(13, 2, 13, '0', '2023-11-11 20:22:13', '2023-11-11 20:22:13'),
+(14, 2, 14, '0', '2023-11-11 20:22:13', '2023-11-11 20:22:13'),
+(15, 2, 15, '0', '2023-11-11 20:22:13', '2023-11-11 20:22:13'),
+(16, 3, 16, '1', '2023-11-11 20:24:47', '2023-11-11 20:24:47'),
+(17, 3, 17, '0', '2023-11-11 20:24:47', '2023-11-11 20:24:47'),
+(18, 3, 18, '0', '2023-11-11 20:24:47', '2023-11-11 20:24:47'),
+(19, 3, 19, '0', '2023-11-11 20:24:47', '2023-11-11 20:24:47'),
+(20, 3, 20, '0', '2023-11-11 20:24:47', '2023-11-11 20:24:47'),
+(21, 3, 21, '0', '2023-11-11 20:24:47', '2023-11-11 20:24:47'),
+(22, 4, 22, '1', '2023-11-11 20:28:37', '2023-11-11 20:28:37'),
+(23, 4, 23, '0', '2023-11-11 20:28:37', '2023-11-11 20:28:37'),
+(24, 4, 24, '0', '2023-11-11 20:28:37', '2023-11-11 20:28:37'),
+(25, 4, 25, '0', '2023-11-11 20:28:37', '2023-11-11 20:28:37');
 
 -- --------------------------------------------------------
 
@@ -469,7 +462,8 @@ ALTER TABLE `products`
 --
 ALTER TABLE `product_categories`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `product_categories_user_id_foreign` (`user_id`);
+  ADD KEY `product_categories_user_id_foreign` (`user_id`),
+  ADD KEY `product_categories_parent_id_foreign` (`parent_id`);
 
 --
 -- Indexes for table `product_images`
@@ -522,13 +516,13 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `images`
 --
 ALTER TABLE `images`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT for table `permissions`
@@ -540,19 +534,19 @@ ALTER TABLE `permissions`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `product_categories`
 --
 ALTER TABLE `product_categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `product_images`
 --
 ALTER TABLE `product_images`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `roles`
@@ -599,6 +593,7 @@ ALTER TABLE `products`
 -- Constraints for table `product_categories`
 --
 ALTER TABLE `product_categories`
+  ADD CONSTRAINT `product_categories_parent_id_foreign` FOREIGN KEY (`parent_id`) REFERENCES `product_categories` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `product_categories_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
