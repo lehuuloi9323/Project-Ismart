@@ -26,6 +26,7 @@ Route::get('/admin',function(){
 
 //guest
 Route::get('/',[App\Http\Controllers\GuestController::class, 'index'])->name('index');
+Route::get('product',[App\Http\Controllers\GuestController::class, 'product_main'])->name('product.main');
 
 
 

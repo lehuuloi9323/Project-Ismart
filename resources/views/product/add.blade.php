@@ -24,16 +24,25 @@
                             @enderror
                         </div>
                     </div>
-                    <div class="col-md-5">
+                    <div class="col-md-3">
                         <div class="form-group">
-                            <label for="price">Giá sản phẩm (<i style="color: red">*</i>)</label>
+                            <label for="price">Giá đã giảm (<i style="color: red">*</i>)</label>
                             <input class="form-control" type="number" value="{{ old('price') }}" name="price" id="price">
                             @error('price')
                                 <small class="text-danger d-block">{{ $message }}</small>
                             @enderror
                         </div>
                     </div>
-                    <div class="col-md-5">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="old_price">Giá chưa giảm (<i style="color: red">*</i>)</label>
+                            <input class="form-control" type="number" value="{{ old('old_price') }}" name="old_price" id="old_price">
+                            @error('old_price')
+                                <small class="text-danger d-block">{{ $message }}</small>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="col-md-3">
                         <div class="form-group">
                             <label for="quantity">Số lượng của sản phẩm (<i style="color: red">*</i>)</label>
                             <input class="form-control" type="number" value="{{ old('quantity') }}" name="quantity" id="quantity">
@@ -42,7 +51,7 @@
                             @enderror
                         </div>
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md-3">
                         <div class="form-group" style="margin-top:35px">
                             <input type="checkbox" name="is_featured" id="is_featured" value="1">
                             <label for="is_featured">Sản phẩm nổi bật</label>

@@ -5,6 +5,7 @@
         <meta charset="UTF-8">
         <base href="http://localhost/adminIsmart/">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>@yield('title')</title>
         {{--  <link href="public/css/bootstrap/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>  --}}
         <link href="{{ asset('guest/css/bootstrap/bootstrap-theme.min.css') }}" rel="stylesheet" type="text/css"/>
         {{--  <link href="public/css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css"/>  --}}
@@ -37,7 +38,7 @@
 
     </head>
     <body>
-        {{--  <img src="public/guest/css/import/download.png" alt="">  --}}
+
         <div id="site">
             <div id="container">
                 <div id="header-wp">
@@ -47,10 +48,10 @@
                             <div id="main-menu-wp" class="fl-right">
                                 <ul id="main-menu" class="clearfix">
                                     <li>
-                                        <a href="?page=home" title="">Trang chủ</a>
+                                        <a href="{{ route('index') }}" title="">Trang chủ</a>
                                     </li>
                                     <li>
-                                        <a href="?page=category_product" title="">Sản phẩm</a>
+                                        <a href="{{ route('product.main') }}" title="">Sản phẩm</a>
                                     </li>
                                     <li>
                                         <a href="?page=blog" title="">Blog</a>
@@ -65,6 +66,7 @@
                             </div>
                         </div>
                     </div>
+
                     <div id="head-body" class="clearfix">
                         <div class="wp-inner">
                             <a href="?page=home" title="" id="logo" class="fl-left"><img src="public/guest/images/logo.png"/></a>

@@ -31,6 +31,7 @@ class ProductController extends Controller
         $request->validate([
             'name' => 'required|string|max:255|unique:products,name',
             'price' => 'required|min:5|',
+            'old_price' => 'required|min:5|',
             'product_detail' => 'required|string',
             'product_description' => 'required|string',
             'quantity' => 'required',
@@ -47,13 +48,14 @@ class ProductController extends Controller
         [
             'name' => 'Tên sản phẩm',
             'price' => 'Giá',
+            'old_price' => 'Giá chưa giảm',
             'product_detail' => 'Chi tiết sản phẩm',
             'product_description' => 'Mô tả sản phẩm',
             'category' => 'Danh mục',
             'product_img' => 'Ảnh đại diện sản phẩm',
             'list_product_img' => 'Thư viện ảnh sản phẩm'
         ]);
-        $is_featured = $request->iS_featured == ''? 0 : $request->iS_featured;
+        $is_featured = $request->is_featured == ''? 0 : $request->is_featured;
         $list_img = $request->list_product_img;
         foreach($list_img as $img){
             $file = $img->getClientOriginalName();
@@ -61,10 +63,11 @@ class ProductController extends Controller
         }
         $product = Product::create([
             'name' => $request->name,
-            'description' => $request->price,
+            'description' => $request->product_description,
             'slug' => NameToSlug($request->name),
             'details' => $request->product_detail,
             'price' => $request->price,
+            'old_price' => $request->old_price,
             'stock_quantity' => $request->quantity,
             'is_feature' => $is_featured,
             'product_status' => $request->status,
@@ -143,15 +146,15 @@ class ProductController extends Controller
         if($status == 'active' or $status == ''){
             $products = Product::where('name', 'LIKE', "%{$keyword}%")
             ->where('product_status', 'active')
-            ->paginate(3);
+            ->paginate(7);
         }elseif($status == 'inactive'){
             $products = Product::where('name', 'LIKE', "%{$keyword}%")
             ->where('product_status', 'inactive')
-            ->paginate(3);
+            ->paginate(7);
         }else{
             $products = Product::where('name', 'LIKE', "%{$keyword}%")
             ->where('product_status', 'out_of_stock')->Orwhere('stock_quantity', '0')
-            ->paginate(3);
+            ->paginate(7);
         }
 
 
@@ -202,6 +205,7 @@ class ProductController extends Controller
         $request->validate([
             'name' => 'required|string|max:255|unique:Products,id,'.$id,
             'price' => 'required|min:5|',
+            'old_price' => 'required|min:5|',
             'product_detail' => 'required|string',
             'product_description' => 'required|string',
             'quantity' => 'required',
@@ -217,23 +221,25 @@ class ProductController extends Controller
         [
             'name' => 'Tên sản phẩm',
             'price' => 'Giá',
+            'old_price' => 'Giá chưa giảm',
             'product_detail' => 'Chi tiết sản phẩm',
             'product_description' => 'Mô tả sản phẩm',
             'category' => 'Danh mục',
             'product_img' => 'Ảnh đại diện sản phẩm',
             'list_product_img' => 'Thư viện ảnh sản phẩm'
         ]);
-        $is_featured = $request->iS_featured == ''? 0 : $request->iS_featured;
+        $is_featured = $request->is_featured == ''? 0 : $request->is_featured;
+
         //Nếu người dùng không thay đổi thư viện sản phẩm
         if(empty($request->list_product_img)) {
             //cập nhật bảng Product
             $product->update([
                 'name' => $request->name,
                 'price' => $request->price,
-                'description' => $request->price,
+                'old_price' => $request->old_price,
+                'description' => $request->product_description,
                 'slug' => NameToSlug($request->name),
                 'details' => $request->product_detail,
-                'price' => $request->price,
                 'stock_quantity' => $request->quantity,
                 'is_feature' => $is_featured,
                 'product_status' => $request->status,

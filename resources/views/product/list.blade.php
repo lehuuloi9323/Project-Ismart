@@ -63,7 +63,7 @@
                         </td>
                         <td>{{ $loop->iteration }}</td>
                         <td><img src="{{ asset('storage/photos/1/Product/'. getImageUrlForProduct($product->id)) }}" title="$product->name" style="width: 60px; height: 60px;"></td>
-                        <td><a href="#">{{ $product->name }}</a></td>
+                        <td><a href="{{ route('product.edit', $product->id) }}">{{ $product->name }}</a></td>
                         <td>{{ number_format($product->price, 0, '', '.') }}</td>
                         <td>{{ $product->Product_categories->name }}</td>
                         <td>{{ $product->created_at }}</td>
