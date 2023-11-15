@@ -17,7 +17,7 @@
                     <form method="POST" action="{{ route('product.cat.update', $product_category->id) }}">
                         @csrf
                         <div class="form-group">
-                            <label for="name">Tên danh mục</label>
+                            <label for="name">Tên danh mục (<i style="color: red">*</i>)</label>
                             <input class="form-control" type="text" name="name" id="name" value="{{ $product_category->name }}">
                             @error('name')
                                 <small class="text-danger d-block">{{ $message }}</small>
@@ -25,7 +25,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="slug">Slug</label>
+                            <label for="slug">Slug (<i style="color: red">*</i>)</label>
                             <input class="form-control" type="text" name="slug" id="slug" value="{{ $product_category->slug }}">
                             @error('slug')
                                 <small class="text-danger d-block">{{ $message }}</small>
@@ -33,7 +33,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="name">Mô tả</label>
+                            <label for="name">Mô tả (<i style="color: red">*</i>)</label>
                             <input class="form-control" type="text" name="description" id="description" value="{{ $product_category->description }}">
                             @error('description')
                                 <small class="text-danger d-block">{{ $message }}</small>

@@ -9,23 +9,49 @@
                 <div class="card-header font-weight-bold">
                     Thêm danh mục
                 </div>
+                @if(session('status'))
+                <div class="alert alert-success">{{ Session('status') }}</div>
+                @endif
                 <div class="card-body">
-                    <form>
+                    <form method="POST" action="{{ route('post.cat.add') }}">
+                        @csrf
                         <div class="form-group">
                             <label for="name">Tên danh mục</label>
-                            <input class="form-control" type="text" name="name" id="name">
+                            <input class="form-control" type="text" name="name" id="name" value="{{ old('name') }}">
+                            @error('name')
+                                <small class="text-danger d-block">{{ $message }}</small>
+                            @enderror
+                            @error('slug')
+                                <small class="text-danger d-block">Danh mục này đã tồn tại trên hệ thống</small>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Mô tả</label>
+                            <input class="form-control" type="text" name="description" id="description" value="{{ old('description') }}">
+                            @error('description')
+                                <small class="text-danger d-block">{{ $message }}</small>
+                            @enderror
                         </div>
                         <div class="form-group">
                             <label for="">Danh mục cha</label>
-                            <select class="form-control" id="">
-                                <option>Chọn danh mục</option>
-                                <option>Danh mục 1</option>
-                                <option>Danh mục 2</option>
-                                <option>Danh mục 3</option>
-                                <option>Danh mục 4</option>
+                            <select class="form-control" id="parent_id" name="parent_id">
+                                <option selected></option>
+                                @foreach ($categories as $category)
+                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                    @if (count($category->children) > 0)
+                                        @foreach ($category->children as $child)
+                                            <option value="{{ $child->id }}">{{ $category->name }}->{{ $child->name }}</option>
+                                                @if(count($child->children))
+                                                    @foreach($child->children as $grandchild)
+                                                    <option value="{{ $grandchild->id }}">{{ $category->name }}->{{ $child->name }}->{{ $grandchild->name }}</option>
+                                                    @endforeach
+                                                @endif
+                                        @endforeach
+                                    @endif
+                                @endforeach
                             </select>
                         </div>
-                        <div class="form-group">
+                        {{--  <div class="form-group">
                             <label for="">Trạng thái</label>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
@@ -39,7 +65,7 @@
                                     Công khai
                                 </label>
                             </div>
-                        </div>
+                        </div>  --}}
 
 
 
@@ -58,30 +84,58 @@
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">First</th>
-                                <th scope="col">Last</th>
-                                <th scope="col">Handle</th>
+                                <th scope="col">Tên danh mục</th>
+                                <th scope="col">Slug</th>
+                                <th scope="col">Mô tả</th>
+                                <th scope="col">Người tạo</th>
+                                <th scope="col">Thao tác</th>
                             </tr>
                         </thead>
                         <tbody>
+                            @php
+                                $i = 1;
+                            @endphp
+                            @foreach ($categories as $category)
                             <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
+                                <th scope="row">{{ $i++ }}</th>
+                                <td>{{ $category->name }}</td>
+                                <td>{{ $category->slug }}</td>
+                                <td>{{ $category->description }}</td>
+                                <td>{{ $category->users->name }}</td>
+                                <td><a href="{{ route('post.cat.edit', $category->id) }}" onclick="return confirm('Bạn chắc chắn muốn sửa danh mục này ?')" class="btn btn-success btn-sm rounded-0 text-white" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
+                                    <a href="{{ route('post.cat.delete', $category->id) }}" onclick="return confirm('Bạn chắc chắn muốn xóa danh mục này ?')" class="btn btn-danger btn-sm rounded-0 text-white" onclick="return confirm('Bạn chắc chắn muốn xóa danh mục này ?')" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></a>
+                                </td>
                             </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Larry</td>
-                                <td>the Bird</td>
-                                <td>@twitter</td>
-                            </tr>
+                                @if(count($category->children))
+                                    @foreach ($category->children as $child)
+                                    <tr>
+                                        <th scope="row">{{ $i++ }}</th>
+                                        <td>{{ $category->name }}->{{ $child->name }}</td>
+                                        <td>{{ $child->slug }}</td>
+                                        <td>{{ $child->description }}</td>
+                                        <td>{{ $child->users->name }}</td>
+                                        <td><a href="{{ route('post.cat.edit', $child->id) }}" onclick="return confirm('Bạn chắc chắn muốn sửa danh mục này ?')" class="btn btn-success btn-sm rounded-0 text-white" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
+                                            <a href="{{ route('post.cat.delete', $child->id) }}" onclick="return confirm('Bạn chắc chắn muốn xóa danh mục này ?')" class="btn btn-danger btn-sm rounded-0 text-white" onclick="return confirm('Bạn chắc chắn muốn xóa danh mục này ?')" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></a>
+                                        </td>
+                                    </tr>
+                                        @if(count($child->children))
+                                            @foreach($child->children as $grandchild)
+                                            <tr>
+                                                <th scope="row">{{ $i++ }}</th>
+                                                <td>{{ $category->name }}->{{ $child->name }}->{{ $grandchild->name }}</td>
+                                                <td>{{ $grandchild->slug }}</td>
+                                                <td>{{ $grandchild->description }}</td>
+                                                <td>{{ $grandchild->users->name }}</td>
+                                                <td><a href="{{ route('post.cat.edit', $grandchild->id) }}" onclick="return confirm('Bạn chắc chắn muốn sửa danh mục này ?')" class="btn btn-success btn-sm rounded-0 text-white" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
+                                                    <a href="{{ route('post.cat.delete', $grandchild->id) }}" onclick="return confirm('Bạn chắc chắn muốn xóa danh mục này ?')" class="btn btn-danger btn-sm rounded-0 text-white" onclick="return confirm('Bạn chắc chắn muốn xóa danh mục này ?')" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></a>
+                                                </td>
+                                            </tr>
+                                            @endforeach
+                                        @endif
+                                    @endforeach
+                                @endif
+                            @endforeach
+
                         </tbody>
                     </table>
                 </div>

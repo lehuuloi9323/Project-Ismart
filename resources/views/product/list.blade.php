@@ -28,8 +28,11 @@
                 <form action="{{ route('product.action') }}" method="GET">
                 <select class="form-control mr-1" id="" name="actions">
                     <option value="">Chọn</option>
-                    <option value="active">Bán sản phẩm</option>
+                    @if($status == 'active' or $status == '')
                     <option value="inactive">Tạm ngưng bán</option>
+                    @elseif($status == 'inactive')
+                    <option value="active">Bán sản phẩm</option>
+                    @endif
                 </select>
                 <input type="submit" name="btn-search" value="Áp dụng" class="btn btn-primary">
 

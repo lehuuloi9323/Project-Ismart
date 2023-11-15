@@ -30,7 +30,9 @@
                 @enderror
                         <div class="form-group">
                             <label for="description">Mô tả</label>
-                            <textarea class="form-control" type="text" name="description" id="description">{{ $permission->description }}</textarea>
+                            <input class="form-control" type="text" name="description" id="description" value="{{ $permission->description }}">
+
+                            {{--  <textarea class="form-control" type="text" name="description" id="description">{{ $permission->description }}</textarea>  --}}
                         </div>
                         <input type="submit" class="btn btn-primary" value="Cập nhật">
                     </form>

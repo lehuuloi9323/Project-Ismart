@@ -30,7 +30,9 @@
                 @enderror
                         <div class="form-group">
                             <label for="description">Mô tả</label>
-                            <textarea class="form-control" type="text" name="description" id="description" value="{{ old('description') }}"> </textarea>
+                            <input class="form-control" type="text" name="description" id="description" value="{{ old('description') }}">
+
+                            {{--  <textarea class="form-control" type="text" name="description" id="description" value="{{ old('description') }}"> </textarea>  --}}
                         </div>
                         <input type="submit" class="btn btn-primary" value="Thêm mới">
                     </form>

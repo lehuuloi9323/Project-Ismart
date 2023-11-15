@@ -47,8 +47,17 @@ Route::get('admin/dashboard', [App\Http\Controllers\DashboardController::class, 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 //POST
 Route::get('admin/post/add', [App\Http\Controllers\PostController::class, 'add'])->name('post.add');
+Route::post('admin/post/storeadd', [App\Http\Controllers\PostController::class, 'storeadd'])->name('post.storeadd');
 Route::get('admin/post/list', [App\Http\Controllers\PostController::class, 'list'])->name('post.list');
-Route::get('admin/post/cat', [App\Http\Controllers\PostController::class, 'cat'])->name('post.cat');
+Route::get('admin/post/action', [App\Http\Controllers\PostController::class, 'action'])->name('post.action');
+Route::get('admin/post/delete/{id}', [App\Http\Controllers\PostController::class, 'delete'])->name('post.delete');
+Route::get('admin/post/edit/{id}', [App\Http\Controllers\PostController::class, 'edit'])->name('post.edit');
+Route::post('admin/post/update/{id}', [App\Http\Controllers\PostController::class, 'update'])->name('post.update');
+Route::get('admin/post/cat', [App\Http\Controllers\PostCategoryController::class, 'cat'])->name('post.cat');
+Route::post('admin/post/cat/add', [App\Http\Controllers\PostCategoryController::class, 'add'])->name('post.cat.add');
+Route::get('admin/post/cat/edit/{id}', [App\Http\Controllers\PostCategoryController::class, 'edit'])->name('post.cat.edit');
+Route::post('admin/post/cat/update/{id}', [App\Http\Controllers\PostCategoryController::class, 'update'])->name('post.cat.update');
+Route::get('admin/post/cat/delete/{id}', [App\Http\Controllers\PostCategoryController::class, 'delete'])->name('post.cat.delete');
 //PAGE
 Route::get('admin/page/add', [App\Http\Controllers\PageController::class, 'add'])->name('page.add');
 Route::get('admin/page/list', [App\Http\Controllers\PageController::class, 'list'])->name('page.list');

@@ -17,7 +17,7 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="form-group">
-                            <label for="name">Tên sản phẩm</label>
+                            <label for="name">Tên sản phẩm (<i style="color: red">*</i>)</label>
                             <input class="form-control" value="{{ old('name') }}" type="text" name="name" id="name">
                             @error('name')
                                 <small class="text-danger d-block">{{ $message }}</small>
@@ -26,7 +26,7 @@
                     </div>
                     <div class="col-md-5">
                         <div class="form-group">
-                            <label for="price">Giá sản phẩm</label>
+                            <label for="price">Giá sản phẩm (<i style="color: red">*</i>)</label>
                             <input class="form-control" type="number" value="{{ old('price') }}" name="price" id="price">
                             @error('price')
                                 <small class="text-danger d-block">{{ $message }}</small>
@@ -35,7 +35,7 @@
                     </div>
                     <div class="col-md-5">
                         <div class="form-group">
-                            <label for="quantity">Số lượng của sản phẩm</label>
+                            <label for="quantity">Số lượng của sản phẩm (<i style="color: red">*</i>)</label>
                             <input class="form-control" type="number" value="{{ old('quantity') }}" name="quantity" id="quantity">
                             @error('quantity')
                                 <small class="text-danger d-block">{{ $message }}</small>
@@ -50,7 +50,7 @@
                     </div>
                     <div class="col-12">
                         <div class="form-group">
-                            <label for="product_detail">Chi tiết sản phẩm</label>
+                            <label for="product_detail">Chi tiết sản phẩm (<i style="color: red">*</i>)</label>
                             <textarea name="product_detail" id="product_detail" cols="5" rows="15">{{ old('product_detail') }}</textarea>
                             @error('product_detail')
                                 <small class="text-danger d-block">{{ $message }}</small>
@@ -59,7 +59,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="product_description">Mô tả sản phẩm</label>
+                    <label for="product_description">Mô tả sản phẩm (<i style="color: red">*</i>)</label>
                     <textarea name="product_description" id="product_description" cols="30" rows="15">{{ old('product_description') }}</textarea>
                     @error('product_description')
                                 <small class="text-danger d-block">{{ $message }}</small>
@@ -68,7 +68,7 @@
 
 
                 <div class="form-group">
-                    <label for="category">Danh mục</label>
+                    <label for="category">Danh mục (<i style="color: red">*</i>)</label>
                     <select class="form-control" id="category" name="category">
                         <option value="" selected>---</option>
                     @foreach ($categories as $category)
@@ -97,7 +97,7 @@
                     <div class="input-group">
                         <span class="input-group-btn">
                           <a id="product_img" data-input="thumbnail" data-preview="holder" class="btn btn-primary">
-                            <i class="fa fa-picture-o"></i> Chọn ảnh đại diện sản phẩm
+                            <i class="fa fa-picture-o"></i> Chọn ảnh đại diện sản phẩm (<i style="color: red">*</i>)
                           </a>
                         </span>
                         <input id="thumbnail" name="product_img" class="form-control" type="text" name="filepath" value="{{ old('product_img') }}">
@@ -115,7 +115,7 @@
                 <div class="form-group">
                     <div class="file-input">
                         <label for="list_product_img">
-                            <i class="fas fa-upload"></i>Thư viện ảnh sản phẩm
+                            <i class="fas fa-upload"></i>Thư viện ảnh sản phẩm (<i style="color: red">*</i>)
                         </label>
                         <input type="file" name="list_product_img[]" accept="image/jpeg, image/png, image/svg, image/jpg, image/webp" id="list_product_img" style="background-color: aliceblue;
                         color: cornflowerblue;" multiple>
@@ -128,7 +128,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="">Trạng thái</label>
+                    <label for="">Trạng thái (<i style="color: red">*</i>)</label>
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="status" id="status1" value="inactive" checked>
                         <label class="form-check-label" for="status1">

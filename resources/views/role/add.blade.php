@@ -25,7 +25,7 @@
                 </div>
                 <div class="form-group">
                     <label class="text-strong" for="description">Mô tả</label>
-                    <textarea class="form-control" type="text" name="description" id="description">{{ old('description') }}</textarea>
+                    <input class="form-control" type="text" name="description" id="description" value="{{ old('description') }}">
                     @error('description')
                         <small class="text-danger d-block">{{ $message }}</small>
                     @enderror

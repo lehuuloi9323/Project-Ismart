@@ -181,6 +181,7 @@ class ProductController extends Controller
                 return redirect()->route('product.list')->with('status', 'Sản phẩm đã chuyển sang trạng thái tạm ngưng bán');
             }
         }
+        return redirect()->route('product.list');
     }
     public function delete($id){
 
