@@ -66,10 +66,10 @@
                     <ul class="list-item">
                         @foreach ($product_is_features as $product_is_feature)
                         <li>
-                            <a href="?page=detail_product" title="{{ $product_is_feature->name }}" class="thumb">
+                            <a href="{{ route('product.detail', $product_is_feature->id) }}" title="{{ $product_is_feature->name }}" class="thumb">
                                 <img src="{{ asset('storage/photos/1/Product/'. getImageUrlForProduct($product_is_feature->id)) }}">
                             </a>
-                            <a href="?page=detail_product" title="" class="product-name">Laptop Lenovo IdeaPad 120S</a>
+                            <a href="{{ route('product.detail', $product_is_feature->id) }}" title="" class="product-name">Laptop Lenovo IdeaPad 120S</a>
                             <div class="price">
                                 <span class="new">{{ number_format($product_is_feature->price, 0, '', '.') }}đ</span>
                                 <span class="old">{{ number_format($product_is_feature->old_price, 0, '', '.') }}đ</span>
@@ -91,10 +91,10 @@
                     <ul class="list-item clearfix">
                         @foreach ($phones as $phone)
                         <li>
-                            <a href="?page=detail_product" title="" class="thumb">
+                            <a href="{{ route('product.detail', $phone->id) }}" title="" class="thumb">
                                 <img src="{{ asset('storage/photos/1/Product/'. getImageUrlForProduct($phone->id)) }}">
                             </a>
-                            <a href="?page=detail_product" title="" class="product-name">{{ $phone->name }}</a>
+                            <a href="{{ route('product.detail', $phone->id) }}" title="" class="product-name">{{ $phone->name }}</a>
                             <div class="price">
                                 <span class="new">{{ number_format($phone->price, 0, '', '.') }}đ</span>
                                 <span class="old">{{ number_format($phone->old_price, 0, '', '.') }}đ</span>
@@ -116,10 +116,10 @@
                     <ul class="list-item clearfix">
                         @foreach ($laptops as $laptop)
                         <li>
-                            <a href="" title="" class="thumb">
+                            <a href="{{ route('product.detail', $laptop->id) }}" title="" class="thumb">
                                 <img src="{{ asset('storage/photos/1/Product/'. getImageUrlForProduct($laptop->id)) }}">
                             </a>
-                            <a href="" title="" class="product-name">Laptop Asus X441NA</a>
+                            <a href="{{ route('product.detail', $laptop->id) }}" title="{{ $laptop->name }}" class="product-name">{{ $laptop->name }}</a>
                             <div class="price">
                                 <span class="new">{{ number_format($laptop->price, 0, '', '.') }}đ</span>
                                 <span class="old">{{ number_format($laptop->old_price, 0, '', '.') }}đ</span>
@@ -143,17 +143,17 @@
                     <ul class="list-item">
                         @foreach ($categories as $category)
                         <li>
-                            <a href="?page=category_product" title="{{ $category->name }}">{{ $category->name }}</a>
+                            <a href="{{ route('product.main', $category->id) }}" title="{{ $category->name }}">{{ $category->name }}</a>
                             @if(count($category->children))
                             <ul class="sub-menu">
                                 @foreach ($category->children as $child)
                                 <li>
-                                    <a href="?page=category_product" title="{{ $child->name }}">{{ $child->name }}</a>
+                                    <a href="{{ route('product.main', $child->id) }}" title="{{ $child->name }}">{{ $child->name }}</a>
                                     @if(count($child->children))
                                     <ul class="sub-menu">
                                         @foreach ($child->children as $children)
                                         <li>
-                                            <a href="?page=category_product" title="{{ $children->name }}">{{ $children->name }}</a>
+                                            <a href="{{ route('product.main', $children->id) }}" title="{{ $children->name }}">{{ $children->name }}</a>
                                         </li>
                                         @endforeach
                                     </ul>

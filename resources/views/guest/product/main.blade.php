@@ -7,10 +7,10 @@
             <div class="secion-detail">
                 <ul class="list-item clearfix">
                     <li>
-                        <a href="" title="">Trang chủ</a>
+                        <a href="{{ route('index') }}" title="">Trang chủ</a>
                     </li>
                     <li>
-                        <a href="" title="">Điện thoại</a>
+                        <a href="{{ route('product.main', $ctg->id) }}" title="">{{ $ctg->name }}</a>
                     </li>
                 </ul>
             </div>
@@ -37,293 +37,29 @@
                 </div>
                 <div class="section-detail">
                     <ul class="list-item clearfix">
+                        @foreach ($products as $product)
                         <li>
                             <a href="?page=detail_product" title="" class="thumb">
-                                <img src="public/images/img-pro-17.png">
+                                <img src="{{ asset('storage/photos/1/Product/'. getImageUrlForProduct($product->id)) }}">
                             </a>
-                            <a href="?page=detail_product" title="" class="product-name">Laptop HP Probook 4430s</a>
+                            <a href="?page=detail_product" title="" class="product-name">{{ $product->name }}</a>
                             <div class="price">
-                                <span class="new">17.900.000đ</span>
-                                <span class="old">20.900.000đ</span>
+                                <span class="new">{{ number_format($product->price, 0, '', '.') }}đ</span>
+                                <span class="old">{{ number_format($product->old_price, 0, '', '.') }}đ</span>
                             </div>
                             <div class="action clearfix">
                                 <a href="?page=cart" title="Thêm giỏ hàng" class="add-cart fl-left">Thêm giỏ hàng</a>
                                 <a href="?page=checkout" title="Mua ngay" class="buy-now fl-right">Mua ngay</a>
                             </div>
                         </li>
-                        <li>
-                            <a href="?page=detail_product" title="" class="thumb">
-                                <img src="public/images/img-pro-18.png">
-                            </a>
-                            <a href="?page=detail_product" title="" class="product-name">Laptop HP Probook 4430s</a>
-                            <div class="price">
-                                <span class="new">17.900.000đ</span>
-                                <span class="old">20.900.000đ</span>
-                            </div>
-                            <div class="action clearfix">
-                                <a href="?page=cart" title="Thêm giỏ hàng" class="add-cart fl-left">Thêm giỏ hàng</a>
-                                <a href="?page=checkout" title="Mua ngay" class="buy-now fl-right">Mua ngay</a>
-                            </div>
-                        </li>
-                        <li>
-                            <a href="?page=detail_product" title="" class="thumb">
-                                <img src="public/images/img-pro-19.png">
-                            </a>
-                            <a href="?page=detail_product" title="" class="product-name">Laptop HP Probook 4430s</a>
-                            <div class="price">
-                                <span class="new">17.900.000đ</span>
-                                <span class="old">20.900.000đ</span>
-                            </div>
-                            <div class="action clearfix">
-                                <a href="?page=cart" title="Thêm giỏ hàng" class="add-cart fl-left">Thêm giỏ hàng</a>
-                                <a href="?page=checkout" title="Mua ngay" class="buy-now fl-right">Mua ngay</a>
-                            </div>
-                        </li>
-                        <li>
-                            <a href="?page=detail_product" title="" class="thumb">
-                                <img src="public/images/img-pro-20.png">
-                            </a>
-                            <a href="?page=detail_product" title="" class="product-name">Laptop HP Probook 4430s</a>
-                            <div class="price">
-                                <span class="new">17.900.000đ</span>
-                                <span class="old">20.900.000đ</span>
-                            </div>
-                            <div class="action clearfix">
-                                <a href="?page=cart" title="Thêm giỏ hàng" class="add-cart fl-left">Thêm giỏ hàng</a>
-                                <a href="?page=checkout" title="Mua ngay" class="buy-now fl-right">Mua ngay</a>
-                            </div>
-                        </li>
-                        <li>
-                            <a href="?page=detail_product" title="" class="thumb">
-                                <img src="public/images/img-pro-21.png">
-                            </a>
-                            <a href="?page=detail_product" title="" class="product-name">Laptop HP Probook 4430s</a>
-                            <div class="price">
-                                <span class="new">17.900.000đ</span>
-                                <span class="old">20.900.000đ</span>
-                            </div>
-                            <div class="action clearfix">
-                                <a href="?page=cart" title="Thêm giỏ hàng" class="add-cart fl-left">Thêm giỏ hàng</a>
-                                <a href="?page=checkout" title="Mua ngay" class="buy-now fl-right">Mua ngay</a>
-                            </div>
-                        </li>
-                        <li>
-                            <a href="?page=detail_product" title="" class="thumb">
-                                <img src="public/images/img-pro-22.png">
-                            </a>
-                            <a href="?page=detail_product" title="" class="product-name">Laptop HP Probook 4430s</a>
-                            <div class="price">
-                                <span class="new">17.900.000đ</span>
-                                <span class="old">20.900.000đ</span>
-                            </div>
-                            <div class="action clearfix">
-                                <a href="?page=cart" title="Thêm giỏ hàng" class="add-cart fl-left">Thêm giỏ hàng</a>
-                                <a href="?page=checkout" title="Mua ngay" class="buy-now fl-right">Mua ngay</a>
-                            </div>
-                        </li>
-                        <li>
-                            <a href="?page=detail_product" title="" class="thumb">
-                                <img src="public/images/img-pro-23.png">
-                            </a>
-                            <a href="?page=detail_product" title="" class="product-name">Laptop HP Probook 4430s</a>
-                            <div class="price">
-                                <span class="new">17.900.000đ</span>
-                                <span class="old">20.900.000đ</span>
-                            </div>
-                            <div class="action clearfix">
-                                <a href="?page=cart" title="Thêm giỏ hàng" class="add-cart fl-left">Thêm giỏ hàng</a>
-                                <a href="?page=checkout" title="Mua ngay" class="buy-now fl-right">Mua ngay</a>
-                            </div>
-                        </li>
-                        <li>
-                            <a href="?page=detail_product" title="" class="thumb">
-                                <img src="public/images/img-pro-17.png">
-                            </a>
-                            <a href="?page=detail_product" title="" class="product-name">Laptop HP Probook 4430s</a>
-                            <div class="price">
-                                <span class="new">17.900.000đ</span>
-                                <span class="old">20.900.000đ</span>
-                            </div>
-                            <div class="action clearfix">
-                                <a href="?page=cart" title="Thêm giỏ hàng" class="add-cart fl-left">Thêm giỏ hàng</a>
-                                <a href="?page=checkout" title="Mua ngay" class="buy-now fl-right">Mua ngay</a>
-                            </div>
-                        </li>
-                        <li>
-                            <a href="?page=detail_product" title="" class="thumb">
-                                <img src="public/images/img-pro-18.png">
-                            </a>
-                            <a href="?page=detail_product" title="" class="product-name">Laptop HP Probook 4430s</a>
-                            <div class="price">
-                                <span class="new">17.900.000đ</span>
-                                <span class="old">20.900.000đ</span>
-                            </div>
-                            <div class="action clearfix">
-                                <a href="?page=cart" title="Thêm giỏ hàng" class="add-cart fl-left">Thêm giỏ hàng</a>
-                                <a href="?page=checkout" title="Mua ngay" class="buy-now fl-right">Mua ngay</a>
-                            </div>
-                        </li>
-                        <li>
-                            <a href="?page=detail_product" title="" class="thumb">
-                                <img src="public/images/img-pro-19.png">
-                            </a>
-                            <a href="?page=detail_product" title="" class="product-name">Laptop HP Probook 4430s</a>
-                            <div class="price">
-                                <span class="new">17.900.000đ</span>
-                                <span class="old">20.900.000đ</span>
-                            </div>
-                            <div class="action clearfix">
-                                <a href="?page=cart" title="Thêm giỏ hàng" class="add-cart fl-left">Thêm giỏ hàng</a>
-                                <a href="?page=checkout" title="Mua ngay" class="buy-now fl-right">Mua ngay</a>
-                            </div>
-                        </li>
-                        <li>
-                            <a href="?page=detail_product" title="" class="thumb">
-                                <img src="public/images/img-pro-20.png">
-                            </a>
-                            <a href="?page=detail_product" title="" class="product-name">Laptop HP Probook 4430s</a>
-                            <div class="price">
-                                <span class="new">17.900.000đ</span>
-                                <span class="old">20.900.000đ</span>
-                            </div>
-                            <div class="action clearfix">
-                                <a href="?page=cart" title="Thêm giỏ hàng" class="add-cart fl-left">Thêm giỏ hàng</a>
-                                <a href="?page=checkout" title="Mua ngay" class="buy-now fl-right">Mua ngay</a>
-                            </div>
-                        </li>
-                        <li>
-                            <a href="?page=detail_product" title="" class="thumb">
-                                <img src="public/images/img-pro-21.png">
-                            </a>
-                            <a href="?page=detail_product" title="" class="product-name">Laptop HP Probook 4430s</a>
-                            <div class="price">
-                                <span class="new">17.900.000đ</span>
-                                <span class="old">20.900.000đ</span>
-                            </div>
-                            <div class="action clearfix">
-                                <a href="?page=cart" title="Thêm giỏ hàng" class="add-cart fl-left">Thêm giỏ hàng</a>
-                                <a href="?page=checkout" title="Mua ngay" class="buy-now fl-right">Mua ngay</a>
-                            </div>
-                        </li>
-                        <li>
-                            <a href="?page=detail_product" title="" class="thumb">
-                                <img src="public/images/img-pro-22.png">
-                            </a>
-                            <a href="?page=detail_product" title="" class="product-name">Laptop HP Probook 4430s</a>
-                            <div class="price">
-                                <span class="new">17.900.000đ</span>
-                                <span class="old">20.900.000đ</span>
-                            </div>
-                            <div class="action clearfix">
-                                <a href="?page=cart" title="Thêm giỏ hàng" class="add-cart fl-left">Thêm giỏ hàng</a>
-                                <a href="?page=checkout" title="Mua ngay" class="buy-now fl-right">Mua ngay</a>
-                            </div>
-                        </li>
-                        <li>
-                            <a href="?page=detail_product" title="" class="thumb">
-                                <img src="public/images/img-pro-23.png">
-                            </a>
-                            <a href="?page=detail_product" title="" class="product-name">Laptop HP Probook 4430s</a>
-                            <div class="price">
-                                <span class="new">17.900.000đ</span>
-                                <span class="old">20.900.000đ</span>
-                            </div>
-                            <div class="action clearfix">
-                                <a href="?page=cart" title="Thêm giỏ hàng" class="add-cart fl-left">Thêm giỏ hàng</a>
-                                <a href="?page=checkout" title="Mua ngay" class="buy-now fl-right">Mua ngay</a>
-                            </div>
-                        </li>
-                        <li>
-                            <a href="?page=detail_product" title="" class="thumb">
-                                <img src="public/images/img-pro-17.png">
-                            </a>
-                            <a href="?page=detail_product" title="" class="product-name">Laptop HP Probook 4430s</a>
-                            <div class="price">
-                                <span class="new">17.900.000đ</span>
-                                <span class="old">20.900.000đ</span>
-                            </div>
-                            <div class="action clearfix">
-                                <a href="?page=cart" title="Thêm giỏ hàng" class="add-cart fl-left">Thêm giỏ hàng</a>
-                                <a href="?page=checkout" title="Mua ngay" class="buy-now fl-right">Mua ngay</a>
-                            </div>
-                        </li>
-                        <li>
-                            <a href="?page=detail_product" title="" class="thumb">
-                                <img src="public/images/img-pro-18.png">
-                            </a>
-                            <a href="?page=detail_product" title="" class="product-name">Laptop HP Probook 4430s</a>
-                            <div class="price">
-                                <span class="new">17.900.000đ</span>
-                                <span class="old">20.900.000đ</span>
-                            </div>
-                            <div class="action clearfix">
-                                <a href="?page=cart" title="Thêm giỏ hàng" class="add-cart fl-left">Thêm giỏ hàng</a>
-                                <a href="?page=checkout" title="Mua ngay" class="buy-now fl-right">Mua ngay</a>
-                            </div>
-                        </li>
-                        <li>
-                            <a href="?page=detail_product" title="" class="thumb">
-                                <img src="public/images/img-pro-19.png">
-                            </a>
-                            <a href="?page=detail_product" title="" class="product-name">Laptop HP Probook 4430s</a>
-                            <div class="price">
-                                <span class="new">17.900.000đ</span>
-                                <span class="old">20.900.000đ</span>
-                            </div>
-                            <div class="action clearfix">
-                                <a href="?page=cart" title="Thêm giỏ hàng" class="add-cart fl-left">Thêm giỏ hàng</a>
-                                <a href="?page=checkout" title="Mua ngay" class="buy-now fl-right">Mua ngay</a>
-                            </div>
-                        </li>
-                        <li>
-                            <a href="?page=detail_product" title="" class="thumb">
-                                <img src="public/images/img-pro-20.png">
-                            </a>
-                            <a href="?page=detail_product" title="" class="product-name">Laptop HP Probook 4430s</a>
-                            <div class="price">
-                                <span class="new">17.900.000đ</span>
-                                <span class="old">20.900.000đ</span>
-                            </div>
-                            <div class="action clearfix">
-                                <a href="?page=cart" title="Thêm giỏ hàng" class="add-cart fl-left">Thêm giỏ hàng</a>
-                                <a href="?page=checkout" title="Mua ngay" class="buy-now fl-right">Mua ngay</a>
-                            </div>
-                        </li>
-                        <li>
-                            <a href="?page=detail_product" title="" class="thumb">
-                                <img src="public/images/img-pro-21.png">
-                            </a>
-                            <a href="?page=detail_product" title="" class="product-name">Laptop HP Probook 4430s</a>
-                            <div class="price">
-                                <span class="new">17.900.000đ</span>
-                                <span class="old">20.900.000đ</span>
-                            </div>
-                            <div class="action clearfix">
-                                <a href="?page=cart" title="Thêm giỏ hàng" class="add-cart fl-left">Thêm giỏ hàng</a>
-                                <a href="?page=checkout" title="Mua ngay" class="buy-now fl-right">Mua ngay</a>
-                            </div>
-                        </li>
-                        <li>
-                            <a href="?page=detail_product" title="" class="thumb">
-                                <img src="public/images/img-pro-22.png">
-                            </a>
-                            <a href="?page=detail_product" title="" class="product-name">Laptop HP Probook 4430s</a>
-                            <div class="price">
-                                <span class="new">17.900.000đ</span>
-                                <span class="old">20.900.000đ</span>
-                            </div>
-                            <div class="action clearfix">
-                                <a href="?page=cart" title="Thêm giỏ hàng" class="add-cart fl-left">Thêm giỏ hàng</a>
-                                <a href="?page=checkout" title="Mua ngay" class="buy-now fl-right">Mua ngay</a>
-                            </div>
-                        </li>
+                        @endforeach
                     </ul>
                 </div>
             </div>
             <div class="section" id="paging-wp">
                 <div class="section-detail">
                     <ul class="list-item clearfix">
-                        <li>
+                        {{--  <li>
                             <a href="" title="">1</a>
                         </li>
                         <li>
@@ -331,7 +67,8 @@
                         </li>
                         <li>
                             <a href="" title="">3</a>
-                        </li>
+                        </li>  --}}
+                        {{ $products->links() }}
                     </ul>
                 </div>
             </div>
@@ -343,52 +80,29 @@
                 </div>
                 <div class="secion-detail">
                     <ul class="list-item">
+                        @foreach ($categories as $category)
                         <li>
-                            <a href="?page=category_product" title="">Điện thoại</a>
+                            <a href="{{ route('product.main', $category->id) }}" title="{{ $category->name }}">{{ $category->name }}</a>
+                            @if(count($category->children))
                             <ul class="sub-menu">
+                                @foreach ($category->children as $child)
                                 <li>
-                                    <a href="?page=category_product" title="">Iphone</a>
-                                </li>
-                                <li>
-                                    <a href="?page=category_product" title="">Samsung</a>
+                                    <a href="{{ route('product.main', $child->id) }}" title="{{ $child->name }}">{{ $child->name }}</a>
+                                    @if(count($child->children))
                                     <ul class="sub-menu">
+                                        @foreach ($child->children as $children)
                                         <li>
-                                            <a href="?page=category_product" title="">Iphone X</a>
+                                            <a href="{{ route('product.main', $children->id) }}" title="{{ $children->name }}">{{ $children->name }}</a>
                                         </li>
-                                        <li>
-                                            <a href="?page=category_product" title="">Iphone 8</a>
-                                        </li>
-                                        <li>
-                                            <a href="?page=category_product" title="">Iphone 8 Plus</a>
-                                        </li>
+                                        @endforeach
                                     </ul>
+                                    @endif
                                 </li>
-                                <li>
-                                    <a href="?page=category_product" title="">Oppo</a>
-                                </li>
-                                <li>
-                                    <a href="?page=category_product" title="">Bphone</a>
-                                </li>
+                                @endforeach
                             </ul>
+                            @endif
                         </li>
-                        <li>
-                            <a href="?page=category_product" title="">Máy tính bảng</a>
-                        </li>
-                        <li>
-                            <a href="?page=category_product" title="">laptop</a>
-                        </li>
-                        <li>
-                            <a href="?page=category_product" title="">Tai nghe</a>
-                        </li>
-                        <li>
-                            <a href="?page=category_product" title="">Thời trang</a>
-                        </li>
-                        <li>
-                            <a href="?page=category_product" title="">Đồ gia dụng</a>
-                        </li>
-                        <li>
-                            <a href="?page=category_product" title="">Thiết bị văn phòng</a>
-                        </li>
+                        @endforeach
                     </ul>
                 </div>
             </div>

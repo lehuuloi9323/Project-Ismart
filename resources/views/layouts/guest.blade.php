@@ -53,15 +53,13 @@
                                     <li>
                                         <a href="{{ route('product.main') }}" title="">Sản phẩm</a>
                                     </li>
+                                    @foreach ($categories_post as $category_post)
                                     <li>
-                                        <a href="?page=blog" title="">Blog</a>
+                                        <a href="?page=blog" title="">{{ $category_post->name }}</a>
                                     </li>
-                                    <li>
-                                        <a href="?page=detail_blog" title="">Giới thiệu</a>
-                                    </li>
-                                    <li>
-                                        <a href="?page=detail_blog" title="">Liên hệ</a>
-                                    </li>
+                                    @endforeach
+
+
                                 </ul>
                             </div>
                         </div>
