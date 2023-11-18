@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>ISMART STORE</title>
+        {{--  <title>ISMART STORE</title>  --}}
+        <title>@yield('title')</title>
         <meta charset="UTF-8">
         <base href="http://localhost/adminIsmart/">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>@yield('title')</title>
+
         {{--  <link href="public/css/bootstrap/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>  --}}
         <link href="{{ asset('guest/css/bootstrap/bootstrap-theme.min.css') }}" rel="stylesheet" type="text/css"/>
         {{--  <link href="public/css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css"/>  --}}
@@ -80,7 +81,7 @@
                                     <span class="phone">0987.654.321</span>
                                 </div>
                                 <div id="btn-respon" class="fl-right"><i class="fa fa-bars" aria-hidden="true"></i></div>
-                                <a href="?page=cart" title="giỏ hàng" id="cart-respon-wp" class="fl-right">
+                                <a href="{{ route('cart') }}" title="giỏ hàng" id="cart-respon-wp" class="fl-right">
                                     <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                                     <span id="num">2</span>
                                 </a>
@@ -118,7 +119,7 @@
                                             <p class="price fl-right">18.500.000đ</p>
                                         </div>
                                         <dic class="action-cart clearfix">
-                                            <a href="?page=cart" title="Giỏ hàng" class="view-cart fl-left">Giỏ hàng</a>
+                                            <a href="{{ route('cart') }}" title="Giỏ hàng" class="view-cart fl-left">Giỏ hàng</a>
                                             <a href="?page=checkout" title="Thanh toán" class="checkout fl-right">Thanh toán</a>
                                         </dic>
                                     </div>

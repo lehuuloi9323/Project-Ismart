@@ -113,4 +113,9 @@ class GuestController extends Controller
         $images = Product_image::where('product_id', $id)->join('images', 'product_images.image_id', '=', 'images.id')->select('images.url')->get();
         return view('guest.product.detail', compact('id', 'product', 'categories_post', 'categories', 'images','product_same_category'));
     }
+
+    public function cart(Request $request){
+        $categories_post = Post_categories::all();
+        return view('guest.order.cart', compact('categories_post'));
+    }
 }
