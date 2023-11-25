@@ -19,13 +19,13 @@
             <div class="section" id="detail-product-wp">
                 <div class="section-detail clearfix">
                     <div class="thumb-wp fl-left">
-                        <a href="" title="" id="main-thumb">
+                        <a title="" id="main-thumb">
                             <img id="zoom" src="{{ asset('storage/photos/1/Product/'.getImageUrlForProduct($product->id)) }}" style="width: 350px; height: 350px;"
                              data-zoom-image="{{ asset('storage/photos/1/Product/'.getImageUrlForProduct($product->id)) }}"/>
                         </a>
                         <div id="list-thumb">
                             @foreach ($images as $image)
-                            <a href="" data-image="{{ asset('storage/photos/1/Product/'.$image->url) }}" data-zoom-image="{{ asset('storage/photos/1/Product/'.$image->url) }}">
+                            <a data-image="{{ asset('storage/photos/1/Product/'.$image->url) }}" data-zoom-image="{{ asset('storage/photos/1/Product/'.$image->url) }}">
                                 <img id="zoom" src="{{ asset('storage/photos/1/Product/'.$image->url) }}" />
                             </a>
                             @endforeach
@@ -58,13 +58,17 @@
                             <span class="title">Sản phẩm: </span>
                             <span class="status">Còn hàng</span>
                         </div>
-                        <p class="price">14.700.000đ</p>
+                        <p class="price">{{ number_format($product->price, 0, '', '.') }}đ</p>
+                    <form action="{{ route('cart.add', $product->id) }}" method="GET">
                         <div id="num-order-wp">
-                            <a title="" id="minus"><i class="fa fa-minus"></i></a>
-                            <input type="text" name="num-order" value="1" min="1" max="{{ $product->stock_quantity }}" id="num-order">
-                            <a title="" id="plus"><i class="fa fa-plus"></i></a>
+                            {{--  <a title="" id="minus"><i class="fa fa-minus"></i></a>  --}}
+                            <label for="num-order">Số lượng: </label>
+                            <input type="number" name="num_order" value="1" min="1" max="{{ $product->stock_quantity }}" id="num-order" style="width: 50px;">
+                            {{--  <a title="" id="plus"><i class="fa fa-plus"></i></a>  --}}
                         </div>
-                        <a href="?page=cart" title="Thêm giỏ hàng" class="add-cart">Thêm giỏ hàng</a>
+                        {{--  <a href="" title="Thêm giỏ hàng" class="add-cart">Thêm giỏ hàng</a>  --}}
+                        <input type="submit" class="add-cart" value="Thêm giỏ hàng" title="Thêm giỏ hàng">
+                    </form>
                     </div>
                 </div>
             </div>
@@ -93,8 +97,8 @@
                                 <span class="old">{{ number_format($same_category->old_price, 0, '', '.') }}đ</span>
                             </div>
                             <div class="action clearfix">
-                                <a href="" title="" class="add-cart fl-left">Thêm giỏ hàng</a>
-                                <a href="" title="" class="buy-now fl-right">Mua ngay</a>
+                                <a href="{{ route('cart.add', $same_category->id) }}" title="" class="add-cart fl-left">Thêm giỏ hàng</a>
+                                <a href="{{ route('cart.checkout', $same_category->id) }}" title="" class="buy-now fl-right">Mua ngay</a>
                             </div>
                         </li>
                         @endforeach

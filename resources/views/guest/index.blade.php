@@ -69,14 +69,14 @@
                             <a href="{{ route('product.detail', $product_is_feature->id) }}" title="{{ $product_is_feature->name }}" class="thumb">
                                 <img src="{{ asset('storage/photos/1/Product/'. getImageUrlForProduct($product_is_feature->id)) }}">
                             </a>
-                            <a href="{{ route('product.detail', $product_is_feature->id) }}" title="" class="product-name">Laptop Lenovo IdeaPad 120S</a>
+                            <a href="{{ route('product.detail', $product_is_feature->id) }}" title="" class="product-name">{{ $product_is_feature->name }}</a>
                             <div class="price">
                                 <span class="new">{{ number_format($product_is_feature->price, 0, '', '.') }}đ</span>
                                 <span class="old">{{ number_format($product_is_feature->old_price, 0, '', '.') }}đ</span>
                             </div>
                             <div class="action clearfix">
-                                <a href="?page=cart" title="" class="add-cart fl-left">Thêm giỏ hàng</a>
-                                <a href="?page=checkout" title="" class="buy-now fl-right">Mua ngay</a>
+                                <a href="{{ route('cart.add', $product_is_feature->id) }}" title="" class="add-cart fl-left">Thêm giỏ hàng</a>
+                                <a href="{{ route('cart.checkout', $product_is_feature->id) }}" title="" class="buy-now fl-right">Mua ngay</a>
                             </div>
                         </li>
                         @endforeach
@@ -100,8 +100,8 @@
                                 <span class="old">{{ number_format($phone->old_price, 0, '', '.') }}đ</span>
                             </div>
                             <div class="action clearfix">
-                                <a href="?page=cart" title="Thêm giỏ hàng" class="add-cart fl-left">Thêm giỏ hàng</a>
-                                <a href="?page=checkout" title="Mua ngay" class="buy-now fl-right">Mua ngay</a>
+                                <a href="{{ route('cart.add', $phone->id) }}" title="Thêm giỏ hàng" class="add-cart fl-left">Thêm giỏ hàng</a>
+                                <a href="{{ route('cart.checkout', $phone->id) }}" title="Mua ngay" class="buy-now fl-right">Mua ngay</a>
                             </div>
                         </li>
                         @endforeach
@@ -125,8 +125,8 @@
                                 <span class="old">{{ number_format($laptop->old_price, 0, '', '.') }}đ</span>
                             </div>
                             <div class="action clearfix">
-                                <a href="?page=cart" title="Thêm giỏ hàng" class="add-cart fl-left">Thêm giỏ hàng</a>
-                                <a href="?page=checkout" title="Mua ngay" class="buy-now fl-right">Mua ngay</a>
+                                <a href="{{ route('cart.add', $laptop->id) }}" title="Thêm giỏ hàng" class="add-cart fl-left">Thêm giỏ hàng</a>
+                                <a href="{{ route('cart.checkout', $laptop->id) }}" title="Mua ngay" class="buy-now fl-right">Mua ngay</a>
                             </div>
                         </li>
                         @endforeach

@@ -299,7 +299,11 @@ class ProductController extends Controller
             foreach($request->list_product_img as $list_img){
                 // $urls = $list_img->getClientOriginalName();
                 // return $urls;
-                // $file_sizes =
+
+
+                $file = $list_img->getClientOriginalName();
+                $list_img->move(public_path('storage/photos/1/Product'), $file);
+
                 $func_img = Image::create([
                     'url' => $list_img->getClientOriginalName(),
                     'name' => $request->name,

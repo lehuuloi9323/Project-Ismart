@@ -31,50 +31,40 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @if(Cart::count() > 0)
+                        @foreach (Cart::content() as $row)
                         <tr>
-                            <td>HCA00031</td>
+                            <td>#{{ $row->id }}</td>
                             <td>
-                                <a href="" title="" class="thumb">
-                                    <img src="public/images/img-pro-11.png" alt="">
+                                <a href="{{ route('product.detail', $row->id) }}" title="" class="thumb">
+                                    <img src="{{ asset('storage/photos/1/Product/'.$row->options->thumbnail) }}" alt="">
                                 </a>
                             </td>
+                            {{--  {{ asset('storage/photos/1/Product/'.$row->options->thumbnail }}  --}}
                             <td>
-                                <a href="" title="" class="name-product">Sony Express X6</a>
+                                <a href="{{ route('product.detail', $row->id) }}" title="" class="name-product">{{ $row->name }}</a>
                             </td>
-                            <td>500.000đ</td>
+                            <td>{{ number_format($row->price, 0, '', '.') }}đ</td>
                             <td>
-                                <input type="text" name="num-order" value="1" class="num-order">
+                                <input type="number" name="num-order" value="{{ $row->qty }}" class="num-order" max="{{ $row->options->max_order }}" style="width: 50px;">
                             </td>
-                            <td>500.000đ</td>
+                            <td>{{ number_format($row->total, 0, '', '.') }}đ</td>
                             <td>
-                                <a href="" title="" class="del-product"><i class="fa fa-trash-o"></i></a>
+                                <a href="{{ route('cart.remove', $row->rowId) }}" title="" class="del-product"><i class="fa fa-trash-o"></i></a>
                             </td>
                         </tr>
+                        @endforeach
+                        @else
                         <tr>
-                            <td>HCA00032</td>
-                            <td>
-                                <a href="" title="" class="thumb">
-                                    <img src="public/images/img-pro-23.png" alt="">
-                                </a>
-                            </td>
-                            <td>
-                                <a href="" title="" class="name-product">Laptop Probook HP 4430s</a>
-                            </td>
-                            <td>350.000đ</td>
-                            <td>
-                                <input type="text" name="num-order" value="1" class="num-order">
-                            </td>
-                            <td>350.000đ</td>
-                            <td>
-                                <a href="" title="" class="del-product"><i class="fa fa-trash-o"></i></a>
-                            </td>
+                            <td colspan="6">Không có sản phẩm nào trong giỏ hàng</td>
                         </tr>
+                        @endif
                     </tbody>
                     <tfoot>
                         <tr>
                             <td colspan="7">
                                 <div class="clearfix">
-                                    <p id="total-price" class="fl-right">Tổng giá: <span>850.000đ</span></p>
+                                    <p id="total-price" class="fl-right">Tổng giá: <span>{{ Cart::total() }}đ</span></p>
                                 </div>
                             </td>
                         </tr>
@@ -83,7 +73,7 @@
                                 <div class="clearfix">
                                     <div class="fl-right">
                                         <a href="" title="" id="update-cart">Cập nhật giỏ hàng</a>
-                                        <a href="?page=checkout" title="" id="checkout-cart">Thanh toán</a>
+                                        <a href="{{ route('cart.checkout') }}" title="" id="checkout-cart">Thanh toán</a>
                                     </div>
                                 </div>
                             </td>
@@ -96,7 +86,7 @@
             <div class="section-detail">
                 <p class="title">Click vào <span>“Cập nhật giỏ hàng”</span> để cập nhật số lượng. Nhập vào số lượng <span>0</span> để xóa sản phẩm khỏi giỏ hàng. Nhấn vào thanh toán để hoàn tất mua hàng.</p>
                 <a href="?page=home" title="" id="buy-more">Mua tiếp</a><br/>
-                <a href="" title="" id="delete-cart">Xóa giỏ hàng</a>
+                <a href="{{ route('cart.destroy') }}" title="" id="delete-cart">Xóa giỏ hàng</a>
             </div>
         </div>
     </div>

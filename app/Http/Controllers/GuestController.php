@@ -12,6 +12,11 @@ use App\Models\Image;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use Gloudemans\Shoppingcart\Facades\Cart;
+use App\Models\Order;
+use App\Models\Customer;
+use App\Models\Order_item;
+
 class GuestController extends Controller
 {
     //
@@ -114,8 +119,138 @@ class GuestController extends Controller
         return view('guest.product.detail', compact('id', 'product', 'categories_post', 'categories', 'images','product_same_category'));
     }
 
+    public function add_cart(Request $request, $id){
+
+        if($request->input('num_order')){
+            $qty = $request->input('num_order');
+        }else{
+            $qty = 1;
+        }
+
+        $product = Product::find($id);
+
+        Cart::add([
+            'id' => $product->id,
+            'name' => $product->name,
+            'qty' => $qty,
+            'price' => $product->price,
+            'options' => ['thumbnail' => getImageUrlForProduct($product->id),
+            'max_order' => $product->stock_quantity,
+            ]
+        ]);
+        // return Cart::content();
+        return redirect()->route('cart', compact('product'));
+    }
+
     public function cart(Request $request){
         $categories_post = Post_categories::all();
         return view('guest.order.cart', compact('categories_post'));
     }
+    public function remove_cart($rowId){
+        Cart::remove($rowId);
+        return redirect()->route('cart');
+    }
+    public function destroy_cart(){
+        Cart::destroy();
+        return redirect()->route('cart');
+    }
+
+    public function checkout($id = 0){
+        $categories_post = Post_categories::all();
+        //Ngăn chặn code chạy tiếp tục sau khi trang load lại
+        $pageLoadCount = session('page_load_count', 0) + 1;
+        session(['page_load_count' => $pageLoadCount]);
+        if($id == 0)
+        {
+        return view('guest.order.checkout', compact('categories_post'));
+        }
+        elseif($id != 1 and $pageLoadCount < 2){
+            $product = Product::find($id);
+
+            Cart::add([
+                'id' => $product->id,
+                'name' => $product->name,
+                'qty' => 1,
+                'price' => $product->price,
+                'options' => ['thumbnail' => getImageUrlForProduct($product->id),
+                'max_order' => $product->stock_quantity,
+                ]
+            ]);
+        return view('guest.order.checkout', compact('categories_post'));
+        }
+        elseif($id != 1 and $pageLoadCount > 2){
+
+        return view('guest.order.checkout', compact('categories_post'));
+        }
+    }
+
+    public function payment(Request $request){
+        $request->validate([
+            'fullname' => 'required|string|max:255',
+            'email' => 'required|string|max:255',
+            'address'=> 'required|string|max:255',
+            'phone' => 'required|digits:10|regex:/^0/',
+            'payment_method' => 'required',
+
+        ],
+        [
+            'required' => ':attribute không được để trống!!',
+            'max' => ':attribute có độ dài tối thiểu :max ký tự',
+            'string' => 'Định dạng sai',
+            'regex' => ':attribute không phải định dạng số điện thoại',
+            'digits'=> 'Số điện thoại có 10 chữ số'
+        ],
+        [
+            'fullname' => 'Họ và tên',
+            'address' => 'Địa chỉ',
+            'phone' => 'Số điện thoại',
+            'note' => 'Ghi chú',
+            'payment_method' => 'Phương thức thanh toán'
+        ]
+
+    );
+    if(Cart::count() > 0){
+    $note = $request->note == '' ? null: $request->note;
+        $customer = Customer::create([
+            'name' => $request->fullname,
+            'email' => $request->email,
+            'phone_number' => $request->phone,
+            'address' => $request->address,
+        ]);
+
+        $order = Order::create([
+            'product_quantity' => Cart::count(),
+            'total_amount' => str_replace('.', '', Cart::total()),
+            'payment_method' => $request->payment_method,
+            'shipping_address' => $request->address,
+            'status' => 'pending',
+            'customer_id' => $customer->id,
+            'note' => $note
+        ]);
+
+        foreach(Cart::content() as $row){
+        $order_items = Order_item::create([
+            'order_id' => $order->id,
+            'product_id' => $row->id,
+            'quantity' => $row->qty,
+            'price' => $row->price,
+        ]);
+        };
+
+        Cart::destroy();
+        if($order->payment_method == 'momo')
+        {
+            return redirect()->route('cart.checkout')->with('status', 'Số điện thoại MoMo: 0357559323 -- Tên: LÊ HỬU LỢI -- Nội dung: Thanh toán đơn hàng có ID:'. $order->id.' -- Số tiền cần thanh toán: '. number_format($order->total_amount, 0, '', '.').'đ');
+        }
+        elseif($order->payment_method == 'bank')
+        {
+            return redirect()->route('cart.checkout')->with('status', 'Số tài khoản: 04301010746918 -- Tên: LÊ HỬU LỢI --
+            Ngân hàng: Maritime Bank (MSB) -- Nội dung: Thanh toán đơn hàng có ID:'. $order->id.' -- Số tiền cần thanh toán: '. number_format($order->total_amount, 0, '', '.').'đ');
+        }
+
+    }else{
+        return redirect()->route('cart.checkout')->with('warning', 'Vui lòng chọn sản phẩm để thanh toán');
+    }
+    }
+
 }

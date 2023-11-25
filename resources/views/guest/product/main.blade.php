@@ -48,8 +48,8 @@
                                 <span class="old">{{ number_format($product->old_price, 0, '', '.') }}đ</span>
                             </div>
                             <div class="action clearfix">
-                                <a href="?page=cart" title="Thêm giỏ hàng" class="add-cart fl-left">Thêm giỏ hàng</a>
-                                <a href="?page=checkout" title="Mua ngay" class="buy-now fl-right">Mua ngay</a>
+                                <a href="{{ route('cart.add', $product->id) }}" title="Thêm giỏ hàng" class="add-cart fl-left">Thêm giỏ hàng</a>
+                                <a href="{{ route('cart.checkout', $product->id) }}" title="Mua ngay" class="buy-now fl-right">Mua ngay</a>
                             </div>
                         </li>
                         @endforeach

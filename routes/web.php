@@ -30,7 +30,12 @@ Route::get('product/{id?}',[App\Http\Controllers\GuestController::class, 'produc
 Route::get('product/detail/{id}',[App\Http\Controllers\GuestController::class, 'product_detail'])->name('product.detail');
 
 //Order
+Route::get('cart/add/{id}',[App\Http\Controllers\GuestController::class, 'add_cart'])->name('cart.add');
 Route::get('cart',[App\Http\Controllers\GuestController::class, 'cart'])->name('cart');
+Route::get('cart/remove/{rowId}',[App\Http\Controllers\GuestController::class, 'remove_cart'])->name('cart.remove');
+Route::get('cart/destroy',[App\Http\Controllers\GuestController::class, 'destroy_cart'])->name('cart.destroy');
+Route::get('cart/checkout/{id?}',[App\Http\Controllers\GuestController::class, 'checkout'])->name('cart.checkout');
+Route::post('cart/payment',[App\Http\Controllers\GuestController::class, 'payment'])->name('cart.payment');
 
 
 
