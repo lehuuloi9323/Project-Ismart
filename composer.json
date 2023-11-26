@@ -40,7 +40,8 @@
     "autoload": {
         "files": [
             "app/Helpers/NameToSlug.php",
-            "app/Helpers/getImageUrlForProduct.php"
+            "app/Helpers/getImageUrlForProduct.php",
+            "app/Helpers/get_name_product_from_order_item.php"
         ],
         "psr-4": {
             "App\\": "app/",

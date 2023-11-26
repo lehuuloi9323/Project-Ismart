@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 18, 2023 at 10:00 AM
+-- Generation Time: Nov 26, 2023 at 01:04 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -36,6 +36,21 @@ CREATE TABLE `customers` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `customers`
+--
+
+INSERT INTO `customers` (`id`, `name`, `email`, `phone_number`, `address`, `created_at`, `updated_at`) VALUES
+(6, 'Lê Hửu Lợi', 'lehuuloi9323@gmail.com', 357559323, '123 HCM', '2023-11-20 07:06:16', '2023-11-20 07:06:16'),
+(7, 'Lê Hửu Lợi', 'lehuuloi9323@gmail.com', 357559323, '123 HCM', '2023-11-20 07:17:27', '2023-11-20 07:17:27'),
+(8, 'Nguyễn Văn A', 'lehuuloi9323@gmail.com', 357559323, '123 HCM', '2023-11-25 00:21:15', '2023-11-25 00:21:15'),
+(9, 'Vũ Trọng', 'vutrong@gmail.com', 357559323, 'Hòn Đất -Kiên Giang', '2023-11-25 00:32:42', '2023-11-26 04:26:24'),
+(10, 'Lê Hửu Lợi', 'lehuuloi9323@gmail.com', 357559323, '123 HCM', '2023-11-25 00:36:24', '2023-11-25 00:36:24'),
+(11, 'Lê Hửu Lợi', 'lehuuloi9323@gmail.com', 357559323, '123 HCM', '2023-11-25 00:36:49', '2023-11-25 00:36:49'),
+(12, 'Lê Hửu Lợi', 'lehuuloi9323@gmail.com', 357559323, '123 HCM', '2023-11-25 00:38:05', '2023-11-25 00:38:05'),
+(13, 'Lê Hửu Lợi', 'lehuuloi9323@gmail.com', 357559323, '123 HCM', '2023-11-25 00:59:06', '2023-11-25 00:59:06'),
+(14, 'Lê Hửu Lợi', 'lehuuloi9323@gmail.com', 357559323, '123 HCM', '2023-11-25 00:59:50', '2023-11-25 00:59:50');
 
 -- --------------------------------------------------------
 
@@ -74,27 +89,8 @@ CREATE TABLE `images` (
 --
 
 INSERT INTO `images` (`id`, `url`, `name`, `size_img`, `user_id`, `created_at`, `updated_at`) VALUES
-(1, 'iphone-15-pro-max-black-1-1.jpg', 'Điện thoại iPhone 15 Pro Max 256GB', 55861, 1, '2023-11-11 20:18:17', '2023-11-14 10:03:20'),
-(2, 'iphone-15-pro-max-black-2-1.jpg', 'Điện thoại iPhone 15 Pro Max 256GB', 22396, 1, '2023-11-11 20:18:17', '2023-11-11 20:18:17'),
-(3, 'iphone-15-pro-max-black-3-1.jpg', 'Điện thoại iPhone 15 Pro Max 256GB', 26459, 1, '2023-11-11 20:18:17', '2023-11-11 20:18:17'),
-(4, 'iphone-15-pro-max-blue-1-1.jpg', 'Điện thoại iPhone 15 Pro Max 256GB', 63231, 1, '2023-11-11 20:18:17', '2023-11-11 20:18:17'),
-(5, 'iphone-15-pro-max-tu-nhien-1-1.jpg', 'Điện thoại iPhone 15 Pro Max 256GB', 64296, 1, '2023-11-11 20:18:17', '2023-11-11 20:18:17'),
-(6, 'iphone-15-pro-max-white-1-3.jpg', 'Điện thoại iPhone 15 Pro Max 256GB', 68943, 1, '2023-11-11 20:18:17', '2023-11-11 20:18:17'),
-(7, 'xiaomi-13t-pro-xanh-1.jpg', 'Điện thoại Xiaomi 13T Pro 5G', 276550, 1, '2023-11-11 20:22:13', '2023-11-11 20:22:13'),
-(8, 'vi-vn-xiaomi-13t-pro-slider--(1).jpg', 'Điện thoại Xiaomi 13T Pro 5G', 126336, 1, '2023-11-11 20:22:13', '2023-11-11 20:22:13'),
-(9, 'xiaomi-13t-pro-xanh-2.jpg', 'Điện thoại Xiaomi 13T Pro 5G', 121821, 1, '2023-11-11 20:22:13', '2023-11-11 20:22:13'),
-(10, 'xiaomi-13t-pro-xanh-3.jpg', 'Điện thoại Xiaomi 13T Pro 5G', 117080, 1, '2023-11-11 20:22:13', '2023-11-11 20:22:13'),
-(11, 'xiaomi-13t-pro-xanh-4.jpg', 'Điện thoại Xiaomi 13T Pro 5G', 539568, 1, '2023-11-11 20:22:13', '2023-11-11 20:22:13'),
-(12, 'xiaomi-13t-pro-xanh-5.jpg', 'Điện thoại Xiaomi 13T Pro 5G', 503035, 1, '2023-11-11 20:22:13', '2023-11-11 20:22:13'),
-(13, 'xiaomi-13t-pro-xanh-6.jpg', 'Điện thoại Xiaomi 13T Pro 5G', 305620, 1, '2023-11-11 20:22:13', '2023-11-11 20:22:13'),
-(14, 'xiaomi-13t-pro-xanh-9.jpg', 'Điện thoại Xiaomi 13T Pro 5G', 534518, 1, '2023-11-11 20:22:13', '2023-11-11 20:22:13'),
-(15, 'xiaomi-13t-pro-xanh-10.jpg', 'Điện thoại Xiaomi 13T Pro 5G', 413631, 1, '2023-11-11 20:22:13', '2023-11-11 20:22:13'),
-(16, 'tai-nghe-bluetooth-airpods-pro-2nd-gen-usb-c-charge-apple-1.jpg', 'Tai nghe Bluetooth AirPods Pro Gen 2 MagSafe Charge (USB-C) Apple MTJV3', 71058, 1, '2023-11-11 20:24:47', '2023-11-11 20:24:47'),
-(17, 'tai-nghe-bluetooth-airpods-pro-2nd-gen-usb-c-charge-apple-2.jpg', 'Tai nghe Bluetooth AirPods Pro Gen 2 MagSafe Charge (USB-C) Apple MTJV3', 46326, 1, '2023-11-11 20:24:47', '2023-11-11 20:24:47'),
-(18, 'tai-nghe-bluetooth-airpods-pro-2nd-gen-usb-c-charge-apple-3.jpg', 'Tai nghe Bluetooth AirPods Pro Gen 2 MagSafe Charge (USB-C) Apple MTJV3', 54136, 1, '2023-11-11 20:24:47', '2023-11-11 20:24:47'),
-(19, 'tai-nghe-bluetooth-airpods-pro-2nd-gen-usb-c-charge-apple-4.jpg', 'Tai nghe Bluetooth AirPods Pro Gen 2 MagSafe Charge (USB-C) Apple MTJV3', 45385, 1, '2023-11-11 20:24:47', '2023-11-11 20:24:47'),
-(20, 'tai-nghe-bluetooth-airpods-pro-2nd-gen-usb-c-charge-apple-5.jpg', 'Tai nghe Bluetooth AirPods Pro Gen 2 MagSafe Charge (USB-C) Apple MTJV3', 50097, 1, '2023-11-11 20:24:47', '2023-11-11 20:24:47'),
-(21, 'tai-nghe-bluetooth-airpods-pro-2nd-gen-usb-c-charge-apple-6.jpg', 'Tai nghe Bluetooth AirPods Pro Gen 2 MagSafe Charge (USB-C) Apple MTJV3', 37166, 1, '2023-11-11 20:24:47', '2023-11-11 20:24:47'),
+(7, 'xiaomi-13t-pro-xanh-1.jpg', 'Điện thoại Xiaomi 13T Pro 5G', 276550, 1, '2023-11-11 20:22:13', '2023-11-20 02:52:02'),
+(16, 'tai-nghe-bluetooth-airpods-pro-2nd-gen-usb-c-charge-apple-1.jpg', 'Tai nghe Bluetooth AirPods Pro Gen 2 MagSafe Charge (USB-C) Apple MTJV3', 71058, 1, '2023-11-11 20:24:47', '2023-11-20 07:36:47'),
 (22, 'ipad-air-5-m1-xam-1.jpg', 'Máy tính bảng iPad Air 5 M1 WiFi 64GB', 175551, 1, '2023-11-11 20:28:37', '2023-11-11 20:28:37'),
 (23, 'ipad-air-5-m1-xam-2.jpg', 'Máy tính bảng iPad Air 5 M1 WiFi 64GB', 87567, 1, '2023-11-11 20:28:37', '2023-11-11 20:28:37'),
 (24, 'ipad-air-5-m1-xam-3.jpg', 'Máy tính bảng iPad Air 5 M1 WiFi 64GB', 222290, 1, '2023-11-11 20:28:37', '2023-11-11 20:28:37'),
@@ -119,7 +115,58 @@ INSERT INTO `images` (`id`, `url`, `name`, `size_img`, `user_id`, `created_at`, 
 (50, 'vi-vn-acer-aspire-5-a515-58gm-51lb-i5-nxkq4sv002-slider-3.jpg', 'Laptop Acer Aspire 5 Gaming A515 58GM 51LB i5 13420H/16GB/512GB/4GB RTX2050/Win11 (NX.KQ4SV.002)', 157393, 1, '2023-11-15 04:18:08', '2023-11-15 04:18:08'),
 (51, 'vi-vn-acer-aspire-5-a515-58gm-51lb-i5-nxkq4sv002-slider-4.jpg', 'Laptop Acer Aspire 5 Gaming A515 58GM 51LB i5 13420H/16GB/512GB/4GB RTX2050/Win11 (NX.KQ4SV.002)', 156250, 1, '2023-11-15 04:18:08', '2023-11-15 04:18:08'),
 (52, 'vi-vn-acer-aspire-5-a515-58gm-51lb-i5-nxkq4sv002-slider-5.jpg', 'Laptop Acer Aspire 5 Gaming A515 58GM 51LB i5 13420H/16GB/512GB/4GB RTX2050/Win11 (NX.KQ4SV.002)', 130118, 1, '2023-11-15 04:18:08', '2023-11-15 04:18:08'),
-(53, 'vi-vn-acer-aspire-5-a515-58gm-51lb-i5-nxkq4sv002-slider-6.jpg', 'Laptop Acer Aspire 5 Gaming A515 58GM 51LB i5 13420H/16GB/512GB/4GB RTX2050/Win11 (NX.KQ4SV.002)', 72196, 1, '2023-11-15 04:18:08', '2023-11-15 04:18:08');
+(53, 'vi-vn-acer-aspire-5-a515-58gm-51lb-i5-nxkq4sv002-slider-6.jpg', 'Laptop Acer Aspire 5 Gaming A515 58GM 51LB i5 13420H/16GB/512GB/4GB RTX2050/Win11 (NX.KQ4SV.002)', 72196, 1, '2023-11-15 04:18:08', '2023-11-15 04:18:08'),
+(54, 'dell-inspiron-15-3530-i5-71014840-2.jpg', 'Laptop Dell Inspiron 15 3530 i5 1335U/8GB/512GB/2GB MX550/120Hz/OfficeHS/Win11 (71014840)', 66456, 1, '2023-11-19 04:40:55', '2023-11-19 04:40:55'),
+(55, 'dell-inspiron-15-3530-i5-71014840-2 - Copy.jpg', 'Laptop Dell Inspiron 15 3530 i5 1335U/8GB/512GB/2GB MX550/120Hz/OfficeHS/Win11 (71014840)', 66456, 1, '2023-11-19 04:40:55', '2023-11-19 04:40:55'),
+(56, 'dell-inspiron-15-3530-i5-71014840-2.jpg', 'Laptop Dell Inspiron 15 3530 i5 1335U/8GB/512GB/2GB MX550/120Hz/OfficeHS/Win11 (71014840)', 66149, 1, '2023-11-19 04:40:55', '2023-11-19 04:40:55'),
+(57, 'dell-inspiron-15-3530-i5-71014840-3 - Copy.jpg', 'Laptop Dell Inspiron 15 3530 i5 1335U/8GB/512GB/2GB MX550/120Hz/OfficeHS/Win11 (71014840)', 93984, 1, '2023-11-19 04:40:55', '2023-11-19 04:40:55'),
+(58, 'dell-inspiron-15-3530-i5-71014840-3.jpg', 'Laptop Dell Inspiron 15 3530 i5 1335U/8GB/512GB/2GB MX550/120Hz/OfficeHS/Win11 (71014840)', 93984, 1, '2023-11-19 04:40:55', '2023-11-19 04:40:55'),
+(59, 'dell-inspiron-15-3530-i5-71014840-4 - Copy.jpg', 'Laptop Dell Inspiron 15 3530 i5 1335U/8GB/512GB/2GB MX550/120Hz/OfficeHS/Win11 (71014840)', 85284, 1, '2023-11-19 04:40:55', '2023-11-19 04:40:55'),
+(60, 'dell-inspiron-15-3530-i5-71014840-4.jpg', 'Laptop Dell Inspiron 15 3530 i5 1335U/8GB/512GB/2GB MX550/120Hz/OfficeHS/Win11 (71014840)', 85284, 1, '2023-11-19 04:40:55', '2023-11-19 04:40:55'),
+(61, 'dell-inspiron-15-3530-i5-71014840-5 - Copy.jpg', 'Laptop Dell Inspiron 15 3530 i5 1335U/8GB/512GB/2GB MX550/120Hz/OfficeHS/Win11 (71014840)', 31476, 1, '2023-11-19 04:40:55', '2023-11-19 04:40:55'),
+(62, 'dell-inspiron-15-3530-i5-71014840-5.jpg', 'Laptop Dell Inspiron 15 3530 i5 1335U/8GB/512GB/2GB MX550/120Hz/OfficeHS/Win11 (71014840)', 31476, 1, '2023-11-19 04:40:55', '2023-11-19 04:40:55'),
+(63, 'dell-inspiron-15-3530-i5-71014840-6 - Copy.jpg', 'Laptop Dell Inspiron 15 3530 i5 1335U/8GB/512GB/2GB MX550/120Hz/OfficeHS/Win11 (71014840)', 18073, 1, '2023-11-19 04:40:55', '2023-11-19 04:40:55'),
+(64, 'dell-inspiron-15-3530-i5-71014840-6.jpg', 'Laptop Dell Inspiron 15 3530 i5 1335U/8GB/512GB/2GB MX550/120Hz/OfficeHS/Win11 (71014840)', 18073, 1, '2023-11-19 04:40:55', '2023-11-19 04:40:55'),
+(65, 'dell-inspiron-15-3530-i5-71014840-7.jpg', 'Laptop Dell Inspiron 15 3530 i5 1335U/8GB/512GB/2GB MX550/120Hz/OfficeHS/Win11 (71014840)', 16207, 1, '2023-11-19 04:40:55', '2023-11-19 04:40:55'),
+(91, 'vi-vn-xiaomi-13t-pro-slider--(1).jpg', 'Điện thoại Xiaomi 13T Pro 5G', 110141, 1, '2023-11-19 05:01:51', '2023-11-19 05:01:51'),
+(110, 'asus-tuf-gaming-f15-fx506hf-i5-hn014w-1.jpg', 'Laptop Asus TUF Gaming F15 FX506HE i7 11800H/16GB/512GB/4GB RTX3050Ti/144Hz/Win11 (HN378W)', 197439, 1, '2023-11-20 01:53:57', '2023-11-20 07:38:30'),
+(136, 'asus-tuf-gaming-f15-fx506hf-i5-hn014w-2.jpg', 'Laptop Asus TUF Gaming F15 FX506HE i7 11800H/16GB/512GB/4GB RTX3050Ti/144Hz/Win11 (HN378W)', 84248, 1, '2023-11-20 01:55:17', '2023-11-20 01:55:17'),
+(137, 'asus-tuf-gaming-f15-fx506hf-i5-hn014w-3.jpg', 'Laptop Asus TUF Gaming F15 FX506HE i7 11800H/16GB/512GB/4GB RTX3050Ti/144Hz/Win11 (HN378W)', 79924, 1, '2023-11-20 01:55:17', '2023-11-20 01:55:17'),
+(138, 'asus-tuf-gaming-f15-fx506hf-i5-hn014w-4.jpg', 'Laptop Asus TUF Gaming F15 FX506HE i7 11800H/16GB/512GB/4GB RTX3050Ti/144Hz/Win11 (HN378W)', 73868, 1, '2023-11-20 01:55:17', '2023-11-20 01:55:17'),
+(139, 'asus-tuf-gaming-f15-fx506hf-i5-hn014w-5.jpg', 'Laptop Asus TUF Gaming F15 FX506HE i7 11800H/16GB/512GB/4GB RTX3050Ti/144Hz/Win11 (HN378W)', 34592, 1, '2023-11-20 01:55:17', '2023-11-20 01:55:17'),
+(140, 'asus-tuf-gaming-f15-fx506hf-i5-hn014w-6.jpg', 'Laptop Asus TUF Gaming F15 FX506HE i7 11800H/16GB/512GB/4GB RTX3050Ti/144Hz/Win11 (HN378W)', 27140, 1, '2023-11-20 01:55:17', '2023-11-20 01:55:17'),
+(141, 'asus-tuf-gaming-f15-fx506hf-i5-hn014w-7.jpg', 'Laptop Asus TUF Gaming F15 FX506HE i7 11800H/16GB/512GB/4GB RTX3050Ti/144Hz/Win11 (HN378W)', 136546, 1, '2023-11-20 01:55:17', '2023-11-20 01:55:17'),
+(142, 'asus-tuf-gaming-f15-fx506hf-i5-hn014w-8.jpg', 'Laptop Asus TUF Gaming F15 FX506HE i7 11800H/16GB/512GB/4GB RTX3050Ti/144Hz/Win11 (HN378W)', 51838, 1, '2023-11-20 01:55:17', '2023-11-20 01:55:17'),
+(143, 'asus-tuf-gaming-f15-fx506hf-i5-hn014w-9.jpg', 'Laptop Asus TUF Gaming F15 FX506HE i7 11800H/16GB/512GB/4GB RTX3050Ti/144Hz/Win11 (HN378W)', 35955, 1, '2023-11-20 01:55:17', '2023-11-20 01:55:17'),
+(144, 'asus-tuf-gaming-f15-fx506hf-i5-hn014w-10.jpg', 'Laptop Asus TUF Gaming F15 FX506HE i7 11800H/16GB/512GB/4GB RTX3050Ti/144Hz/Win11 (HN378W)', 49581, 1, '2023-11-20 01:55:17', '2023-11-20 01:55:17'),
+(145, 'asus-tuf-gaming-f15-fx506hf-i5-hn014w-11.jpg', 'Laptop Asus TUF Gaming F15 FX506HE i7 11800H/16GB/512GB/4GB RTX3050Ti/144Hz/Win11 (HN378W)', 121947, 1, '2023-11-20 01:55:17', '2023-11-20 01:55:17'),
+(146, 'asus-tuf-gaming-f15-fx506hf-i5-hn014w-12.jpg', 'Laptop Asus TUF Gaming F15 FX506HE i7 11800H/16GB/512GB/4GB RTX3050Ti/144Hz/Win11 (HN378W)', 77239, 1, '2023-11-20 01:55:18', '2023-11-20 01:55:18'),
+(147, 'asus-tuf-gaming-f15-fx506hf-i5-hn014w-13.jpg', 'Laptop Asus TUF Gaming F15 FX506HE i7 11800H/16GB/512GB/4GB RTX3050Ti/144Hz/Win11 (HN378W)', 116775, 1, '2023-11-20 01:55:18', '2023-11-20 01:55:18'),
+(153, 'tai-nghe-bluetooth-airpods-pro-2nd-gen-usb-c-charge-apple-2.jpg', 'Tai nghe Bluetooth AirPods Pro Gen 2 MagSafe Charge (USB-C) Apple MTJV3', 15641, 1, '2023-11-20 02:07:35', '2023-11-20 02:07:35'),
+(154, 'tai-nghe-bluetooth-airpods-pro-2nd-gen-usb-c-charge-apple-3.jpg', 'Tai nghe Bluetooth AirPods Pro Gen 2 MagSafe Charge (USB-C) Apple MTJV3', 17046, 1, '2023-11-20 02:07:35', '2023-11-20 02:07:35'),
+(155, 'tai-nghe-bluetooth-airpods-pro-2nd-gen-usb-c-charge-apple-4.jpg', 'Tai nghe Bluetooth AirPods Pro Gen 2 MagSafe Charge (USB-C) Apple MTJV3', 14381, 1, '2023-11-20 02:07:35', '2023-11-20 02:07:35'),
+(156, 'tai-nghe-bluetooth-airpods-pro-2nd-gen-usb-c-charge-apple-5.jpg', 'Tai nghe Bluetooth AirPods Pro Gen 2 MagSafe Charge (USB-C) Apple MTJV3', 14915, 1, '2023-11-20 02:07:35', '2023-11-20 02:07:35'),
+(157, 'tai-nghe-bluetooth-airpods-pro-2nd-gen-usb-c-charge-apple-6.jpg', 'Tai nghe Bluetooth AirPods Pro Gen 2 MagSafe Charge (USB-C) Apple MTJV3', 12733, 1, '2023-11-20 02:07:35', '2023-11-20 02:07:35'),
+(158, 'tai-nghe-bluetooth-true-wireless-havit-tw945-tim-1.jpg', 'Tai nghe Bluetooth True Wireless HAVIT TW945', 445458, 1, '2023-11-20 02:33:02', '2023-11-20 02:33:02'),
+(159, 'tai-nghe-bluetooth-true-wireless-havit-tw945-tim-2.jpg', 'Tai nghe Bluetooth True Wireless HAVIT TW945', 496465, 1, '2023-11-20 02:33:02', '2023-11-20 02:33:02'),
+(160, 'tai-nghe-bluetooth-true-wireless-havit-tw945-tim-4.jpg', 'Tai nghe Bluetooth True Wireless HAVIT TW945', 492094, 1, '2023-11-20 02:33:02', '2023-11-20 02:33:02'),
+(161, 'tai-nghe-bluetooth-true-wireless-havit-tw945-tim-5.jpg', 'Tai nghe Bluetooth True Wireless HAVIT TW945', 375234, 1, '2023-11-20 02:33:02', '2023-11-20 02:33:02'),
+(162, 'xiaomi-13t-pro-xanh-2.jpg', 'Điện thoại Xiaomi 13T Pro 5G', 121821, 1, '2023-11-20 02:57:42', '2023-11-20 02:57:42'),
+(163, 'xiaomi-13t-pro-xanh-4.jpg', 'Điện thoại Xiaomi 13T Pro 5G', 539568, 1, '2023-11-20 02:57:42', '2023-11-20 02:57:42'),
+(164, 'xiaomi-13t-pro-xanh-5.jpg', 'Điện thoại Xiaomi 13T Pro 5G', 503035, 1, '2023-11-20 02:57:42', '2023-11-20 02:57:42'),
+(165, 'xiaomi-13t-pro-xanh-6.jpg', 'Điện thoại Xiaomi 13T Pro 5G', 305620, 1, '2023-11-20 02:57:42', '2023-11-20 02:57:42'),
+(166, 'xiaomi-13t-pro-xanh-7.jpg', 'Điện thoại Xiaomi 13T Pro 5G', 287185, 1, '2023-11-20 02:57:42', '2023-11-20 02:57:42'),
+(167, 'xiaomi-13t-pro-xanh-8.jpg', 'Điện thoại Xiaomi 13T Pro 5G', 294392, 1, '2023-11-20 02:57:42', '2023-11-20 02:57:42'),
+(168, 'xiaomi-13t-pro-xanh-9.jpg', 'Điện thoại Xiaomi 13T Pro 5G', 534518, 1, '2023-11-20 02:57:42', '2023-11-20 02:57:42'),
+(169, 'xiaomi-13t-pro-xanh-10.jpg', 'Điện thoại Xiaomi 13T Pro 5G', 413631, 1, '2023-11-20 02:57:42', '2023-11-20 02:57:42'),
+(170, 'xiaomi-13t-pro-xanh-11.jpg', 'Điện thoại Xiaomi 13T Pro 5G', 382225, 1, '2023-11-20 02:57:42', '2023-11-20 02:57:42'),
+(171, 'xiaomi-13t-pro-xanh-12.jpg', 'Điện thoại Xiaomi 13T Pro 5G', 299361, 1, '2023-11-20 02:57:42', '2023-11-20 02:57:42'),
+(177, 'iphone-15-pro-max-black-1-1.jpg', 'Điện thoại iPhone 15 Pro Max 256GB', 55861, 1, '2023-11-20 03:05:09', '2023-11-20 03:05:09'),
+(185, 'iphone-15-pro-max-black-2-1.jpg', 'Điện thoại iPhone 15 Pro Max 256GB', 22396, 1, '2023-11-20 03:08:54', '2023-11-20 03:08:54'),
+(186, 'iphone-15-pro-max-black-3-1.jpg', 'Điện thoại iPhone 15 Pro Max 256GB', 26459, 1, '2023-11-20 03:08:54', '2023-11-20 03:08:54'),
+(187, 'iphone-15-pro-max-blue-1-1.jpg', 'Điện thoại iPhone 15 Pro Max 256GB', 63231, 1, '2023-11-20 03:08:54', '2023-11-20 03:08:54'),
+(188, 'iphone-15-pro-max-tu-nhien-1-1.jpg', 'Điện thoại iPhone 15 Pro Max 256GB', 64296, 1, '2023-11-20 03:08:54', '2023-11-20 03:08:54'),
+(189, 'iphone-15-pro-max-white-1-3.jpg', 'Điện thoại iPhone 15 Pro Max 256GB', 68943, 1, '2023-11-20 03:08:54', '2023-11-20 03:08:54');
 
 -- --------------------------------------------------------
 
@@ -152,8 +199,82 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (42, '2023_10_31_110100_create_product_images_table', 6),
 (51, '2023_11_12_033424_create_post_categories_table', 7),
 (52, '2023_11_12_033600_create_posts_table', 7),
-(53, '2023_11_15_113059_add_price_old_to_products_table', 8),
-(54, '2023_11_17_111351_create_customers_table', 9);
+(59, '2023_11_15_113059_add_price_old_to_products_table', 8),
+(60, '2023_11_17_111351_create_customers_table', 8),
+(61, '2023_11_20_104311_create_orders_table', 8),
+(62, '2023_11_20_110004_create_order_items_table', 8);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `orders`
+--
+
+CREATE TABLE `orders` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `product_quantity` int(11) NOT NULL,
+  `total_amount` int(11) NOT NULL,
+  `payment_method` enum('momo','bank') NOT NULL,
+  `shipping_address` varchar(255) NOT NULL,
+  `status` enum('pending','processing','shipped','delivered','canceled') NOT NULL DEFAULT 'pending',
+  `note` varchar(255) DEFAULT NULL,
+  `customer_id` bigint(20) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`id`, `product_quantity`, `total_amount`, `payment_method`, `shipping_address`, `status`, `note`, `customer_id`, `created_at`, `updated_at`) VALUES
+(3, 4, 68560000, 'momo', '123 HCM', 'pending', 'Giao nhanh nha', 6, '2023-11-20 07:06:16', '2023-11-20 07:06:16'),
+(4, 4, 45290000, 'momo', '123 HCM', 'processing', NULL, 7, '2023-11-20 07:17:27', '2023-11-26 02:17:38'),
+(5, 1, 16990000, 'bank', '123 HCM', 'shipped', 'test', 8, '2023-11-25 00:21:15', '2023-11-26 02:16:04'),
+(6, 1, 33900000, 'bank', 'Hòn Đất -Kiên Giang', 'delivered', NULL, 9, '2023-11-25 00:32:42', '2023-11-26 04:26:24'),
+(8, 1, 14490000, 'bank', '123 HCM', 'pending', NULL, 11, '2023-11-25 00:36:49', '2023-11-26 02:16:39'),
+(9, 1, 14490000, 'bank', '123 HCM', 'pending', NULL, 12, '2023-11-25 00:38:05', '2023-11-25 00:38:05'),
+(10, 8, 143760000, 'momo', '123 HCM', 'pending', 'dsada', 13, '2023-11-25 00:59:06', '2023-11-25 00:59:06'),
+(11, 3, 43470000, 'momo', '123 HCM', 'pending', 'e', 14, '2023-11-25 00:59:50', '2023-11-26 02:16:33');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `order_items`
+--
+
+CREATE TABLE `order_items` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `order_id` bigint(20) UNSIGNED NOT NULL,
+  `product_id` bigint(20) UNSIGNED NOT NULL,
+  `quantity` int(11) NOT NULL,
+  `price` int(11) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `order_items`
+--
+
+INSERT INTO `order_items` (`id`, `order_id`, `product_id`, `quantity`, `price`, `created_at`, `updated_at`) VALUES
+(4, 3, 5, 2, 16990000, '2023-11-20 07:06:16', '2023-11-20 07:06:16'),
+(5, 3, 7, 1, 20490000, '2023-11-20 07:06:16', '2023-11-20 07:06:16'),
+(6, 3, 4, 1, 14090000, '2023-11-20 07:06:16', '2023-11-20 07:06:16'),
+(7, 4, 9, 1, 320000, '2023-11-20 07:17:27', '2023-11-20 07:17:27'),
+(8, 4, 8, 1, 15990000, '2023-11-20 07:17:27', '2023-11-20 07:17:27'),
+(9, 4, 2, 2, 14490000, '2023-11-20 07:17:27', '2023-11-20 07:17:27'),
+(10, 5, 6, 1, 16990000, '2023-11-25 00:21:15', '2023-11-25 00:21:15'),
+(11, 6, 10, 1, 33900000, '2023-11-25 00:32:42', '2023-11-25 00:32:42'),
+(13, 8, 2, 1, 14490000, '2023-11-25 00:36:49', '2023-11-25 00:36:49'),
+(14, 9, 2, 1, 14490000, '2023-11-25 00:38:05', '2023-11-25 00:38:05'),
+(15, 10, 9, 1, 320000, '2023-11-25 00:59:06', '2023-11-25 00:59:06'),
+(16, 10, 7, 3, 20490000, '2023-11-25 00:59:06', '2023-11-25 00:59:06'),
+(17, 10, 6, 1, 16990000, '2023-11-25 00:59:06', '2023-11-25 00:59:06'),
+(18, 10, 5, 1, 16990000, '2023-11-25 00:59:06', '2023-11-25 00:59:06'),
+(19, 10, 10, 1, 33900000, '2023-11-25 00:59:06', '2023-11-25 00:59:06'),
+(20, 10, 4, 1, 14090000, '2023-11-25 00:59:06', '2023-11-25 00:59:06'),
+(21, 11, 2, 3, 14490000, '2023-11-25 00:59:51', '2023-11-25 00:59:51');
 
 -- --------------------------------------------------------
 
@@ -280,12 +401,15 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `name`, `description`, `slug`, `details`, `price`, `old_price`, `stock_quantity`, `is_feature`, `product_status`, `user_id`, `category_id`, `created_at`, `updated_at`) VALUES
-(1, 'Điện thoại iPhone 15 Pro Max 256GB', '<h3>L&yacute; do chọn mua iPhone 15 Pro Max tại Thế Giới Di Động</h3>\r\n<p>iPhone 15 Pro Max l&agrave; một chiếc điện thoại th&ocirc;ng minh cao cấp được mong đợi nhất năm 2023. Với nhiều t&iacute;nh năng mới v&agrave; cải tiến, iPhone 15 Pro Max chắc chắn sẽ l&agrave; một lựa chọn tuyệt vời cho những người d&ugrave;ng đang t&igrave;m kiếm một chiếc điện thoại c&oacute; hiệu năng mạnh mẽ, camera chất lượng v&agrave; thiết kế sang trọng.</p>\r\n<p><strong>&bull; Sản phẩm ch&iacute;nh h&atilde;ng, đảm bảo chất lượng:&nbsp;</strong>Thế Giới Di Động l&agrave; nh&agrave; b&aacute;n lẻ điện thoại di động lớn nhất Việt Nam, cam kết cung cấp sản phẩm ch&iacute;nh h&atilde;ng, đảm bảo chất lượng. Bạn c&oacute; thể y&ecirc;n t&acirc;m về xuất xứ sản phẩm v&agrave; c&oacute; thể tận hưởng trải nghiệm sử dụng tốt nhất.</p>\r\n<p><strong>&bull; Ưu đ&atilde;i v&agrave; khuyến m&atilde;i hấp dẫn:</strong>&nbsp;Thế Giới Di Động thường xuy&ecirc;n c&oacute; c&aacute;c chương tr&igrave;nh khuyến m&atilde;i, giảm gi&aacute; v&agrave; tặng qu&agrave; k&egrave;m, gi&uacute;p bạn tiết kiệm được một khoản tiền khi mua iPhone 15 Pro Max.</p>\r\n<p><strong>&bull; Hệ thống cửa h&agrave;ng rộng khắp:</strong>&nbsp;Thế Giới Di Động c&oacute; mạng lưới cửa h&agrave;ng rộng khắp tr&ecirc;n to&agrave;n quốc, gi&uacute;p bạn dễ d&agrave;ng t&igrave;m được một cửa h&agrave;ng gần nh&agrave; để mua sắm. Bạn cũng c&oacute; thể trực tiếp kiểm tra sản phẩm v&agrave; nhận sự hỗ trợ từ nh&acirc;n vi&ecirc;n tại cửa h&agrave;ng.</p>\r\n<p><strong>&bull; Dịch vụ hậu m&atilde;i chuy&ecirc;n nghiệp:&nbsp;</strong>Thế Giới Di Động cung cấp dịch vụ hậu m&atilde;i chuy&ecirc;n nghiệp, bao gồm bảo h&agrave;nh, sửa chữa v&agrave; hỗ trợ kỹ thuật. Điều n&agrave;y gi&uacute;p bạn y&ecirc;n t&acirc;m về việc sử dụng trong thời gian d&agrave;i.</p>', 'Điện-thoai-iphone-15-pro-max-256gb', '<p><strong>Cấu h&igrave;nh Điện thoại iPhone 15 Pro Max 256GB</strong></p>\r\n<p>M&agrave;n h&igrave;nh: OLED6.7\"Super Retina XDR<br />Hệ điều h&agrave;nh: iOS 17<br />Camera sau: Ch&iacute;nh 48 MP &amp; Phụ 12 MP, 12 MP<br />Camera trước: 12 MP<br />Chip: Apple A17 Pro 6 nh&acirc;n<br />RAM: 8 GB<br />Dung lượng lưu trữ: 256 GB<br />SIM: 1 Nano SIM &amp; 1 eSIMHỗ trợ 5G<br />Pin, Sạc: 4422 mAh20 W</p>', 33900000, 35000000, 15, 1, 'active', 1, 11, '2023-11-11 20:18:17', '2023-11-15 04:46:31'),
-(2, 'Điện thoại Xiaomi 13T Pro 5G', '<h2>Th&ocirc;ng tin sản phẩm<br />Xiaomi 13T Pro 5G l&agrave; mẫu m&aacute;y thuộc ph&acirc;n kh&uacute;c tầm trung đ&aacute;ng ch&uacute; &yacute; tại thị trường Việt Nam. Điện thoại ấn tượng nhờ được trang bị chip Dimensity 9200+, camera 50 MP c&oacute; k&egrave;m sự hợp t&aacute;c với Leica c&ugrave;ng kiểu thiết kế tinh tế đầy sang trọng.<br />Ngoại h&igrave;nh đẹp mắt c&ugrave;ng chất liệu cao cấp <br />Mặt lưng của Xiaomi 13T Pro được thiết kế l&agrave;m phẳng với một sự bo cong nhẹ ở v&ugrave;ng r&igrave;a, tạo n&ecirc;n sự ho&agrave;n hảo trong việc cầm nắm. Với chất liệu k&iacute;nh cao cấp, m&aacute;y trở n&ecirc;n mỏng nhẹ v&agrave; mềm mại, gi&uacute;p bạn c&oacute; thể dễ d&agrave;ng sử dụng trong thời gian d&agrave;i m&agrave; kh&ocirc;ng cảm thấy cấn tay hay kh&oacute; chịu.</h2>\r\n<p>Mặt lưng b&oacute;ng lo&aacute;ng của Xiaomi 13T Pro mang đến sự sang trọng v&agrave; l&ocirc;i cuốn. Được gia c&ocirc;ng một c&aacute;ch tỉ mỉ khiến mặt lưng của chiếc điện thoại Xiaomi trở n&ecirc;n rất cuốn h&uacute;t v&agrave; đẳng cấp. Kh&ocirc;ng chỉ l&agrave; một c&ocirc;ng cụ c&ocirc;ng nghệ, Xiaomi 13T Pro c&ograve;n l&agrave; một biểu tượng thời trang thể hiện c&aacute; t&iacute;nh v&agrave; phong c&aacute;ch của bạn.</p>\r\n<p>Thiết kế điện thoại - Xiaomi 13T Pro 5G</p>\r\n<p>Một trong những yếu tố quan trọng nhất của thiết kế Xiaomi 13T Pro ch&iacute;nh l&agrave; khung b&ecirc;n được chế t&aacute;c b&oacute;ng lo&aacute;ng một c&aacute;ch tỉ mỉ. Được l&agrave;m từ chất liệu kim loại cao cấp, khung n&agrave;y kh&ocirc;ng chỉ bền vững v&agrave; chống chịu được những điều kiện sử dụng khắc nghiệt, m&agrave; c&ograve;n mang đến một cảm gi&aacute;c sang trọng v&agrave; đẳng cấp về mặt thẩm mỹ khi cầm nắm.</p>\r\n<p>Một điểm đặc biệt đ&aacute;ng ch&uacute; &yacute; tr&ecirc;n Xiaomi 13T Pro l&agrave; cụm camera được thiết kế với sự hợp t&aacute;c độc đ&aacute;o c&ugrave;ng h&atilde;ng Leica danh tiếng. D&ograve;ng chữ \"Leica\" tỏa s&aacute;ng tr&ecirc;n mặt sau của điện thoại, l&agrave; một dấu ấn về sự hiện đại v&agrave; uy t&iacute;n trong lĩnh vực chụp ảnh. Nhờ v&agrave;o đ&oacute; m&agrave; bất kỳ ai nh&igrave;n v&agrave;o cũng c&oacute; thể dễ d&agrave;ng nhận thấy rằng đ&acirc;y l&agrave; một chiếc điện thoại quay phim, chụp ảnh ấn tượng.</p>\r\n<p>M&agrave;n h&igrave;nh sắc n&eacute;t c&ugrave;ng tần số qu&eacute;t cao<br />Xiaomi 13T Pro sử dụng c&ocirc;ng nghệ m&agrave;n h&igrave;nh AMOLED, một trong những c&ocirc;ng nghệ m&agrave;n h&igrave;nh h&agrave;ng đầu tr&ecirc;n thị trường. Điều n&agrave;y đồng nghĩa với việc bạn sẽ được trải nghiệm m&agrave;u sắc ch&acirc;n thực v&agrave; độ s&acirc;u tối đa trong từng h&igrave;nh ảnh. Đen sẽ thực sự l&agrave; m&agrave;u đen s&acirc;u v&agrave; mọi chi tiết sẽ được hiển thị r&otilde; r&agrave;ng v&agrave; sắc n&eacute;t.</p>\r\n<p>Với độ ph&acirc;n giải 1.5K (1220 x 2712 Pixels), m&agrave;n h&igrave;nh của Xiaomi 13T Pro mang đến h&igrave;nh ảnh cực kỳ ch&acirc;n thực v&agrave; sống động. Mọi chi tiết từ văn bản đến h&igrave;nh ảnh đều sắc n&eacute;t v&agrave; r&otilde; r&agrave;ng, tạo n&ecirc;n trải nghiệm xem h&igrave;nh ảnh v&agrave; video đỉnh cao. Điều n&agrave;y cho thấy Xiaomi 13T Pro thực sự ph&ugrave; hợp d&ugrave;ng cho việc xem phim hay chơi game giải tr&iacute; d&agrave;i l&acirc;u.</p>\r\n<p>Xiaomi 13T Pro g&acirc;y ấn tượng ngay từ c&aacute;i nh&igrave;n đầu ti&ecirc;n với m&agrave;n h&igrave;nh lớn v&agrave; tinh tế với k&iacute;ch thước 6.67 inch. Với k&iacute;ch thước rộng r&atilde;i như vậy, bạn sẽ được tận hưởng mọi h&igrave;nh ảnh, video v&agrave; nội dung đa phương tiện với trải nghiệm tối ưu. Kh&ocirc;ng gian m&agrave;n h&igrave;nh lớn cũng tạo điều kiện tốt cho sự s&aacute;ng tạo v&agrave; l&agrave;m việc hiệu quả hơn tr&ecirc;n điện thoại di động.</p>\r\n<p>M&agrave;n h&igrave;nh điện thoại - Xiaomi 13T Pro 5G</p>\r\n<p>Một trong những điểm đặc biệt v&agrave; ấn tượng của Xiaomi 13T Pro ch&iacute;nh l&agrave; tần số qu&eacute;t 144 Hz của m&agrave;n h&igrave;nh. Đ&acirc;y được xem l&agrave; mức tần số cao hiếm hoi m&agrave; &iacute;t c&oacute; chiếc điện thoại kinh doanh ch&iacute;nh h&atilde;ng tại Việt Nam c&oacute; trang bị, nhờ v&agrave;o đ&oacute; m&agrave; m&aacute;y trở n&ecirc;n nổi bật hơn đối với những ai y&ecirc;u cầu một m&agrave;n h&igrave;nh mượt m&agrave; d&ugrave;ng để chơi game.</p>\r\n<p>Tần số qu&eacute;t cao như vậy mang lại một loạt lợi &iacute;ch đ&aacute;ng kinh ngạc, tần số qu&eacute;t 144 Hz cải thiện khả năng phản ứng v&agrave; đ&aacute;p ứng của m&agrave;n h&igrave;nh khi bạn vuốt, chạm hoặc thao t&aacute;c tr&ecirc;n n&oacute;. Điều n&agrave;y l&agrave;m tăng t&iacute;nh tương t&aacute;c v&agrave; hiệu suất trong c&aacute;c ứng dụng v&agrave; tr&ograve; chơi y&ecirc;u cầu sự nhanh nhạy.</p>\r\n<p>Hiệu năng dẫn đầu trong ph&acirc;n kh&uacute;c<br />Với MediaTek Dimensity 9200+, Xiaomi 13T Pro thể hiện sự mạnh mẽ trong hiệu năng v&agrave; khả năng xử l&yacute; đỉnh cao. Bộ vi xử l&yacute; mạnh mẽ n&agrave;y kh&ocirc;ng chỉ gi&uacute;p bạn trải nghiệm mượt m&agrave; khi chạy c&aacute;c ứng dụng v&agrave; tr&ograve; chơi y&ecirc;u cầu đồ hoạ cao m&agrave; c&ograve;n tối ưu h&oacute;a ti&ecirc;u thụ năng lượng, gi&uacute;p pin của chiếc điện thoại duy tr&igrave; thời gian sử dụng l&acirc;u d&agrave;i.</p>\r\n<p>MediaTek Dimensity 9200+ c&oacute; cấu h&igrave;nh gồm 8 nh&acirc;n CPU, trong đ&oacute; c&oacute; một nh&acirc;n Cortex-X3 xung nhịp l&ecirc;n tới 3.35 GHz, ba nh&acirc;n Cortex-A715 xung nhịp 3 GHz v&agrave; bốn nh&acirc;n Cortex-A510 xung nhịp 2 GHz. Cho thấy cấu h&igrave;nh cực khủng v&agrave; ho&agrave;n to&agrave;n c&oacute; thể cạnh tranh ngang h&agrave;ng với những mẫu chip cao cấp đến từ Qualcomm như Snapdragon 8+ Gen 1.</p>\r\n<p>Cấu h&igrave;nh điện thoại - Xiaomi 13T Pro 5G</p>\r\n<p>L&agrave; một chiếc điện thoại RAM 12 GB, Xiaomi 13T Pro đảm bảo rằng bạn sẽ kh&ocirc;ng bao giờ phải lo lắng về t&igrave;nh trạng đa nhiệm. Bạn c&oacute; thể chạy nhiều ứng dụng c&ugrave;ng l&uacute;c m&agrave; kh&ocirc;ng gặp t&igrave;nh trạng giật lag. Điều n&agrave;y đặc biệt hữu &iacute;ch cho những người d&ugrave;ng cần xử l&yacute; c&aacute;c t&aacute;c vụ nặng hoặc sử dụng ứng dụng đa nhiệm.</p>\r\n<p>Xiaomi 13T Pro được trang bị hệ điều h&agrave;nh Android 13, phi&ecirc;n bản mới nhất của hệ điều h&agrave;nh di động phổ biến của Google. Điều n&agrave;y đồng nghĩa với việc bạn sẽ được trải nghiệm c&aacute;c t&iacute;nh năng v&agrave; cải tiến mới nhất từ Google, bao gồm cải thiện về hiệu năng, bảo mật v&agrave; khả năng t&ugrave;y chỉnh tiện &iacute;ch.</p>\r\n<p>Hợp t&aacute;c với Leica trong việc thiết lập camera<br />Xiaomi 13T Pro được trang bị ba camera mạnh mẽ, bao gồm một camera ch&iacute;nh 50 MP, camera tele 50 MP v&agrave; camera g&oacute;c si&ecirc;u rộng 12 MP. Điều n&agrave;y mang đến sự đa dạng trong phong c&aacute;ch chụp khi c&oacute; nhiều chế độ kh&aacute;c nhau, gi&uacute;p bạn thỏa sức s&aacute;ng tạo v&agrave; tạo n&ecirc;n bộ sưu tập ảnh một c&aacute;ch nghệ thuật.</p>\r\n<p>Camera ch&iacute;nh 50 MP của Xiaomi 13T Pro gi&uacute;p bạn bắt lấy m&agrave;u sắc ch&acirc;n thực v&agrave; độ sắc n&eacute;t xuất sắc. Khả năng chụp ảnh trong điều kiện &aacute;nh s&aacute;ng yếu v&agrave; ứng dụng c&ocirc;ng nghệ xử l&yacute; ảnh h&agrave;ng đầu gi&uacute;p bạn c&oacute; những bức ảnh đẹp ngay cả trong điều kiện kh&oacute; khăn.</p>\r\n<p>Camera điện thoại - Xiaomi 13T Pro 5G</p>\r\n<p>Camera g&oacute;c si&ecirc;u rộng 12 MP của Xiaomi 13T Pro cho ph&eacute;p bạn mở rộng g&oacute;c nh&igrave;n v&agrave; chụp những bức ảnh rộng lớn hoặc bắt lấy cảnh quan phức tạp. Điều n&agrave;y tạo ra những t&aacute;c phẩm nghệ thuật độc đ&aacute;o v&agrave; th&uacute; vị. Hơn hết, với độ ph&acirc;n giải si&ecirc;u cao sẽ gi&uacute;p mọi bức ảnh bạn chụp từ chế độ n&agrave;y đều đạt độ chi tiết ấn tượng.</p>\r\n<p>Một trong những điểm đặc biệt nổi bật của chiếc điện thoại chụp ảnh, quay phim n&agrave;y l&agrave; sự hợp t&aacute;c độc đ&aacute;o v&agrave; đầy ấn tượng với h&atilde;ng nhiếp ảnh danh tiếng Leica. Đ&acirc;y l&agrave; một sự kết hợp đ&aacute;ng ch&uacute; &yacute; giữa c&ocirc;ng nghệ điện thoại di động v&agrave; chuy&ecirc;n m&ocirc;n nhiếp ảnh cao cấp.</p>\r\n<p>Nhờ sự hợp t&aacute;c n&agrave;y, Xiaomi 13T Pro kh&ocirc;ng chỉ l&agrave; một chiếc điện thoại th&ocirc;ng minh mạnh mẽ, m&agrave; c&ograve;n l&agrave; một c&ocirc;ng cụ nhiếp ảnh v&agrave; quay phim đ&aacute;ng tin cậy, gi&uacute;p bạn tự tin ghi lại những khoảnh khắc đẹp v&agrave; sắc n&eacute;t như một nhiếp ảnh gia chuy&ecirc;n nghiệp.</p>\r\n<p>Sử dụng pin lớn v&agrave; hỗ trợ sạc si&ecirc;u nhanh 120 W<br />Xiaomi 13T Pro được trang bị một vi&ecirc;n pin si&ecirc;u bền với dung lượng l&ecirc;n đến 5000 mAh. Điều n&agrave;y đồng nghĩa với việc bạn c&oacute; thể sử dụng điện thoại m&agrave; kh&ocirc;ng phải lo lắng về việc sạc lại pin trong suốt cả ng&agrave;y. D&ugrave; bạn l&agrave; người d&ugrave;ng thường xuy&ecirc;n xem video hoặc chơi game hay đơn giản l&agrave; thực hiện c&aacute;c t&aacute;c vụ hằng ng&agrave;y, pin dung lượng lớn n&agrave;y sẽ giữ cho bạn ở trạng th&aacute;i hoạt động trong thời gian d&agrave;i.</p>\r\n<p>Pin v&agrave; sạc điện thoại - Xiaomi 13T Pro 5G</p>\r\n<p>Để đ&aacute;p ứng nhu cầu sạc nhanh v&agrave; tiết kiệm thời gian của người d&ugrave;ng, Xiaomi 13T Pro trang bị c&ocirc;ng nghệ sạc si&ecirc;u nhanh với c&ocirc;ng suất l&ecirc;n đến 120 W. Điều n&agrave;y c&oacute; nghĩa l&agrave; bạn c&oacute; thể sạc đầy pin từ 0% l&ecirc;n 100% chỉ trong thời gian rất ngắn. Với chỉ v&agrave;i ph&uacute;t sạc, bạn c&oacute; thể sử dụng điện thoại trong một thời gian d&agrave;i.</p>\r\n<p>Với mức gi&aacute; b&aacute;n phải chăng c&ugrave;ng bộ cấu h&igrave;nh ấn tượng, Xiaomi 13T Pro 5G thực sự l&agrave; một c&aacute;i t&ecirc;n đ&aacute;ng ch&uacute; &yacute; trong ph&acirc;n kh&uacute;c điện thoại tầm trung. M&aacute;y ph&ugrave; hợp cho những ai đang t&igrave;m mua một chiếc điện thoại c&oacute; cấu h&igrave;nh mạnh mẽ đ&aacute;p ứng mọi t&aacute;c vụ, hỗ trợ chụp ảnh quay phim chuy&ecirc;n nghiệp hay y&ecirc;u th&iacute;ch sự hợp t&aacute;c lần n&agrave;y giữa Leica với Xiaomi.</p>\r\n<p>&nbsp;</p>', 'Điện-thoai-xiaomi-13t-pro-5g', '<p><strong>Cấu h&igrave;nh Điện thoại Xiaomi 13T Pro 5G</strong></p>\r\n<p>M&agrave;n h&igrave;nh: AMOLED6.67\"1.5K<br />Hệ điều h&agrave;nh: Android 13<br />Camera sau: Ch&iacute;nh 50 MP &amp; Phụ 50 MP, 12 MP<br />Camera trước: 20 MP<br />Chip: MediaTek Dimensity 9200+ 5G 8 nh&acirc;n<br />RAM: 12 GB<br />Dung lượng lưu trữ: 256 GB<br />SIM: 2 Nano SIMHỗ trợ 5G<br />Pin, Sạc: 5000 mAh120 W</p>', 14490000, 16900000, 15, 1, 'active', 1, 7, '2023-11-11 20:22:13', '2023-11-15 04:47:19'),
-(3, 'Tai nghe Bluetooth AirPods Pro Gen 2 MagSafe Charge (USB-C) Apple MTJV3', '<h2>Tai nghe Bluetooth AirPods Pro (2nd Gen) USB-C Charge Apple sở hữu thiết kế mang đậm chất thương hiệu Apple, m&agrave;u sắc sang trọng, đi c&ugrave;ng nhiều c&ocirc;ng nghệ cho c&aacute;c iFan: chip Apple H2, chống bụi, chống ồn chủ động,... hứa hẹn mang đến trải nghiệm &acirc;m thanh sống động, chinh phục người d&ugrave;ng.</h2>\r\n<p><br />Giữ nguy&ecirc;n thiết kế c&ugrave;ng vật liệu t&aacute;i chế th&acirc;n thiện m&ocirc;i trường<br />Tai nghe Bluetooth AirPods Pro (2nd Gen) được Apple tr&igrave;nh l&agrave;ng v&agrave;o th&aacute;ng 09/2023 với nhiều sự mong đợi, Apple vẫn giữ nguy&ecirc;n thiết kế AirPods Pro Gen 2 giống với phi&ecirc;n bản tiền nhiệm của m&igrave;nh như: k&iacute;ch thước nhỏ gọn, đường bo g&oacute;c tinh tế, gam m&agrave;u trắng sang trọng.</p>\r\n<p>Tuy nhi&ecirc;n trong lần ra mắt n&agrave;y, Apple đ&atilde; thay mới cổng sạc cho c&aacute;c thiết bị của m&igrave;nh, tương tự như cổng sạc tr&ecirc;n c&aacute;c mẫu iPhone 15 series, AirPods Pro Gen 2 được t&iacute;ch hợp cổng sạc Type-C nhằm tối ưu phụ kiện sạc giữa c&aacute;c thiết bị. Khi hết pin bạn c&oacute; thể sạc lại hộp sạc bằng bộ sạc Apple Watch hay MagSafe. Ngo&agrave;i ra bạn c&ograve;n c&oacute; thể sử dụng đầu nối Type-C hoặc bộ sạc chuẩn Qi để nạp lại pin cho chiếc AirPods của m&igrave;nh.</p>', 'tai-nghe-bluetooth-airpods-pro-gen-2-magsafe-charge-(usb-c)-apple-mtjv3', '<p><strong>Th&ocirc;ng số kỹ thuật Tai nghe Bluetooth AirPods Pro Gen 2 MagSafe Charge (USB-C) Apple MTJV3</strong></p>\r\n<p>Thời gian tai nghe: D&ugrave;ng 6 giờ<br />Thời gian hộp sạc: D&ugrave;ng 30 giờ<br />Cổng sạc: Type-CSạc kh&ocirc;ng d&acirc;y QiSạc MagSafe<br />C&ocirc;ng nghệ &acirc;m thanh: Adaptive EQActive Noise CancellationAmbient SoundChip Apple H2<br />Tương th&iacute;ch: Android, iOS, Windows<br />Tiện &iacute;ch: Sạc kh&ocirc;ng d&acirc;yC&oacute; mic thoạiSạc nhanhChống ồn chủ động ANCChống nước &amp; bụi IP54Trợ l&yacute; ảo Siri<br />Hỗ trợ kết nối: Bluetooth 5.3<br />Điều khiển bằng: Cảm ứng chạm</p>', 5990000, 6990000, 15, 1, 'active', 1, 10, '2023-11-11 20:24:47', '2023-11-15 04:49:52'),
-(4, 'Máy tính bảng iPad Air 5 M1 WiFi 64GB', '<h2>iPad Air 5 M1 WiFi 64 GB đ&atilde; được c&ocirc;ng bố tại sự kiện Peek Performance diễn ra h&ocirc;m 9/3 (theo giờ Việt Nam). Năm nay Apple đ&atilde; c&oacute; những thay đổi lớn về cả hiệu năng v&agrave; bổ sung m&agrave;u sắc mới cho thiết bị.</h2>\r\n<p><br />Sức mạnh từ con chip M1<br />Sức mạnh từ con chip M1 - iPad Air 5 M1 Wifi 64 GB</p>\r\n<p><img style=\"display: block; margin-left: auto; margin-right: auto;\" src=\"/adminIsmart/public/storage/photos/1/Product/ipad-air-5-150322-044254.jpeg\" alt=\"\" width=\"550\" /></p>\r\n<p>Apple M1 8 nh&acirc;n l&agrave; vi xử l&yacute; do ch&iacute;nh Apple nghi&ecirc;n cứu v&agrave; sản xuất. Con chip n&agrave;y đ&atilde; được chứng minh sức mạnh qua nhiều d&ograve;ng sản phẩm v&agrave; b&acirc;y giờ đ&atilde; xuất hiện tr&ecirc;n iPad Air 5 M1 WiFi 64 GB. Với 8 nh&acirc;n CPU, vi xử l&yacute; n&agrave;y sẽ gi&uacute;p thiết bị c&oacute; thể hoạt động ổn định c&ugrave;ng với RAM 8 GB.</p>\r\n<p>Thiết kế sang trọng<br />Thiết kế sang trọng - iPad Air 5 M1 Wifi 64 GB</p>\r\n<p>iPad Air 5 M1 WiFi 64 GB c&oacute; thiết kế phẳng ở 4 cạnh, mặt sau được l&agrave;m từ nh&ocirc;m với nhiều m&agrave;u sắc tươi trẻ. Đặc biệt, năm nay Apple đ&atilde; bổ sung m&agrave;u t&iacute;m cho d&ograve;ng iPad Air 5 M1 WiFi 64 GB, m&agrave;u sắc n&agrave;y sẽ g&acirc;y ấn tượng mạnh khi ch&uacute;ng ta cầm m&aacute;y sử dụng. M&agrave;n h&igrave;nh của m&aacute;y cũng được l&agrave;m phẳng với k&iacute;ch thước 10.9 inch.</p>', 'may-tinh-bang-ipad-air-5-m1-wifi-64gb', '<p><strong>Cấu h&igrave;nh M&aacute;y t&iacute;nh bảng iPad Air 5 M1 WiFi 64GB</strong></p>\r\n<p>M&agrave;n h&igrave;nh: 10.9\"Retina IPS LCD<br />Hệ điều h&agrave;nh: iPadOS 15<br />Chip: Apple M1<br />RAM: 8 GB<br />Dung lượng lưu trữ: 64 GB<br />Kết nối: Nghe gọi qua FaceTime<br />Camera sau: 12 MP<br />Camera trước: 12 MP<br />Pin, Sạc: 28.6 Wh (~ 7587 mAh)20 W</p>', 14090000, 16090000, 15, 0, 'active', 1, 9, '2023-11-11 20:28:37', '2023-11-15 04:49:11'),
-(5, 'Laptop Asus TUF Gaming F15 FX506HF i5 11400H/8GB/512GB/4GB RTX2050/144Hz/Win11 (HN014W)', '16990000', 'laptop-asus-tuf-gaming-f15-fx506hf-i5-11400h/8gb/512gb/4gb-rtx2050/144hz/win11-(hn014w)', '<p><strong>Cấu h&igrave;nh Laptop Asus TUF Gaming F15 FX506HF i5 11400H/8GB/512GB/4GB RTX2050/144Hz/Win11 (HN014W)</strong></p>\r\n<p>CPU:i511400H2.7GHz<br />RAM:8 GBDDR4 2 khe (1 khe 8 GB + 1 khe rời)3200 MHz<br />Ổ cứng:Hỗ trợ th&ecirc;m 1 khe cắm SSD M.2 PCIe mở rộng (n&acirc;ng cấp tối đa 1 TB)512 GB SSD NVMe PCIe (C&oacute; thể th&aacute;o ra, lắp thanh kh&aacute;c tối đa 1 TB)<br />M&agrave;n h&igrave;nh:15.6\"Full HD (1920 x 1080) 144Hz<br />Card m&agrave;n h&igrave;nh:Card rờiRTX 2050 4GB<br />Cổng kết nối:1 x Thunderbolt 4 (hỗ trợ DisplayPort)HDMILAN (RJ45)3 x USB 3.2Jack tai nghe 3.5 mm<br />Đặc biệt:C&oacute; đ&egrave;n b&agrave;n ph&iacute;m<br />Hệ điều h&agrave;nh:Windows 11 Home SL<br />Thiết kế:Vỏ nhựa - nắp lưng bằng kim loại<br />K&iacute;ch thước, khối lượng:D&agrave;i 359 mm - Rộng 256 mm - D&agrave;y 22.8 ~ 24.5 mm - Nặng 2.3 kg<br />Thời điểm ra mắt:2023</p>', 16990000, 18990000, 15, 1, 'active', 1, 15, '2023-11-15 04:11:04', '2023-11-15 04:11:04'),
-(6, 'Laptop Acer Aspire 5 Gaming A515 58GM 51LB i5 13420H/16GB/512GB/4GB RTX2050/Win11 (NX.KQ4SV.002)', '<p>Mẫu laptop gaming với mức gi&aacute; tầm trung đến từ thương hiệu Acer vừa được l&ecirc;n kệ tại Thế Giới Di Động, sở hữu hiệu năng mạnh mẽ với con chip Intel Gen 13 d&ograve;ng H hiệu năng cao, RAM 16 GB, card rời RTX c&ugrave;ng nhiều t&iacute;nh năng hiện đại. Laptop Acer Aspire 5 Gaming A515 58GM 51LB i5 13420H (NX.KQ4SV.002) chắc chắn sẽ mang đến cho bạn những trải nghiệm sử dụng v&agrave; chiến game giải tr&iacute; tuyệt vời.<br />Cấu h&igrave;nh chiến mọi tựa game \"HOT HIT\" <br />Những mẫu laptop Aspire Gaming chắc chắn đ&atilde; qu&aacute; quen thuộc với anh em nhờ hiệu năng mạnh mẽ nhưng lại được gắn với m&aacute;c gi&aacute; v&ocirc; c&ugrave;ng hợp l&yacute;. Với mẫu Acer Aspire 5 Gaming v&agrave;o năm 2023 n&agrave;y chắc chắn sẽ kh&ocirc;ng l&agrave;m mọi người thất vọng với cũng gi&aacute; đ&oacute; nhưng hiệu năng c&oacute; phần được n&acirc;ng l&ecirc;n nữa.</p>\r\n<p>Laptop được trang bị bộ vi xử l&yacute; Intel Core i5 Raptor Lake - 13420H c&ugrave;ng card rời NVIDIA GeForce RTX 2050 4 GB đa nhiệm hiệu quả cho m&igrave;nh mọi c&ocirc;ng việc tr&ecirc;n cơ quan, học tập hay giải tr&iacute; thường ng&agrave;y đến việc thực hiện c&aacute;c bản thiết kế tr&ecirc;n nền tảng Premiere, Photoshop,... tuy nhi&ecirc;n với c&aacute;c ấn phẩm nghệ thuật, đồ hoạ động qu&aacute; nhiều layer hay effect th&igrave; m&igrave;nh đ&aacute;nh gi&aacute; m&aacute;y chưa đ&aacute;p ứng được nhanh ch&oacute;ng, nếu chỉ sử dụng cho c&ocirc;ng việc th&ocirc;ng thường th&ocirc;i th&igrave; vẫn rất ok nha.</p>\r\n<p><img style=\"display: block; margin-left: auto; margin-right: auto;\" src=\"/adminIsmart/public/storage/photos/1/Product/acer-aspire-5-a515-58gm-51lb-i5-nxkq4sv002-asc-7.jpg\" alt=\"\" width=\"880\" /></p>\r\n<p>Một điểm m&agrave; chắc chắn mọi người cũng kh&aacute; quan t&acirc;m tr&ecirc;n mẫu m&aacute;y n&agrave;y l&agrave; khả năng chơi c&aacute;c tựa game. Theo như m&igrave;nh nh&igrave;n nhận th&igrave; tốc độ đ&aacute;p ứng c&aacute;c tựa game Online/Esports như PUBG, LOL, Valorant, FO kh&aacute; tốt, hầu hết mọi tựa game đều c&oacute; mức FPS ổn định v&agrave; chơi trong thời gian d&agrave;i th&igrave; hiệu suất hoạt động vẫn được duy tr&igrave; bền bỉ.</p>\r\n<p>Bộ nhớ RAM 16 GB cho ph&eacute;p m&igrave;nh mở được nhiều cửa sổ tr&igrave;nh duyệt Chrome c&ugrave;ng l&uacute;c m&agrave; vẫn kh&ocirc;ng c&oacute; hiện tượng giật lag qu&aacute; nhiều v&agrave; em laptop Acer cũng hỗ trợ n&acirc;ng cấp tối đa 32 GB, ho&agrave;n to&agrave;n gi&uacute;p m&igrave;nh xử l&yacute; được khối lượng c&ocirc;ng việc nhiều hơn.</p>\r\n<p>Ổ cứng SSD 512 GB NVMe PCIe b&ecirc;n cạnh việc gi&uacute;p m&igrave;nh c&oacute; thể dễ d&agrave;ng truy xuất hay khởi động ứng dụng nhanh ch&oacute;ng th&igrave; c&ograve;n mang đến kh&ocirc;ng gian lưu trữ rộng lớn cho một sinh vi&ecirc;n như m&igrave;nh. Đối với những bạn thường l&agrave;m việc với c&aacute;c bản thiết kế hoặc tải nhiều tựa game th&igrave; m&aacute;y c&ograve;n hỗ trợ mở rộng kh&ocirc;ng gian lưu trữ l&ecirc;n tối đa 1 TB.</p>', 'laptop-acer-aspire-5-gaming-a515-58gm-51lb-i5-13420h/16gb/512gb/4gb-rtx2050/win11-(nx.kq4sv.002)', '<p><strong>Cấu h&igrave;nh Laptop Acer Aspire 5 Gaming A515 58GM 51LB i5 13420H/16GB/512GB/4GB RTX2050/Win11 (NX.KQ4SV.002)</strong></p>\r\n<p>CPU: i513420H2.1GHz<br />RAM: 16 GBDDR4 2 khe (1 khe 8 GB + 1 khe 8 GB)3200 MHz<br />Ổ cứng: 512 GB SSD NVMe PCIe (C&oacute; thể th&aacute;o ra, lắp thanh kh&aacute;c tối đa 1 TB)Hỗ trợ th&ecirc;m 1 khe cắm SSD M.2 PCIe Gen 4 mở rộng (n&acirc;ng cấp tối đa 1 TB)<br />M&agrave;n h&igrave;nh: 15.6\"Full HD (1920 x 1080)<br />Card m&agrave;n h&igrave;nh: Card rờiRTX 2050 4GB<br />Cổng kết nối: HDMILAN (RJ45)Jack tai nghe 3.5 mm1 x USB Type-C (hỗ trợ USB, Thunderbolt 4)2 x USB Type-A<br />Đặc biệt: C&oacute; đ&egrave;n b&agrave;n ph&iacute;m<br />Hệ điều h&agrave;nh: Windows 11 Home SL<br />Thiết kế: Vỏ nhựa - nắp lưng bằng kim loại<br />K&iacute;ch thước, khối lượng: D&agrave;i 361 mm - Rộng 237 mm - D&agrave;y 17.9 mm - Nặng 1.7 kg<br />Thời điểm ra mắt: 2023</p>', 16990000, 17990000, 15, 1, 'active', 1, 16, '2023-11-15 04:18:08', '2023-11-17 04:01:49');
+(2, 'Điện thoại Xiaomi 13T Pro 5G', '<p>Xiaomi 13T Pro 5G l&agrave; mẫu m&aacute;y thuộc ph&acirc;n kh&uacute;c tầm trung đ&aacute;ng ch&uacute; &yacute; tại thị trường Việt Nam. Điện thoại ấn tượng nhờ được trang bị chip Dimensity 9200+, camera 50 MP c&oacute; k&egrave;m sự hợp t&aacute;c với Leica c&ugrave;ng kiểu thiết kế tinh tế đầy sang trọng.<br />Ngoại h&igrave;nh đẹp mắt c&ugrave;ng chất liệu cao cấp <br />Mặt lưng của Xiaomi 13T Pro được thiết kế l&agrave;m phẳng với một sự bo cong nhẹ ở v&ugrave;ng r&igrave;a, tạo n&ecirc;n sự ho&agrave;n hảo trong việc cầm nắm. Với chất liệu k&iacute;nh cao cấp, m&aacute;y trở n&ecirc;n mỏng nhẹ v&agrave; mềm mại, gi&uacute;p bạn c&oacute; thể dễ d&agrave;ng sử dụng trong thời gian d&agrave;i m&agrave; kh&ocirc;ng cảm thấy cấn tay hay kh&oacute; chịu.</p>\r\n<p>Mặt lưng b&oacute;ng lo&aacute;ng của Xiaomi 13T Pro mang đến sự sang trọng v&agrave; l&ocirc;i cuốn. Được gia c&ocirc;ng một c&aacute;ch tỉ mỉ khiến mặt lưng của chiếc điện thoại Xiaomi trở n&ecirc;n rất cuốn h&uacute;t v&agrave; đẳng cấp. Kh&ocirc;ng chỉ l&agrave; một c&ocirc;ng cụ c&ocirc;ng nghệ, Xiaomi 13T Pro c&ograve;n l&agrave; một biểu tượng thời trang thể hiện c&aacute; t&iacute;nh v&agrave; phong c&aacute;ch của bạn.</p>', 'Điện-thoai-xiaomi-13t-pro-5g', '<p><strong>Cấu h&igrave;nh Điện thoại Xiaomi 13T Pro 5G</strong></p>\r\n<p>M&agrave;n h&igrave;nh: AMOLED6.67\"1.5K<br />Hệ điều h&agrave;nh: Android 13<br />Camera sau: Ch&iacute;nh 50 MP &amp; Phụ 50 MP, 12 MP<br />Camera trước: 20 MP<br />Chip: MediaTek Dimensity 9200+ 5G 8 nh&acirc;n<br />RAM: 12 GB<br />Dung lượng lưu trữ: 256 GB<br />SIM: 2 Nano SIMHỗ trợ 5G<br />Pin, Sạc: 5000 mAh120 W</p>', 14490000, 15490000, 15, 1, 'active', 1, 7, '2023-11-11 20:22:13', '2023-11-20 07:35:54'),
+(3, 'Tai nghe Bluetooth AirPods Pro Gen 2 MagSafe Charge (USB-C) Apple MTJV3', '<p><strong>Tai nghe Bluetooth AirPods Pro (2nd Gen) USB-C Charge Apple sở hữu thiết kế mang đậm chất thương hiệu Apple, m&agrave;u sắc sang trọng, đi c&ugrave;ng nhiều c&ocirc;ng nghệ cho c&aacute;c iFan: chip Apple H2, chống bụi, chống ồn chủ động,... hứa hẹn mang đến trải nghiệm &acirc;m thanh sống động, chinh phục người d&ugrave;ng.</strong><br />Giữ nguy&ecirc;n thiết kế c&ugrave;ng vật liệu t&aacute;i chế th&acirc;n thiện m&ocirc;i trường<br />Tai nghe Bluetooth AirPods Pro (2nd Gen) được Apple tr&igrave;nh l&agrave;ng v&agrave;o th&aacute;ng 09/2023 với nhiều sự mong đợi, Apple vẫn giữ nguy&ecirc;n thiết kế AirPods Pro Gen 2 giống với phi&ecirc;n bản tiền nhiệm của m&igrave;nh như: k&iacute;ch thước nhỏ gọn, đường bo g&oacute;c tinh tế, gam m&agrave;u trắng sang trọng.</p>\r\n<p>Tuy nhi&ecirc;n trong lần ra mắt n&agrave;y, Apple đ&atilde; thay mới cổng sạc cho c&aacute;c thiết bị của m&igrave;nh, tương tự như cổng sạc tr&ecirc;n c&aacute;c mẫu iPhone 15 series, AirPods Pro Gen 2 được t&iacute;ch hợp cổng sạc Type-C nhằm tối ưu phụ kiện sạc giữa c&aacute;c thiết bị. Khi hết pin bạn c&oacute; thể sạc lại hộp sạc bằng bộ sạc Apple Watch hay MagSafe. Ngo&agrave;i ra bạn c&ograve;n c&oacute; thể sử dụng đầu nối Type-C hoặc bộ sạc chuẩn Qi để nạp lại pin cho chiếc AirPods của m&igrave;nh.</p>', 'tai-nghe-bluetooth-airpods-pro-gen-2-magsafe-charge-(usb-c)-apple-mtjv3', '<p><strong>Th&ocirc;ng số kỹ thuật Tai nghe Bluetooth AirPods Pro Gen 2 MagSafe Charge (USB-C) Apple MTJV3</strong></p>\r\n<p>Thời gian tai nghe: D&ugrave;ng 6 giờ<br />Thời gian hộp sạc: D&ugrave;ng 30 giờ<br />Cổng sạc: Type-CSạc kh&ocirc;ng d&acirc;y QiSạc MagSafe<br />C&ocirc;ng nghệ &acirc;m thanh: Adaptive EQActive Noise CancellationAmbient SoundChip Apple H2<br />Tương th&iacute;ch: Android, iOS, Windows<br />Tiện &iacute;ch: Sạc kh&ocirc;ng d&acirc;yC&oacute; mic thoạiSạc nhanhChống ồn chủ động ANCChống nước &amp; bụi IP54Trợ l&yacute; ảo Siri<br />Hỗ trợ kết nối: Bluetooth 5.3<br />Điều khiển bằng: Cảm ứng chạm</p>', 5990000, 6990000, 15, 1, 'active', 1, 10, '2023-11-11 20:24:47', '2023-11-20 07:36:47'),
+(4, 'Máy tính bảng iPad Air 5 M1 WiFi 64GB', '<h2>iPad Air 5 M1 WiFi 64 GB đ&atilde; được c&ocirc;ng bố tại sự kiện Peek Performance diễn ra h&ocirc;m 9/3 (theo giờ Việt Nam). Năm nay Apple đ&atilde; c&oacute; những thay đổi lớn về cả hiệu năng v&agrave; bổ sung m&agrave;u sắc mới cho thiết bị.</h2>\r\n<p><br />Sức mạnh từ con chip M1<br />Sức mạnh từ con chip M1 - iPad Air 5 M1 Wifi 64 GB</p>\r\n<p><img style=\"display: block; margin-left: auto; margin-right: auto;\" src=\"/adminIsmart/public/storage/photos/1/Product/ipad-air-5-150322-044254.jpeg\" alt=\"\" width=\"550\" /></p>\r\n<p>Apple M1 8 nh&acirc;n l&agrave; vi xử l&yacute; do ch&iacute;nh Apple nghi&ecirc;n cứu v&agrave; sản xuất. Con chip n&agrave;y đ&atilde; được chứng minh sức mạnh qua nhiều d&ograve;ng sản phẩm v&agrave; b&acirc;y giờ đ&atilde; xuất hiện tr&ecirc;n iPad Air 5 M1 WiFi 64 GB. Với 8 nh&acirc;n CPU, vi xử l&yacute; n&agrave;y sẽ gi&uacute;p thiết bị c&oacute; thể hoạt động ổn định c&ugrave;ng với RAM 8 GB.</p>\r\n<p>Thiết kế sang trọng<br />Thiết kế sang trọng - iPad Air 5 M1 Wifi 64 GB</p>\r\n<p>iPad Air 5 M1 WiFi 64 GB c&oacute; thiết kế phẳng ở 4 cạnh, mặt sau được l&agrave;m từ nh&ocirc;m với nhiều m&agrave;u sắc tươi trẻ. Đặc biệt, năm nay Apple đ&atilde; bổ sung m&agrave;u t&iacute;m cho d&ograve;ng iPad Air 5 M1 WiFi 64 GB, m&agrave;u sắc n&agrave;y sẽ g&acirc;y ấn tượng mạnh khi ch&uacute;ng ta cầm m&aacute;y sử dụng. M&agrave;n h&igrave;nh của m&aacute;y cũng được l&agrave;m phẳng với k&iacute;ch thước 10.9 inch.</p>', 'may-tinh-bang-ipad-air-5-m1-wifi-64gb', '<p><strong>Cấu h&igrave;nh M&aacute;y t&iacute;nh bảng iPad Air 5 M1 WiFi 64GB</strong></p>\r\n<p>M&agrave;n h&igrave;nh: 10.9\"Retina IPS LCD<br />Hệ điều h&agrave;nh: iPadOS 15<br />Chip: Apple M1<br />RAM: 8 GB<br />Dung lượng lưu trữ: 64 GB<br />Kết nối: Nghe gọi qua FaceTime<br />Camera sau: 12 MP<br />Camera trước: 12 MP<br />Pin, Sạc: 28.6 Wh (~ 7587 mAh)20 W</p>', 14090000, 15090000, 15, 0, 'active', 1, 9, '2023-11-11 20:28:37', '2023-11-15 04:49:11'),
+(5, 'Laptop Asus TUF Gaming F15 FX506HF i5 11400H/8GB/512GB/4GB RTX2050/144Hz/Win11 (HN014W)', '<p><strong>Với bộ vi xử l&yacute; Intel Core i5 d&ograve;ng H mạnh mẽ v&agrave; card đồ họa rời NVIDIA GeForce RTX 2050 4 GB, laptop Asus TUF Gaming F15 FX506HF l&agrave; một trong những lựa chọn tuyệt vời cho c&aacute;c game thủ v&agrave; những người d&ugrave;ng l&agrave;m việc đa t&aacute;c vụ hoặc li&ecirc;n quan đến đồ họa, kỹ thuật.</strong><br />&bull; Với bộ vi xử l&yacute; Intel Core i5 11400H c&oacute; tốc độ l&ecirc;n đến 4.5 GHz, chiếc laptop Asus TUF Gaming n&agrave;y đảm bảo hoạt động mượt m&agrave; v&agrave; c&oacute; thể đ&aacute;p ứng tốt c&aacute;c t&aacute;c vụ đa nhiệm, mang lại trải nghiệm sử dụng tuyệt vời trong cả c&ocirc;ng việc lẫn giải tr&iacute;, chiến game ở mức cấu h&igrave;nh cao.</p>\r\n<p>&bull; Asus TUF Gaming F15 được trang bị card đồ họa NVIDIA GeForce RTX 2050 với bộ nhớ đồ họa 4 GB, gi&uacute;p đ&aacute;p ứng tốt nhu cầu chơi game cấu h&igrave;nh cao v&agrave; xử l&yacute; c&aacute;c file thiết kế nặng. Từ đ&oacute; mang lại cho người d&ugrave;ng trải nghiệm chơi game đỉnh cao v&agrave; hiệu suất l&agrave;m việc mượt m&agrave;.</p>\r\n<p>&bull; Bộ nhớ RAM 8 GB DDR4 với khả năng n&acirc;ng cấp tối đa l&ecirc;n đến 32 GB đ&aacute;p ứng nhu cầu chạy đa nhiệm mượt m&agrave;, cho bạn tận hưởng những gi&acirc;y ph&uacute;t chiến game đỉnh cao khi c&oacute; thể mở nhiều ứng dụng từ nghe nhạc, xem phim, game nặng c&ugrave;ng l&uacute;c.</p>\r\n<p>&bull; Với ổ cứng SSD 512 GB, bạn kh&ocirc;ng cần phải lo lắng về dung lượng lưu trữ v&agrave; đồng thời tận hưởng tốc độ khởi động nhanh ch&oacute;ng c&ugrave;ng khả năng tải ứng dụng mượt m&agrave; của chiếc laptop gaming.</p>\r\n<p>&bull; M&agrave;n h&igrave;nh 15.6 inch độ ph&acirc;n giải Full HD (1920 x 1080) v&agrave; tốc độ l&agrave;m mới 144 Hz mang lại h&igrave;nh ảnh sắc n&eacute;t v&agrave; mượt m&agrave;, cho trải nghiệm chơi game tuyệt vời, đặc biệt l&agrave; c&aacute;c game c&oacute; tốc độ khung h&igrave;nh cao. Đồng thời t&iacute;nh năng chống ch&oacute;i Anti Glare gi&uacute;p hạn chế hiện tượng &aacute;nh s&aacute;ng phản chiếu khi sử dụng trong điều kiện &aacute;nh s&aacute;ng mạnh.</p>\r\n<p>&bull; B&ecirc;n cạnh đ&oacute;, laptop c&ograve;n được trang bị hệ thống &acirc;m thanh DTS software ti&ecirc;n tiến, mang lại cho bạn trải nghiệm &acirc;m thanh sống động v&agrave; ch&acirc;n thực hơn bao giờ hết khi sử dụng.</p>\r\n<p>&bull; Laptop Asus c&ograve;n c&oacute; lối thiết kế hầm hố với sắc đen nam t&iacute;nh, tạo n&ecirc;n sự mạnh mẽ v&agrave; đậm t&iacute;nh thể thao. Điểm nhấn của b&agrave;n ph&iacute;m l&agrave; đ&egrave;n nền RGB c&oacute; thể chuyển đổi m&agrave;u sắc, tạo điểm nhấn độc đ&aacute;o khi sử dụng nơi đ&ocirc;ng người.</p>\r\n<p>&bull; M&aacute;y c&oacute; nhiều cổng giao tiếp hữu &iacute;ch: Thunderbolt 4, Jack tai nghe 3.5 mm, USB 3.2, HDMI v&agrave; LAN (RJ45).</p>', 'laptop-asus-tuf-gaming-f15-fx506hf-i5-11400h/8gb/512gb/4gb-rtx2050/144hz/win11-(hn014w)', '<p><strong>Cấu h&igrave;nh Laptop Asus TUF Gaming F15 FX506HF i5 11400H/8GB/512GB/4GB RTX2050/144Hz/Win11 (HN014W)</strong></p>\r\n<p>CPU:i511400H2.7GHz<br />RAM:8 GBDDR4 2 khe (1 khe 8 GB + 1 khe rời)3200 MHz<br />Ổ cứng:Hỗ trợ th&ecirc;m 1 khe cắm SSD M.2 PCIe mở rộng (n&acirc;ng cấp tối đa 1 TB)512 GB SSD NVMe PCIe (C&oacute; thể th&aacute;o ra, lắp thanh kh&aacute;c tối đa 1 TB)<br />M&agrave;n h&igrave;nh:15.6\"Full HD (1920 x 1080) 144Hz<br />Card m&agrave;n h&igrave;nh:Card rờiRTX 2050 4GB<br />Cổng kết nối:1 x Thunderbolt 4 (hỗ trợ DisplayPort)HDMILAN (RJ45)3 x USB 3.2Jack tai nghe 3.5 mm<br />Đặc biệt:C&oacute; đ&egrave;n b&agrave;n ph&iacute;m<br />Hệ điều h&agrave;nh:Windows 11 Home SL<br />Thiết kế:Vỏ nhựa - nắp lưng bằng kim loại<br />K&iacute;ch thước, khối lượng:D&agrave;i 359 mm - Rộng 256 mm - D&agrave;y 22.8 ~ 24.5 mm - Nặng 2.3 kg<br />Thời điểm ra mắt:2023</p>', 16990000, 18990000, 15, 1, 'active', 1, 15, '2023-11-15 04:11:04', '2023-11-20 07:37:34'),
+(6, 'Laptop Acer Aspire 5 Gaming A515 58GM 51LB i5 13420H/16GB/512GB/4GB RTX2050/Win11 (NX.KQ4SV.002)', '<p>Mẫu laptop gaming với mức gi&aacute; tầm trung đến từ thương hiệu Acer vừa được l&ecirc;n kệ tại Thế Giới Di Động, sở hữu hiệu năng mạnh mẽ với con chip Intel Gen 13 d&ograve;ng H hiệu năng cao, RAM 16 GB, card rời RTX c&ugrave;ng nhiều t&iacute;nh năng hiện đại. Laptop Acer Aspire 5 Gaming A515 58GM 51LB i5 13420H (NX.KQ4SV.002) chắc chắn sẽ mang đến cho bạn những trải nghiệm sử dụng v&agrave; chiến game giải tr&iacute; tuyệt vời.<br />Cấu h&igrave;nh chiến mọi tựa game \"HOT HIT\" <br />Những mẫu laptop Aspire Gaming chắc chắn đ&atilde; qu&aacute; quen thuộc với anh em nhờ hiệu năng mạnh mẽ nhưng lại được gắn với m&aacute;c gi&aacute; v&ocirc; c&ugrave;ng hợp l&yacute;. Với mẫu Acer Aspire 5 Gaming v&agrave;o năm 2023 n&agrave;y chắc chắn sẽ kh&ocirc;ng l&agrave;m mọi người thất vọng với cũng gi&aacute; đ&oacute; nhưng hiệu năng c&oacute; phần được n&acirc;ng l&ecirc;n nữa.</p>\r\n<p>Laptop được trang bị bộ vi xử l&yacute; Intel Core i5 Raptor Lake - 13420H c&ugrave;ng card rời NVIDIA GeForce RTX 2050 4 GB đa nhiệm hiệu quả cho m&igrave;nh mọi c&ocirc;ng việc tr&ecirc;n cơ quan, học tập hay giải tr&iacute; thường ng&agrave;y đến việc thực hiện c&aacute;c bản thiết kế tr&ecirc;n nền tảng Premiere, Photoshop,... tuy nhi&ecirc;n với c&aacute;c ấn phẩm nghệ thuật, đồ hoạ động qu&aacute; nhiều layer hay effect th&igrave; m&igrave;nh đ&aacute;nh gi&aacute; m&aacute;y chưa đ&aacute;p ứng được nhanh ch&oacute;ng, nếu chỉ sử dụng cho c&ocirc;ng việc th&ocirc;ng thường th&ocirc;i th&igrave; vẫn rất ok nha.</p>\r\n<p><img style=\"display: block; margin-left: auto; margin-right: auto;\" src=\"/adminIsmart/public/storage/photos/1/Product/acer-aspire-5-a515-58gm-51lb-i5-nxkq4sv002-asc-7.jpg\" alt=\"\" width=\"880\" /></p>\r\n<p>Một điểm m&agrave; chắc chắn mọi người cũng kh&aacute; quan t&acirc;m tr&ecirc;n mẫu m&aacute;y n&agrave;y l&agrave; khả năng chơi c&aacute;c tựa game. Theo như m&igrave;nh nh&igrave;n nhận th&igrave; tốc độ đ&aacute;p ứng c&aacute;c tựa game Online/Esports như PUBG, LOL, Valorant, FO kh&aacute; tốt, hầu hết mọi tựa game đều c&oacute; mức FPS ổn định v&agrave; chơi trong thời gian d&agrave;i th&igrave; hiệu suất hoạt động vẫn được duy tr&igrave; bền bỉ.</p>\r\n<p>Bộ nhớ RAM 16 GB cho ph&eacute;p m&igrave;nh mở được nhiều cửa sổ tr&igrave;nh duyệt Chrome c&ugrave;ng l&uacute;c m&agrave; vẫn kh&ocirc;ng c&oacute; hiện tượng giật lag qu&aacute; nhiều v&agrave; em laptop Acer cũng hỗ trợ n&acirc;ng cấp tối đa 32 GB, ho&agrave;n to&agrave;n gi&uacute;p m&igrave;nh xử l&yacute; được khối lượng c&ocirc;ng việc nhiều hơn.</p>\r\n<p>Ổ cứng SSD 512 GB NVMe PCIe b&ecirc;n cạnh việc gi&uacute;p m&igrave;nh c&oacute; thể dễ d&agrave;ng truy xuất hay khởi động ứng dụng nhanh ch&oacute;ng th&igrave; c&ograve;n mang đến kh&ocirc;ng gian lưu trữ rộng lớn cho một sinh vi&ecirc;n như m&igrave;nh. Đối với những bạn thường l&agrave;m việc với c&aacute;c bản thiết kế hoặc tải nhiều tựa game th&igrave; m&aacute;y c&ograve;n hỗ trợ mở rộng kh&ocirc;ng gian lưu trữ l&ecirc;n tối đa 1 TB.</p>', 'laptop-acer-aspire-5-gaming-a515-58gm-51lb-i5-13420h/16gb/512gb/4gb-rtx2050/win11-(nx.kq4sv.002)', '<p><strong>Cấu h&igrave;nh Laptop Acer Aspire 5 Gaming A515 58GM 51LB i5 13420H/16GB/512GB/4GB RTX2050/Win11 (NX.KQ4SV.002)</strong></p>\r\n<p>CPU: i513420H2.1GHz<br />RAM: 16 GBDDR4 2 khe (1 khe 8 GB + 1 khe 8 GB)3200 MHz<br />Ổ cứng: 512 GB SSD NVMe PCIe (C&oacute; thể th&aacute;o ra, lắp thanh kh&aacute;c tối đa 1 TB)Hỗ trợ th&ecirc;m 1 khe cắm SSD M.2 PCIe Gen 4 mở rộng (n&acirc;ng cấp tối đa 1 TB)<br />M&agrave;n h&igrave;nh: 15.6\"Full HD (1920 x 1080)<br />Card m&agrave;n h&igrave;nh: Card rờiRTX 2050 4GB<br />Cổng kết nối: HDMILAN (RJ45)Jack tai nghe 3.5 mm1 x USB Type-C (hỗ trợ USB, Thunderbolt 4)2 x USB Type-A<br />Đặc biệt: C&oacute; đ&egrave;n b&agrave;n ph&iacute;m<br />Hệ điều h&agrave;nh: Windows 11 Home SL<br />Thiết kế: Vỏ nhựa - nắp lưng bằng kim loại<br />K&iacute;ch thước, khối lượng: D&agrave;i 361 mm - Rộng 237 mm - D&agrave;y 17.9 mm - Nặng 1.7 kg<br />Thời điểm ra mắt: 2023</p>', 16990000, 17990000, 15, 1, 'active', 1, 16, '2023-11-15 04:18:08', '2023-11-17 04:01:49'),
+(7, 'Laptop Dell Inspiron 15 3530 i5 1335U/8GB/512GB/2GB MX550/120Hz/OfficeHS/Win11 (71014840)', '<p>Laptop Dell Inspiron 15 3530 i5 1335U (71014840) sở hữu d&aacute;ng vẻ hiện đại đầy sang trọng, hiệu năng miễn ch&ecirc; với chip Intel thế hệ 13 ho&agrave;n to&agrave;n mới c&ugrave;ng card đồ hoạ rời. Chiếc laptop học tập - văn ph&ograve;ng n&agrave;y chắc chắn l&agrave; sẽ sự lựa chọn tuyệt vời gi&uacute;p bạn đ&aacute;p ứng đầy đủ mọi nhu cầu.<br />&bull; Laptop được trang bị bộ vi xử l&yacute; Intel Core i5 1335U thuộc thế hệ 13 c&oacute; tốc độ xung nhịp tối đa l&ecirc;n đến 4.6 GHz nhờ c&ocirc;ng nghệ Turbo Boost, c&oacute; hiệu năng xử l&yacute; vượt trội, giải quyết nhẹ nh&agrave;ng cho bạn mọi t&aacute;c vụ học tập, l&agrave;m việc tr&ecirc;n Office, Google,... hoặc n&acirc;ng cao hơn như c&aacute;c phần mềm m&aacute;y học đơn giản, coding v&agrave; đồ hoạ.</p>\r\n<p>&bull; Card rời NVIDIA GeForce MX550 2 GB mang đến khả năng xử l&yacute; đồ họa vượt trội, đ&aacute;p ứng tốt c&aacute;c nhu cầu s&aacute;ng tạo của người d&ugrave;ng tr&ecirc;n c&aacute;c nền tảng như Photoshop, Figma, Lightroom, Illustrator,... hay chơi một số tựa game hot.</p>\r\n<p>&bull; Bộ nhớ RAM 8 GB c&oacute; tốc độ Bus tối đa 3200 MHz cho khả năng đa nhiệm đ&aacute;ng kinh ngạc, bạn c&oacute; thể thoải m&aacute;i thao t&aacute;c tr&ecirc;n nhiều ứng dụng m&agrave; kh&ocirc;ng lo gặp hiện tượng giật lag hay gi&aacute;n đoạn.</p>\r\n<p>&bull; Ổ cứng SSD 512 GB mang đến một kh&ocirc;ng gian lưu trữ tương đối rộng lớn v&agrave; đầy đủ cho c&aacute;c ứng dụng, t&agrave;i liệu của bạn, đồng thời cũng cho ph&eacute;p khởi động c&aacute;c phần mềm ứng dụng nhanh ch&oacute;ng chỉ trong v&agrave;i gi&acirc;y.</p>', 'laptop-dell-inspiron-15-3530-i5-1335u/8gb/512gb/2gb-mx550/120hz/officehs/win11-(71014840)', '<p><strong>Cấu h&igrave;nh Laptop Dell Inspiron 15 3530 i5 1335U/8GB/512GB/2GB MX550/120Hz/OfficeHS/Win11 (71014840)</strong></p>\r\n<p>CPU: i51335U1.3GHz<br />RAM: 8 GBDDR4 (1 khe)3200 MHz<br />Ổ cứng: 512 GB SSD NVMe PCIe<br />M&agrave;n h&igrave;nh: 15.6\"Full HD (1920 x 1080) 120Hz<br />Card m&agrave;n h&igrave;nh: Card rờiMX550 2GB<br />Cổng kết nối: 1 x USB Type-C 3.2 (hỗ trợ Power Delivery v&agrave; DisplayPort)HDMI1 x USB 2.01 x USB 3.2Jack tai nghe 3.5 mm<br />Đặc biệt: C&oacute; đ&egrave;n b&agrave;n ph&iacute;m<br />Hệ điều h&agrave;nh: Windows 11 Home SL + Office Home &amp; Student vĩnh viễn<br />Thiết kế: Vỏ nhựa<br />K&iacute;ch thước, khối lượng: D&agrave;i 358.5 mm - Rộng 235.56 mm - D&agrave;y 18.99 mm - Nặng 1.63 kg<br />Thời điểm ra mắt: 2023</p>', 20490000, 22490000, 15, 1, 'active', 1, 14, '2023-11-19 04:40:55', '2023-11-19 04:40:55'),
+(8, 'Laptop Asus TUF Gaming F15 FX506HE i7 11800H/16GB/512GB/4GB RTX3050Ti/144Hz/Win11 (HN378W)', '<p>Laptop Asus TUF Gaming F15 FX506HE i7 11800H (HN378W) mang vẻ đẹp ấn tượng, cuốn h&uacute;t đậm chất gaming, đi c&ugrave;ng cấu h&igrave;nh mạnh mẽ, đa dạng t&iacute;nh năng, chiếc laptop gaming từ nh&agrave; Asus n&agrave;y sẽ trở th&agrave;nh người bạn đồng h&agrave;nh l&yacute; tưởng tr&ecirc;n những chiến trường ảo cho c&aacute;c anh em game thủ.<br />&bull; Laptop Asus TUF Gaming được trang bị bộ vi xử l&yacute; Intel Core i7 11800H v&agrave; card rời NVIDIA GeForce RTX 3050Ti với 4 GB VRAM mang đến hiệu năng xử l&yacute; mạnh mẽ, vừa gi&uacute;p người d&ugrave;ng thoải m&aacute;i thực hiện c&aacute;c c&ocirc;ng việc thiết kế, đồ hoạ, render video,... tr&ecirc;n nền tảng Adobe, vừa cho ph&eacute;p chiến mượt m&agrave; c&aacute;c tựa game.</p>\r\n<p>&bull; Bộ nhớ RAM 16 GB chuẩn DDR4 cho bạn khả năng chạy nhiều chương tr&igrave;nh hoặc t&aacute;c vụ c&ugrave;ng một l&uacute;c m&agrave; kh&ocirc;ng bị giật lag. Hơn nữa, m&aacute;y c&ograve;n hỗ trợ khả năng n&acirc;ng cấp RAM l&ecirc;n đến 32 GB cho ph&eacute;p bạn mở nhiều tr&ograve; chơi hay c&aacute;c phần mềm nặng hơn m&agrave; kh&ocirc;ng lo bị tr&agrave;n RAM, lag m&aacute;y.</p>\r\n<p>&bull; Ổ cứng SSD 512 GB NVMe PCIe cung cấp một kh&ocirc;ng gian lưu trữ đủ d&ugrave;ng cho c&aacute;c tr&ograve; chơi v&agrave; t&agrave;i liệu của bạn, đồng thời qu&aacute; tr&igrave;nh truy xuất, ghi đọc dữ liệu hay tải ứng dụng cũng được diễn ra nhanh ch&oacute;ng hơn. Người d&ugrave;ng cũng c&oacute; thể dễ d&agrave;ng n&acirc;ng cấp dung lượng SSD l&ecirc;n tối đa 1 TB với việc th&aacute;o lắp v&agrave; thay thế dễ d&agrave;ng.</p>\r\n<p>&bull; M&agrave;n h&igrave;nh laptop k&iacute;ch thước 15.6 inch độ ph&acirc;n giải Full HD (1920 x 1080) cho bạn trải nghiệm khung h&igrave;nh lớn để l&agrave;m việc đa cửa sổ, h&igrave;nh ảnh r&otilde; n&eacute;t gi&uacute;p trải nghiệm giải tr&iacute;, chơi game trở n&ecirc;n sống động v&agrave; th&uacute; vị. Ngo&agrave;i ra, c&ocirc;ng nghệ chống ch&oacute;i Anti Glare cũng gi&uacute;p giảm tối đa t&igrave;nh trạng hắt s&aacute;ng tr&ecirc;n m&agrave;n h&igrave;nh khi d&ugrave;ng ngo&agrave;i trời hay dưới &aacute;nh đ&egrave;n.</p>\r\n<p>&bull; Tấm nền IPS kết hợp tần số qu&eacute;t 144 Hz cho c&aacute;c chuyển động ảnh r&otilde; n&eacute;t, m&agrave;u sắc chuẩn x&aacute;c v&agrave; kh&ocirc;ng bị nho&egrave; mờ khi người d&ugrave;ng chơi những tựa game c&oacute; tiết tấu tốc độ cao như bắn s&uacute;ng, đua xe hoặc xem c&aacute;c bộ phim h&agrave;nh động, bom tấn.</p>\r\n<p>&bull; C&ocirc;ng nghệ DTS Audio đem đến chất &acirc;m sinh động, c&aacute;c dải &acirc;m t&aacute;ch biệt, to r&otilde;, gi&uacute;p bạn đắm ch&igrave;m v&agrave;o những trải nghiệm giải tr&iacute; thư gi&atilde;n nhất.</p>\r\n<p>&bull; Laptop Asus được ho&agrave;n thiện với chất liệu nhựa cao cấp, khung m&aacute;y chắc chắn c&ugrave;ng c&aacute;c đường n&eacute;t mạnh mẽ chuẩn gaming chắc chắn sẽ chinh phục bất cứ gu thẩm mỹ n&agrave;o của anh em game thủ. Ngo&agrave;i ra, với đ&egrave;n nền chuyển m&agrave;u RGB - 1 v&ugrave;ng, người d&ugrave;ng c&oacute; thể tuỳ &yacute; chỉnh m&agrave;u sắc y&ecirc;u th&iacute;ch để mang lại nhiều cảm hứng hơn khi chơi game.</p>\r\n<p>&bull; Với đa dạng cổng kết nối như: Thunderbolt 4, Jack tai nghe 3.5 mm, USB 3.2, HDMI v&agrave; LAN (RJ45), chiếc laptop n&agrave;y sẽ gi&uacute;p người d&ugrave;ng li&ecirc;n kết với nhiều thiết bị ngoại vi kh&aacute;c nhau một c&aacute;ch thuận tiện v&agrave; nhanh ch&oacute;ng.</p>', 'laptop-asus-tuf-gaming-f15-fx506he-i7-11800h/16gb/512gb/4gb-rtx3050ti/144hz/win11-(hn378w)', '<p><strong>Cấu h&igrave;nh Laptop Asus TUF Gaming F15 FX506HF i5 11400H/8GB/512GB/4GB RTX2050/144Hz/Win11 (HN014W)</strong></p>\r\n<p>CPU: i511400H2.7GHz<br />RAM: 8 GBDDR4 2 khe (1 khe 8 GB + 1 khe rời)3200 MHz<br />Ổ cứng: Hỗ trợ th&ecirc;m 1 khe cắm SSD M.2 PCIe mở rộng (n&acirc;ng cấp tối đa 1 TB)512 GB SSD NVMe PCIe (C&oacute; thể th&aacute;o ra, lắp thanh kh&aacute;c tối đa 1 TB)<br />M&agrave;n h&igrave;nh: 15.6\"Full HD (1920 x 1080) 144Hz<br />Card m&agrave;n h&igrave;nh: Card rờiRTX 2050 4GB<br />Cổng kết nối: 1 x Thunderbolt 4 (hỗ trợ DisplayPort)HDMILAN (RJ45)3 x USB 3.2Jack tai nghe 3.5 mm<br />Đặc biệt: C&oacute; đ&egrave;n b&agrave;n ph&iacute;m<br />Hệ điều h&agrave;nh: Windows 11 Home SL<br />Thiết kế: Vỏ nhựa - nắp lưng bằng kim loại<br />K&iacute;ch thước, khối lượng: D&agrave;i 359 mm - Rộng 256 mm - D&agrave;y 22.8 ~ 24.5 mm - Nặng 2.3 kg<br />Thời điểm ra mắt: 2023</p>', 15990000, 17990000, 15, 1, 'active', 1, 15, '2023-11-20 01:53:57', '2023-11-20 07:38:30'),
+(9, 'Tai nghe Bluetooth True Wireless HAVIT TW945', '<p><strong>Th&ocirc;ng tin sản phẩm</strong><br />Tai nghe Bluetooth True Wireless HAVIT TW945 mang đến thiết kế sang trọng với kiểu d&aacute;ng tối giản v&agrave; m&agrave;u sắc đa dạng, &acirc;m thanh đầy đủ v&agrave; r&otilde; r&agrave;ng, t&iacute;ch hợp nhiều t&iacute;nh năng v&agrave; tiện &iacute;ch kh&aacute;c, phục vụ tốt nhu cầu sử dụng cơ bản h&agrave;ng ng&agrave;y của đa số người d&ugrave;ng.<br />&bull; Thiết kế trong suốt trẻ trung v&agrave; đột ph&aacute;, trang bị nhiều gam m&agrave;u thời thượng cho bạn dễ d&agrave;ng lựa chọn.</p>\r\n<p>&bull; Khối lượng gọn nhẹ v&agrave; k&iacute;ch thước vừa vặn, gi&uacute;p bạn đeo tai nghe &ecirc;m &aacute;i v&agrave; nhẹ nh&agrave;ng cả ng&agrave;y d&agrave;i.</p>\r\n<p>&bull; &Acirc;m thanh sắc n&eacute;t v&agrave; sống động, mang đến trải nghiệm nghe nhạc ấn tượng.</p>\r\n<p>&bull; Người d&ugrave;ng c&oacute; thể lắng nghe &acirc;m thanh độc lập từ mỗi chiếc tai nghe ri&ecirc;ng lẻ bằng c&aacute;ch chỉ lấy 1 b&ecirc;n tai ra khỏi hộp sạc.</p>', 'tai-nghe-bluetooth-true-wireless-havit-tw945', '<p><strong>Th&ocirc;ng số kỹ thuật Tai nghe Bluetooth True Wireless HAVIT TW945</strong></p>\r\n<p>Thời gian tai nghe: D&ugrave;ng 3 giờ - Sạc 1.5 giờ<br />Thời gian hộp sạc: D&ugrave;ng 18 giờ - Sạc 2 giờ<br />Cổng sạc: Type-C<br />C&ocirc;ng nghệ &acirc;m thanh: M&agrave;ng loa 13 mm<br />Tương th&iacute;ch: Android, iOS, WindowsMacOS<br />Tiện &iacute;ch: Tương th&iacute;ch trợ l&yacute; ảoC&oacute; mic thoạiSử dụng độc lập 1 b&ecirc;n tai ngheGame Mode<br />Hỗ trợ kết nối: Bluetooth 5.3<br />Điều khiển bằng: Cảm ứng chạm</p>', 320000, 360000, 15, 1, 'active', 1, 10, '2023-11-20 02:33:02', '2023-11-20 02:33:02'),
+(10, 'Điện thoại iPhone 15 Pro Max 256GB', '<p><strong>L&yacute; do chọn mua iPhone 15 Pro Max&nbsp;</strong><br />iPhone 15 Pro Max l&agrave; một chiếc điện thoại th&ocirc;ng minh cao cấp được mong đợi nhất năm 2023. Với nhiều t&iacute;nh năng mới v&agrave; cải tiến, iPhone 15 Pro Max chắc chắn sẽ l&agrave; một lựa chọn tuyệt vời cho những người d&ugrave;ng đang t&igrave;m kiếm một chiếc điện thoại c&oacute; hiệu năng mạnh mẽ, camera chất lượng v&agrave; thiết kế sang trọng.</p>\r\n<p>&bull; Sản phẩm ch&iacute;nh h&atilde;ng, đảm bảo chất lượng: Thế Giới Di Động l&agrave; nh&agrave; b&aacute;n lẻ điện thoại di động lớn nhất Việt Nam, cam kết cung cấp sản phẩm ch&iacute;nh h&atilde;ng, đảm bảo chất lượng. Bạn c&oacute; thể y&ecirc;n t&acirc;m về xuất xứ sản phẩm v&agrave; c&oacute; thể tận hưởng trải nghiệm sử dụng tốt nhất.</p>\r\n<p>&bull; Ưu đ&atilde;i v&agrave; khuyến m&atilde;i hấp dẫn: Thế Giới Di Động thường xuy&ecirc;n c&oacute; c&aacute;c chương tr&igrave;nh khuyến m&atilde;i, giảm gi&aacute; v&agrave; tặng qu&agrave; k&egrave;m, gi&uacute;p bạn tiết kiệm được một khoản tiền khi mua iPhone 15 Pro Max.</p>\r\n<p>&bull; Hệ thống cửa h&agrave;ng rộng khắp: Thế Giới Di Động c&oacute; mạng lưới cửa h&agrave;ng rộng khắp tr&ecirc;n to&agrave;n quốc, gi&uacute;p bạn dễ d&agrave;ng t&igrave;m được một cửa h&agrave;ng gần nh&agrave; để mua sắm. Bạn cũng c&oacute; thể trực tiếp kiểm tra sản phẩm v&agrave; nhận sự hỗ trợ từ nh&acirc;n vi&ecirc;n tại cửa h&agrave;ng.</p>\r\n<p>&bull; Dịch vụ hậu m&atilde;i chuy&ecirc;n nghiệp: Thế Giới Di Động cung cấp dịch vụ hậu m&atilde;i chuy&ecirc;n nghiệp, bao gồm bảo h&agrave;nh, sửa chữa v&agrave; hỗ trợ kỹ thuật. Điều n&agrave;y gi&uacute;p bạn y&ecirc;n t&acirc;m về việc sử dụng trong thời gian d&agrave;i.</p>\r\n<p>&bull; Trả g&oacute;p linh hoạt: Thế Giới Di Động cung cấp c&aacute;c lựa chọn trả g&oacute;p ph&ugrave; hợp với ng&acirc;n s&aacute;ch của bạn, gi&uacute;p bạn mua được sản phẩm mong muốn m&agrave; kh&ocirc;ng cần thanh to&aacute;n to&agrave;n bộ số tiền một l&uacute;c.</p>\r\n<p>&bull; Uy t&iacute;n v&agrave; kinh nghiệm l&acirc;u năm: Với hơn 15 năm hoạt động tr&ecirc;n thị trường, Thế Giới Di Động đ&atilde; x&acirc;y dựng được một uy t&iacute;n mạnh mẽ trong ng&agrave;nh c&ocirc;ng nghiệp điện thoại di động. Điều n&agrave;y gi&uacute;p bạn y&ecirc;n t&acirc;m về việc mua sắm tại Thế Giới Di Động.</p>', 'Điện-thoai-iphone-15-pro-max-256gb', '<p><strong>Cấu h&igrave;nh Điện thoại iPhone 15 Pro Max 256GB</strong></p>\r\n<p>M&agrave;n h&igrave;nh: OLED6.7\"Super Retina XDR<br />Hệ điều h&agrave;nh: iOS 17<br />Camera sau: Ch&iacute;nh 48 MP &amp; Phụ 12 MP, 12 MP<br />Camera trước: 12 MP<br />Chip: Apple A17 Pro 6 nh&acirc;n<br />RAM: 8 GB<br />Dung lượng lưu trữ: 256 GB<br />SIM: 1 Nano SIM &amp; 1 eSIMHỗ trợ 5G<br />Pin, Sạc: 4422 mAh20 W</p>', 33900000, 34900000, 15, 1, 'active', 1, 11, '2023-11-20 03:05:09', '2023-11-20 07:39:28');
 
 -- --------------------------------------------------------
 
@@ -340,27 +464,8 @@ CREATE TABLE `product_images` (
 --
 
 INSERT INTO `product_images` (`id`, `product_id`, `image_id`, `pin`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, '1', '2023-11-11 20:18:17', '2023-11-11 20:18:17'),
-(2, 1, 2, '0', '2023-11-11 20:18:17', '2023-11-11 20:18:17'),
-(3, 1, 3, '0', '2023-11-11 20:18:17', '2023-11-11 20:18:17'),
-(4, 1, 4, '0', '2023-11-11 20:18:17', '2023-11-11 20:18:17'),
-(5, 1, 5, '0', '2023-11-11 20:18:17', '2023-11-11 20:18:17'),
-(6, 1, 6, '0', '2023-11-11 20:18:17', '2023-11-11 20:18:17'),
 (7, 2, 7, '1', '2023-11-11 20:22:13', '2023-11-11 20:22:13'),
-(8, 2, 8, '0', '2023-11-11 20:22:13', '2023-11-11 20:22:13'),
-(9, 2, 9, '0', '2023-11-11 20:22:13', '2023-11-11 20:22:13'),
-(10, 2, 10, '0', '2023-11-11 20:22:13', '2023-11-11 20:22:13'),
-(11, 2, 11, '0', '2023-11-11 20:22:13', '2023-11-11 20:22:13'),
-(12, 2, 12, '0', '2023-11-11 20:22:13', '2023-11-11 20:22:13'),
-(13, 2, 13, '0', '2023-11-11 20:22:13', '2023-11-11 20:22:13'),
-(14, 2, 14, '0', '2023-11-11 20:22:13', '2023-11-11 20:22:13'),
-(15, 2, 15, '0', '2023-11-11 20:22:13', '2023-11-11 20:22:13'),
 (16, 3, 16, '1', '2023-11-11 20:24:47', '2023-11-11 20:24:47'),
-(17, 3, 17, '0', '2023-11-11 20:24:47', '2023-11-11 20:24:47'),
-(18, 3, 18, '0', '2023-11-11 20:24:47', '2023-11-11 20:24:47'),
-(19, 3, 19, '0', '2023-11-11 20:24:47', '2023-11-11 20:24:47'),
-(20, 3, 20, '0', '2023-11-11 20:24:47', '2023-11-11 20:24:47'),
-(21, 3, 21, '0', '2023-11-11 20:24:47', '2023-11-11 20:24:47'),
 (22, 4, 22, '1', '2023-11-11 20:28:37', '2023-11-11 20:28:37'),
 (23, 4, 23, '0', '2023-11-11 20:28:37', '2023-11-11 20:28:37'),
 (24, 4, 24, '0', '2023-11-11 20:28:37', '2023-11-11 20:28:37'),
@@ -384,7 +489,57 @@ INSERT INTO `product_images` (`id`, `product_id`, `image_id`, `pin`, `created_at
 (42, 6, 50, '0', '2023-11-15 04:18:08', '2023-11-15 04:18:08'),
 (43, 6, 51, '0', '2023-11-15 04:18:08', '2023-11-15 04:18:08'),
 (44, 6, 52, '0', '2023-11-15 04:18:08', '2023-11-15 04:18:08'),
-(45, 6, 53, '0', '2023-11-15 04:18:08', '2023-11-15 04:18:08');
+(45, 6, 53, '0', '2023-11-15 04:18:08', '2023-11-15 04:18:08'),
+(46, 7, 54, '1', '2023-11-19 04:40:55', '2023-11-19 04:40:55'),
+(47, 7, 55, '0', '2023-11-19 04:40:55', '2023-11-19 04:40:55'),
+(48, 7, 56, '0', '2023-11-19 04:40:55', '2023-11-19 04:40:55'),
+(49, 7, 57, '0', '2023-11-19 04:40:55', '2023-11-19 04:40:55'),
+(50, 7, 58, '0', '2023-11-19 04:40:55', '2023-11-19 04:40:55'),
+(51, 7, 59, '0', '2023-11-19 04:40:55', '2023-11-19 04:40:55'),
+(52, 7, 60, '0', '2023-11-19 04:40:55', '2023-11-19 04:40:55'),
+(53, 7, 61, '0', '2023-11-19 04:40:55', '2023-11-19 04:40:55'),
+(54, 7, 62, '0', '2023-11-19 04:40:55', '2023-11-19 04:40:55'),
+(55, 7, 63, '0', '2023-11-19 04:40:55', '2023-11-19 04:40:55'),
+(56, 7, 64, '0', '2023-11-19 04:40:55', '2023-11-19 04:40:55'),
+(57, 7, 65, '0', '2023-11-19 04:40:55', '2023-11-19 04:40:55'),
+(101, 8, 110, '1', '2023-11-20 01:53:57', '2023-11-20 01:53:57'),
+(127, 8, 136, '0', '2023-11-20 01:55:17', '2023-11-20 01:55:17'),
+(128, 8, 137, '0', '2023-11-20 01:55:17', '2023-11-20 01:55:17'),
+(129, 8, 138, '0', '2023-11-20 01:55:17', '2023-11-20 01:55:17'),
+(130, 8, 139, '0', '2023-11-20 01:55:17', '2023-11-20 01:55:17'),
+(131, 8, 140, '0', '2023-11-20 01:55:17', '2023-11-20 01:55:17'),
+(132, 8, 141, '0', '2023-11-20 01:55:17', '2023-11-20 01:55:17'),
+(133, 8, 142, '0', '2023-11-20 01:55:17', '2023-11-20 01:55:17'),
+(134, 8, 143, '0', '2023-11-20 01:55:17', '2023-11-20 01:55:17'),
+(135, 8, 144, '0', '2023-11-20 01:55:17', '2023-11-20 01:55:17'),
+(136, 8, 145, '0', '2023-11-20 01:55:17', '2023-11-20 01:55:17'),
+(137, 8, 146, '0', '2023-11-20 01:55:18', '2023-11-20 01:55:18'),
+(138, 8, 147, '0', '2023-11-20 01:55:18', '2023-11-20 01:55:18'),
+(144, 3, 153, '0', '2023-11-20 02:07:35', '2023-11-20 02:07:35'),
+(145, 3, 154, '0', '2023-11-20 02:07:35', '2023-11-20 02:07:35'),
+(146, 3, 155, '0', '2023-11-20 02:07:35', '2023-11-20 02:07:35'),
+(147, 3, 156, '0', '2023-11-20 02:07:35', '2023-11-20 02:07:35'),
+(148, 3, 157, '0', '2023-11-20 02:07:35', '2023-11-20 02:07:35'),
+(149, 9, 158, '1', '2023-11-20 02:33:02', '2023-11-20 02:33:02'),
+(150, 9, 159, '0', '2023-11-20 02:33:02', '2023-11-20 02:33:02'),
+(151, 9, 160, '0', '2023-11-20 02:33:02', '2023-11-20 02:33:02'),
+(152, 9, 161, '0', '2023-11-20 02:33:02', '2023-11-20 02:33:02'),
+(153, 2, 162, '0', '2023-11-20 02:57:42', '2023-11-20 02:57:42'),
+(154, 2, 163, '0', '2023-11-20 02:57:42', '2023-11-20 02:57:42'),
+(155, 2, 164, '0', '2023-11-20 02:57:42', '2023-11-20 02:57:42'),
+(156, 2, 165, '0', '2023-11-20 02:57:42', '2023-11-20 02:57:42'),
+(157, 2, 166, '0', '2023-11-20 02:57:42', '2023-11-20 02:57:42'),
+(158, 2, 167, '0', '2023-11-20 02:57:42', '2023-11-20 02:57:42'),
+(159, 2, 168, '0', '2023-11-20 02:57:42', '2023-11-20 02:57:42'),
+(160, 2, 169, '0', '2023-11-20 02:57:42', '2023-11-20 02:57:42'),
+(161, 2, 170, '0', '2023-11-20 02:57:42', '2023-11-20 02:57:42'),
+(162, 2, 171, '0', '2023-11-20 02:57:42', '2023-11-20 02:57:42'),
+(168, 10, 177, '1', '2023-11-20 03:05:09', '2023-11-20 03:05:09'),
+(176, 10, 185, '0', '2023-11-20 03:08:54', '2023-11-20 03:08:54'),
+(177, 10, 186, '0', '2023-11-20 03:08:54', '2023-11-20 03:08:54'),
+(178, 10, 187, '0', '2023-11-20 03:08:54', '2023-11-20 03:08:54'),
+(179, 10, 188, '0', '2023-11-20 03:08:54', '2023-11-20 03:08:54'),
+(180, 10, 189, '0', '2023-11-20 03:08:54', '2023-11-20 03:08:54');
 
 -- --------------------------------------------------------
 
@@ -559,6 +714,21 @@ ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `orders_customer_id_foreign` (`customer_id`);
+
+--
+-- Indexes for table `order_items`
+--
+ALTER TABLE `order_items`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `order_items_order_id_foreign` (`order_id`),
+  ADD KEY `order_items_product_id_foreign` (`product_id`);
+
+--
 -- Indexes for table `password_resets`
 --
 ALTER TABLE `password_resets`
@@ -648,7 +818,7 @@ ALTER TABLE `user_role`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -660,13 +830,25 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `images`
 --
 ALTER TABLE `images`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=190;
 
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
+
+--
+-- AUTO_INCREMENT for table `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT for table `order_items`
+--
+ALTER TABLE `order_items`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `permissions`
@@ -690,7 +872,7 @@ ALTER TABLE `post_categories`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `product_categories`
@@ -702,7 +884,7 @@ ALTER TABLE `product_categories`
 -- AUTO_INCREMENT for table `product_images`
 --
 ALTER TABLE `product_images`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=181;
 
 --
 -- AUTO_INCREMENT for table `roles`
@@ -737,6 +919,19 @@ ALTER TABLE `user_role`
 --
 ALTER TABLE `images`
   ADD CONSTRAINT `images_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `orders`
+--
+ALTER TABLE `orders`
+  ADD CONSTRAINT `orders_customer_id_foreign` FOREIGN KEY (`customer_id`) REFERENCES `customers` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `order_items`
+--
+ALTER TABLE `order_items`
+  ADD CONSTRAINT `order_items_order_id_foreign` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `order_items_product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `posts`

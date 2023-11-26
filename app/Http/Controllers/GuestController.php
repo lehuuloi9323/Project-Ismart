@@ -157,14 +157,12 @@ class GuestController extends Controller
 
     public function checkout($id = 0){
         $categories_post = Post_categories::all();
-        //Ngăn chặn code chạy tiếp tục sau khi trang load lại
-        $pageLoadCount = session('page_load_count', 0) + 1;
-        session(['page_load_count' => $pageLoadCount]);
+
         if($id == 0)
         {
         return view('guest.order.checkout', compact('categories_post'));
         }
-        elseif($id != 1 and $pageLoadCount < 2){
+        elseif($id != 1){
             $product = Product::find($id);
 
             Cart::add([
@@ -178,10 +176,8 @@ class GuestController extends Controller
             ]);
         return view('guest.order.checkout', compact('categories_post'));
         }
-        elseif($id != 1 and $pageLoadCount > 2){
 
-        return view('guest.order.checkout', compact('categories_post'));
-        }
+
     }
 
     public function payment(Request $request){

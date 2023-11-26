@@ -145,15 +145,15 @@ class ProductController extends Controller
         }
         if($status == 'active' or $status == ''){
             $products = Product::where('name', 'LIKE', "%{$keyword}%")
-            ->where('product_status', 'active')
+            ->where('product_status', 'active')->orderBy('id', 'DESC')
             ->paginate(7);
         }elseif($status == 'inactive'){
             $products = Product::where('name', 'LIKE', "%{$keyword}%")
-            ->where('product_status', 'inactive')
+            ->where('product_status', 'inactive')->orderBy('id', 'DESC')
             ->paginate(7);
         }else{
             $products = Product::where('name', 'LIKE', "%{$keyword}%")
-            ->where('product_status', 'out_of_stock')->Orwhere('stock_quantity', '0')
+            ->where('product_status', 'out_of_stock')->Orwhere('stock_quantity', '0')->orderBy('id', 'DESC')
             ->paginate(7);
         }
 
