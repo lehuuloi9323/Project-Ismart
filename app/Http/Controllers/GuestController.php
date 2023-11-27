@@ -16,11 +16,20 @@ use Gloudemans\Shoppingcart\Facades\Cart;
 use App\Models\Order;
 use App\Models\Customer;
 use App\Models\Order_item;
+use Illuminate\Support\Facades\DB;
 
 class GuestController extends Controller
 {
     //
     public function index(){
+        $topProductIDs = Order_item::select('product_id', DB::raw('SUM(quantity) as total_quantity'))
+        ->groupBy('product_id')
+        ->orderByDesc('total_quantity')
+        ->take(10)
+        ->pluck('product_id');
+        // return $topProductIDs; 2,7,5,9,10,4,6,8
+        $topProducts = Product::whereIn('id', $topProductIDs)->get();
+
         $categories_post = Post_categories::all();
         $categories = Product_categories::whereNull('parent_id')->with('children.children')->get();
         $product_is_features = Product::where('is_feature', 1)->orderBy('id', 'DESC')->take(10)->get();
@@ -54,7 +63,7 @@ class GuestController extends Controller
         $laptops = Product::whereIn('category_id', $categories_all_laptop)->orderBy('id', 'DESC')->take(10)->get();
 
 
-        return view('guest.index', compact('categories', 'product_is_features', 'phones','laptops', 'categories_post'));
+        return view('guest.index', compact('categories', 'product_is_features', 'phones','laptops', 'categories_post', 'topProducts'));
     }
 
     public function product_main(Request $request, $id = 0){

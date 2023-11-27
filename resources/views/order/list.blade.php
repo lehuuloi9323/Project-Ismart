@@ -67,7 +67,7 @@
                         <th scope="col">#</th>
                         <th scope="col">Mã</th>
                         <th scope="col">Khách hàng</th>
-                        <th scope="col">Sản phẩm</th>
+                        <th scope="col">Chi tiết</th>
                         <th scope="col">Số lượng</th>
                         <th scope="col">Giá trị</th>
                         <th scope="col">Cách thanh toán</th>
@@ -89,12 +89,7 @@
                             {{ $order->customers->name }} <br>
                             0{{ $order->customers->phone_number }}
                         </td>
-                        <td>
-                            {{--  @foreach (get_name_product_from_order_item($order->Orders_item->pluck('id')->toArray()) as $product)
-                                <a href="#">{{ $product }}</a>
-                            @endforeach  --}}
-
-                        </td>
+                        <td class="text-center"><a href="{{ route('order.detail', $order->id) }}" title="Chi tiết đơn hàng">Chi tiết</a></td>
                         <td>{{ $order->product_quantity }}</td>
                         <td>
                             {{ number_format($order->total_amount, 0, '', '.') }}đ

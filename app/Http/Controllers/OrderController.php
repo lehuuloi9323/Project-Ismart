@@ -70,7 +70,8 @@ class OrderController extends Controller
             ->paginate(7);
         }
 
-        $order_item = Order::find(3)->Order_items()->pluck('id')->toArray();
+        // $order_item = Order::find(4)->Order_items()->pluck('id')->toArray();
+        // return show_array($order_item);
         // $product = get_name_product_from_order_item($order_item);
         // return show_array($product);
         return view('order.list', compact('orders', 'keyword', 'status', 'count_pending', 'count_canceled', 'count_processing', 'count_shipped', 'count_delivered'));
@@ -174,5 +175,15 @@ class OrderController extends Controller
             'status' => $request->input('status')
         ]);
         return redirect()->route('order.list')->with('status', 'Cập nhật đơn hàng thành công !!');
+    }
+
+    public function detail($id){
+        $order = Order::find($id);
+        $customer = Customer::find($order->customer_id);
+        $order_items = Order_item::where('order_items.order_id', $order->id)
+        ->join('products', 'products.id', '=', 'order_items.product_id')
+        ->select('order_items.*', 'products.*')->get();
+
+        return view('order.detail', compact('order', 'customer', 'order_items'));
     }
 }

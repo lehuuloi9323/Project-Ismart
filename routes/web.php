@@ -84,6 +84,7 @@ Route::get('admin/user/action', [App\Http\Controllers\UserController::class, 'ac
 
 //order
 Route::get('admin/order/list', [App\Http\Controllers\OrderController::class, 'list'])->name('order.list');
+Route::get('admin/order/detail/{id}', [App\Http\Controllers\OrderController::class, 'detail'])->name('order.detail');
 Route::get('admin/order/action', [App\Http\Controllers\OrderController::class, 'action'])->name('order.action');
 Route::get('admin/order/delete/{id}', [App\Http\Controllers\OrderController::class, 'delete'])->name('order.delete');
 Route::get('admin/order/edit/{id}', [App\Http\Controllers\OrderController::class, 'edit'])->name('order.edit');

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 26, 2023 at 01:04 PM
+-- Generation Time: Nov 27, 2023 at 09:44 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -235,7 +235,7 @@ INSERT INTO `orders` (`id`, `product_quantity`, `total_amount`, `payment_method`
 (8, 1, 14490000, 'bank', '123 HCM', 'pending', NULL, 11, '2023-11-25 00:36:49', '2023-11-26 02:16:39'),
 (9, 1, 14490000, 'bank', '123 HCM', 'pending', NULL, 12, '2023-11-25 00:38:05', '2023-11-25 00:38:05'),
 (10, 8, 143760000, 'momo', '123 HCM', 'pending', 'dsada', 13, '2023-11-25 00:59:06', '2023-11-25 00:59:06'),
-(11, 3, 43470000, 'momo', '123 HCM', 'pending', 'e', 14, '2023-11-25 00:59:50', '2023-11-26 02:16:33');
+(11, 3, 43470000, 'momo', '123 HCM', 'canceled', 'e', 14, '2023-11-25 00:59:50', '2023-11-27 00:57:25');
 
 -- --------------------------------------------------------
 
