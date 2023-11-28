@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 27, 2023 at 09:44 AM
+-- Generation Time: Nov 28, 2023 at 05:14 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -166,7 +166,12 @@ INSERT INTO `images` (`id`, `url`, `name`, `size_img`, `user_id`, `created_at`, 
 (186, 'iphone-15-pro-max-black-3-1.jpg', 'Điện thoại iPhone 15 Pro Max 256GB', 26459, 1, '2023-11-20 03:08:54', '2023-11-20 03:08:54'),
 (187, 'iphone-15-pro-max-blue-1-1.jpg', 'Điện thoại iPhone 15 Pro Max 256GB', 63231, 1, '2023-11-20 03:08:54', '2023-11-20 03:08:54'),
 (188, 'iphone-15-pro-max-tu-nhien-1-1.jpg', 'Điện thoại iPhone 15 Pro Max 256GB', 64296, 1, '2023-11-20 03:08:54', '2023-11-20 03:08:54'),
-(189, 'iphone-15-pro-max-white-1-3.jpg', 'Điện thoại iPhone 15 Pro Max 256GB', 68943, 1, '2023-11-20 03:08:54', '2023-11-20 03:08:54');
+(192, 'Product/iphone-15-pro-max-black-2-1.jpg', 'iphone 15 promax', 22396, 1, '2023-11-28 07:15:57', '2023-11-28 07:15:57'),
+(193, 'Product/iphone-15-pro-max-black-2-1.jpg', 'iphone 15 promax', 22396, 1, '2023-11-28 07:16:26', '2023-11-28 08:23:00'),
+(194, 'Product/asus-tuf-gaming-f15-fx506hf-i5-hn014w-13.jpg', 'Laptop Asus TUF Gaming F15 FX506HE i7 11800H/16GB/512GB/4GB RTX3050Ti/144Hz/Win11 (HN378W)', 464945, 1, '2023-11-28 07:52:29', '2023-11-28 08:24:00'),
+(195, 'Product/ipad-air-5-m1-xam-2.jpg', 'Máy tính bảng iPad Air 5 M1 WiFi 64GB', 87567, 1, '2023-11-28 07:53:28', '2023-11-28 07:53:28'),
+(196, 'Product/xiaomi-13t-pro-xanh-1.jpg', 'Điện thoại Xiaomi 13T Pro 5G', 276550, 1, '2023-11-28 07:56:52', '2023-11-28 07:56:52'),
+(197, 'Product/tai-nghe-bluetooth-true-wireless-havit-tw945-tim-1.jpg', 'Tai nghe', 445458, 1, '2023-11-28 08:26:12', '2023-11-28 08:26:12');
 
 -- --------------------------------------------------------
 
@@ -202,7 +207,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (59, '2023_11_15_113059_add_price_old_to_products_table', 8),
 (60, '2023_11_17_111351_create_customers_table', 8),
 (61, '2023_11_20_104311_create_orders_table', 8),
-(62, '2023_11_20_110004_create_order_items_table', 8);
+(62, '2023_11_20_110004_create_order_items_table', 8),
+(63, '2023_11_27_084304_create_sliders_table', 9);
 
 -- --------------------------------------------------------
 
@@ -538,8 +544,7 @@ INSERT INTO `product_images` (`id`, `product_id`, `image_id`, `pin`, `created_at
 (176, 10, 185, '0', '2023-11-20 03:08:54', '2023-11-20 03:08:54'),
 (177, 10, 186, '0', '2023-11-20 03:08:54', '2023-11-20 03:08:54'),
 (178, 10, 187, '0', '2023-11-20 03:08:54', '2023-11-20 03:08:54'),
-(179, 10, 188, '0', '2023-11-20 03:08:54', '2023-11-20 03:08:54'),
-(180, 10, 189, '0', '2023-11-20 03:08:54', '2023-11-20 03:08:54');
+(179, 10, 188, '0', '2023-11-20 03:08:54', '2023-11-20 03:08:54');
 
 -- --------------------------------------------------------
 
@@ -604,6 +609,35 @@ INSERT INTO `role_permission` (`id`, `role_id`, `permission_id`, `created_at`, `
 (86, 16, 17, NULL, NULL),
 (87, 16, 18, NULL, NULL),
 (88, 16, 19, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sliders`
+--
+
+CREATE TABLE `sliders` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `image_id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `description` varchar(255) NOT NULL,
+  `url` varchar(255) NOT NULL,
+  `display_order` tinyint(4) NOT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `sliders`
+--
+
+INSERT INTO `sliders` (`id`, `image_id`, `title`, `description`, `url`, `display_order`, `user_id`, `created_at`, `updated_at`) VALUES
+(1, 193, 'iphone 15 promax', 'iphone 15 promax', '10', 1, 1, '2023-11-28 07:16:26', '2023-11-28 08:28:59'),
+(2, 194, 'Laptop Asus TUF Gaming F15 FX506HE i7 11800H/16GB/512GB/4GB RTX3050Ti/144Hz/Win11 (HN378W)', 'Laptop Asus TUF Gaming F15 FX506HE i7 11800H/16GB/512GB/4GB RTX3050Ti/144Hz/Win11 (HN378W)', '8', 2, 1, '2023-11-28 07:52:29', '2023-11-28 08:29:07'),
+(3, 195, 'Máy tính bảng iPad Air 5 M1 WiFi 64GB', 'Máy tính bảng iPad Air 5 M1 WiFi 64GB', '4', 0, 1, '2023-11-28 07:53:28', '2023-11-28 08:28:49'),
+(4, 196, 'Điện thoại Xiaomi 13T Pro 5G', 'Điện thoại Xiaomi 13T Pro 5G', '2', 4, 1, '2023-11-28 07:56:52', '2023-11-28 08:29:25'),
+(5, 197, 'Tai nghe', 'Tai nghe', '9', 3, 1, '2023-11-28 08:26:12', '2023-11-28 08:29:19');
 
 -- --------------------------------------------------------
 
@@ -796,6 +830,14 @@ ALTER TABLE `role_permission`
   ADD KEY `role_permission_permission_id_foreign` (`permission_id`);
 
 --
+-- Indexes for table `sliders`
+--
+ALTER TABLE `sliders`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `sliders_image_id_foreign` (`image_id`),
+  ADD KEY `sliders_user_id_foreign` (`user_id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -830,13 +872,13 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `images`
 --
 ALTER TABLE `images`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=190;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=198;
 
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 
 --
 -- AUTO_INCREMENT for table `orders`
@@ -866,7 +908,7 @@ ALTER TABLE `posts`
 -- AUTO_INCREMENT for table `post_categories`
 --
 ALTER TABLE `post_categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `products`
@@ -897,6 +939,12 @@ ALTER TABLE `roles`
 --
 ALTER TABLE `role_permission`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
+
+--
+-- AUTO_INCREMENT for table `sliders`
+--
+ALTER TABLE `sliders`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -975,6 +1023,13 @@ ALTER TABLE `product_images`
 ALTER TABLE `role_permission`
   ADD CONSTRAINT `role_permission_permission_id_foreign` FOREIGN KEY (`permission_id`) REFERENCES `permissions` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `role_permission_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `sliders`
+--
+ALTER TABLE `sliders`
+  ADD CONSTRAINT `sliders_image_id_foreign` FOREIGN KEY (`image_id`) REFERENCES `images` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `sliders_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `user_role`
