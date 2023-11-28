@@ -55,11 +55,12 @@
                                     <li>
                                         <a href="{{ route('product.main') }}" title="">Sản phẩm</a>
                                     </li>
-                                    @foreach ($categories_post as $category_post)
                                     <li>
-                                        <a href="?page=blog" title="">{{ $category_post->name }}</a>
+                                        <a href="{{ route('post') }}" title="">Bài viết</a>
                                     </li>
-                                    @endforeach
+                                    <li>
+                                        <a href="?page=blog" title="">Liên hệ</a>
+                                    </li>
 
 
                                 </ul>
@@ -71,8 +72,8 @@
                         <div class="wp-inner">
                             <a href="?page=home" title="" id="logo" class="fl-left"><img src="public/guest/images/logo.png"/></a>
                             <div id="search-wp" class="fl-left">
-                                <form method="POST" action="">
-                                    <input type="text" name="s" id="s" placeholder="Nhập từ khóa tìm kiếm tại đây!">
+                                <form method="GET" action="{{ route('product.main') }}">
+                                    <input type="text" name="keyword" id="s" placeholder="Nhập từ khóa tìm kiếm tại đây!">
                                     <button type="submit" id="sm-s">Tìm kiếm</button>
                                 </form>
                             </div>

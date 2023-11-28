@@ -10,7 +10,7 @@
                         <a href="{{ route('index') }}" title="">Trang chủ</a>
                     </li>
                     <li>
-                        <a href="{{ route('product.main', $ctg->id) }}" title="">{{ $ctg->name }}</a>
+                        <a href="{{ route('product.main', $ctg['id']) }}" title="">{{ $ctg['name'] }}</a>
                     </li>
                 </ul>
             </div>
@@ -18,25 +18,30 @@
         <div class="main-content fl-right">
             <div class="section" id="list-product-wp">
                 <div class="section-head clearfix">
-                    <h3 class="section-title fl-left">Laptop</h3>
+                    <h3 class="section-title fl-left">{{ $ctg['name'] }}</h3>
                     <div class="filter-wp fl-right">
                         <p class="desc">Hiển thị 45 trên 50 sản phẩm</p>
                         <div class="form-filter">
-                            <form method="POST" action="">
-                                <select name="select">
-                                    <option value="0">Sắp xếp</option>
-                                    <option value="1">Từ A-Z</option>
-                                    <option value="2">Từ Z-A</option>
-                                    <option value="3">Giá cao xuống thấp</option>
-                                    <option value="3">Giá thấp lên cao</option>
+                            <form method="GET">
+                                <select name="arrange">
+                                    <option value="desc">Sắp xếp</option>
+                                    <option value="asc">Từ A-Z</option>
+                                    <option value="desc">Từ Z-A</option>
+                                    <option value="price_desc">Giá cao xuống thấp</option>
+                                    <option value="price_asc">Giá thấp lên cao</option>
                                 </select>
-                                <button type="submit">Lọc</button>
-                            </form>
+                                <button type="submit" id="sb">Lọc</button>
+
                         </div>
                     </div>
                 </div>
+                {{--  {{ $arrange }}
+                {{ $r_price }}  --}}
                 <div class="section-detail">
+                    @if($products->total() > 0)
                     <ul class="list-item clearfix">
+
+
                         @foreach ($products as $product)
                         <li>
                             <a href="?page=detail_product" title="" class="thumb">
@@ -53,7 +58,12 @@
                             </div>
                         </li>
                         @endforeach
+
                     </ul>
+                    @else
+                    <div class="text-center fw-bold text-secondary" style="font-size: 25px">Không có sản phẩm như bạn mong muốn !!</div>
+                    @endif
+
                 </div>
             </div>
             <div class="section" id="paging-wp">
@@ -111,7 +121,7 @@
                     <h3 class="section-title">Bộ lọc</h3>
                 </div>
                 <div class="section-detail">
-                    <form method="POST" action="">
+
                         <table>
                             <thead>
                                 <tr>
@@ -120,28 +130,39 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><input type="radio" name="r-price"></td>
-                                    <td>Dưới 500.000đ</td>
+                                    <td><input type="radio" name="r_price" value="small_500" id="small_500"  @if($r_price == 'small_500')
+                                        checked
+                                    @endif></td>
+                                    <td><label for="small_500">Dưới 500.000đ</label></td>
                                 </tr>
                                 <tr>
-                                    <td><input type="radio" name="r-price"></td>
-                                    <td>500.000đ - 1.000.000đ</td>
+                                    <td><input type="radio" name="r_price" value="500_1000" id="500_1000" @if($r_price == '500_1000')
+                                        checked
+                                    @endif></td>
+                                    <td><label for="500_1000">500.000đ - 1.000.000đ</label></td>
                                 </tr>
                                 <tr>
-                                    <td><input type="radio" name="r-price"></td>
-                                    <td>1.000.000đ - 5.000.000đ</td>
+                                    <td><input type="radio" name="r_price" value="1000_5000" id="1000_5000" @if($r_price == '1000_5000')
+                                        checked
+                                    @endif></td>
+                                    <td><label for="1000_5000">1.000.000đ - 5.000.000đ</label></td>
                                 </tr>
                                 <tr>
-                                    <td><input type="radio" name="r-price"></td>
-                                    <td>5.000.000đ - 10.000.000đ</td>
+                                    <td><input type="radio" name="r_price" value="5000_10000" id="5000_10000" @if($r_price == '5000_10000')
+                                        checked
+                                    @endif></td>
+                                    <td><label for="5000_10000">5.000.000đ - 10.000.000đ</label></td>
                                 </tr>
                                 <tr>
-                                    <td><input type="radio" name="r-price"></td>
-                                    <td>Trên 10.000.000đ</td>
+                                    <td><input type="radio" name="r_price" value="big_10000" id="big_10000" @if($r_price == 'big_10000')
+                                        checked
+                                    @endif></td>
+                                    <td><label for="big_10000">Trên 10.000.000đ</label></td>
                                 </tr>
                             </tbody>
                         </table>
-                        <table>
+
+                        {{--  <table>
                             <thead>
                                 <tr>
                                     <td colspan="2">Hãng</td>
@@ -149,51 +170,23 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><input type="radio" name="r-brand"></td>
-                                    <td>Acer</td>
-                                </tr>
-                                <tr>
-                                    <td><input type="radio" name="r-brand"></td>
-                                    <td>Apple</td>
-                                </tr>
-                                <tr>
-                                    <td><input type="radio" name="r-brand"></td>
-                                    <td>Hp</td>
-                                </tr>
-                                <tr>
-                                    <td><input type="radio" name="r-brand"></td>
-                                    <td>Lenovo</td>
-                                </tr>
-                                <tr>
-                                    <td><input type="radio" name="r-brand"></td>
-                                    <td>Samsung</td>
-                                </tr>
-                                <tr>
-                                    <td><input type="radio" name="r-brand"></td>
-                                    <td>Toshiba</td>
+                                    <td><input type="radio" name="type" value="phone" id="phone"></td>
+                                    <td><label for="phone">Điện thoại</label></td>
                                 </tr>
                             </tbody>
-                        </table>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <td colspan="2">Loại</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><input type="radio" name="r-price"></td>
-                                    <td>Điện thoại</td>
-                                </tr>
-                                <tr>
-                                    <td><input type="radio" name="r-price"></td>
-                                    <td>Laptop</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        </table>  --}}
+
                     </form>
+                    <input type="submit" value="Tìm" name="btn" id="btn" class="btn btn-primary" style="width:100px;">
                 </div>
             </div>
+            <script>
+                $(document).ready(function() {
+                    $("#btn").click(function() {
+                        $("#sb").click();
+                    });
+                });
+            </script>
             <div class="section" id="banner-wp">
                 <div class="section-detail">
                     <a href="?page=detail_product" title="" class="thumb">

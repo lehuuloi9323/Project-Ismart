@@ -37,7 +37,8 @@ Route::get('cart/destroy',[App\Http\Controllers\GuestController::class, 'destroy
 Route::get('cart/checkout/{id?}',[App\Http\Controllers\GuestController::class, 'checkout'])->name('cart.checkout');
 Route::post('cart/payment',[App\Http\Controllers\GuestController::class, 'payment'])->name('cart.payment');
 
-
+Route::get('post/{id?}',[App\Http\Controllers\GuestController::class, 'post_main'])->name('post');
+Route::get('post/detail/{id}',[App\Http\Controllers\GuestController::class, 'post_detail'])->name('post.detail');
 
 
 

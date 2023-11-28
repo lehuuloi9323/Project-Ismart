@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use App\Models\Order;
+use App\Models\Post;
 use App\Models\Customer;
 use App\Models\Order_item;
 use Illuminate\Support\Facades\DB;
@@ -27,7 +28,7 @@ class GuestController extends Controller
         ->orderByDesc('total_quantity')
         ->take(10)
         ->pluck('product_id');
-        // return $topProductIDs; 2,7,5,9,10,4,6,8
+
         $topProducts = Product::whereIn('id', $topProductIDs)->get();
 
         $categories_post = Post_categories::all();
@@ -67,36 +68,128 @@ class GuestController extends Controller
     }
 
     public function product_main(Request $request, $id = 0){
-        // return $id;
+        $keyword = '';
+        if($request->input('keyword')){
+            $keyword = $request->input('keyword');
+        }
         $categories_post = Post_categories::all();
-
+        $arrange = 'desc';
+        $r_price = '';
+        if($request->input('arrange')){
+            $arrange = $request->input('arrange');
+        }
+        if($request->input('r_price')){
+            $r_price = $request->input('r_price');
+        }
         $categories = Product_categories::whereNull('parent_id')->with('children.children')->get();
         if($id == 0){
-            $ctg = Product_categories::where('name', 'LIKE', '%Điện thoại%')->first();
+            $ctg = ['id' => 0, 'name' => 'Tất cả sản phẩm'];
+
             $category = Product_categories::select('id')->where('name', 'LIKE', '%Điện thoại%')->get();
-            $category_select = array();
-            //Duyệt tất cả danh mục con của Điện thoại
-            foreach ($category as $selects){
-                $category_select[] = $selects->id;
-                foreach ($selects->children as $select){
-                $category_select[] = $select->id;
-                    foreach($select->children as $child){
-                    $category_select[] = $child->id;
-                    }
-                }
+            // // $categories_filter = Product_categories::whereNull('parent_id')->where('id','id')->with('children.children')->get();
+            // $category_select = array();
+            // //Duyệt tất cả danh mục con của Điện thoại
+            // foreach ($category as $selects){
+            //     $category_select[] = $selects->id;
+            //     foreach ($selects->children as $select){
+            //     $category_select[] = $select->id;
+            //         foreach($select->children as $child){
+            //         $category_select[] = $child->id;
+            //         }
+            //     }
+            // }
+            if($arrange == 'desc' AND $r_price == ''){
+            $products=Product::where('name', 'LIKE' , "%$keyword%")->orderBy('id', 'DESC')->paginate(20);
             }
-            $products=Product::whereIn('category_id', $category_select)->orderBy('id', 'DESC')->paginate(20);
+            elseif($arrange == 'asc' AND $r_price == ''){
+            $products=Product::where('name', 'LIKE' , "%$keyword%")->orderBy('id', 'ASC')->paginate(20);
+            }
+            elseif($arrange == 'price_desc' AND $r_price == ''){
+            $products=Product::where('name', 'LIKE' , "%$keyword%")->orderBy('Price', 'DESC')->paginate(20);
+            }
+            elseif($arrange == 'price_asc' AND $r_price == ''){
+            $products=Product::where('name', 'LIKE' , "%$keyword%")->orderBy('Price', 'ASC')->paginate(20);
+            }
+            elseif($arrange == 'desc' AND $r_price == 'small_500'){
+            $products=Product::where('name', 'LIKE' , "%$keyword%")->where('price', '<=','500000')->orderBy('id', 'DESC')->paginate(20);
+            }
+            elseif($arrange == 'desc' AND $r_price == '500_1000'){
+            $products=Product::where('name', 'LIKE' , "%$keyword%")->where('price', '>=','500000')->where('price','<=','1000000')->orderBy('id', 'DESC')->paginate(20);
+            }
+            elseif($arrange == 'desc' AND $r_price == '1000_5000'){
+            $products=Product::where('name', 'LIKE' , "%$keyword%")->where('price', '>=','1000000')->where('price','<=','5000000')->orderBy('id', 'DESC')->paginate(20);
+            }
+            elseif($arrange == 'desc' AND $r_price == '5000_10000'){
+            $products=Product::where('name', 'LIKE' , "%$keyword%")->where('price', '>=','5000000')->where('price','<=','10000000')->orderBy('id', 'DESC')->paginate(20);
+            }
+            elseif($arrange == 'desc' AND $r_price == 'big_10000'){
+            $products=Product::where('name', 'LIKE' , "%$keyword%")->where('price', '>=','100000000')->orderBy('id', 'DESC')->paginate(20);
+            }
+            elseif($arrange == 'asc' AND $r_price == 'small_500'){
+            $products=Product::where('name', 'LIKE' , "%$keyword%")->where('price', '<=','500000')->orderBy('id', 'ASC')->paginate(20);
+            }
+            elseif($arrange == 'asc' AND $r_price == '500_1000'){
+            $products=Product::where('name', 'LIKE' , "%$keyword%")->where('price', '>=','500000')->where('price','<=','1000000')->orderBy('id', 'ASC')->paginate(20);
+            }
+            elseif($arrange == 'asc' AND $r_price == '1000_5000'){
+            $products=Product::where('name', 'LIKE' , "%$keyword%")->where('price', '>=','1000000')->where('price','<=','5000000')->orderBy('id', 'ASC')->where('name', 'LIKE' , "%$keyword%")->paginate(20);
+            }
+            elseif($arrange == 'asc' AND $r_price == '5000_10000'){
+            $products=Product::where('name', 'LIKE' , "%$keyword%")->where('price', '>=','5000000')->where('price','<=','10000000')->orderBy('id', 'ASC')->paginate(20);
+            }
+            elseif($arrange == 'asc' AND $r_price == 'big_10000'){
+            $products=Product::where('price', '>=','10000000')->orderBy('id', 'ASC')->where('name', 'LIKE' , "%$keyword%")->paginate(20);
+            }
+            elseif($arrange == 'price_desc' AND $r_price == 'small_500'){
+            $products=Product::where('name', 'LIKE' , "%$keyword%")->where('price', '<=','500000')->orderBy('Price', 'desc')->paginate(20);
+            }
+            elseif($arrange == 'price_desc' AND $r_price == '500_1000'){
+            $products=Product::where('name', 'LIKE' , "%$keyword%")->where('price', '>=','500000')->where('price','<=','1000000')->orderBy('Price', 'desc')->paginate(20);
+            }
+            elseif($arrange == 'price_desc' AND $r_price == '1000_5000'){
+            $products=Product::where('name', 'LIKE' , "%$keyword%")->where('price', '>=','1000000')->where('price','<=','5000000')->orderBy('Price', 'desc')->paginate(20);
+            }
+            elseif($arrange == 'price_desc' AND $r_price == '5000_10000'){
+            $products=Product::where('name', 'LIKE' , "%$keyword%")->where('price', '>=','5000000')->where('price','<=','10000000')->orderBy('Price', 'desc')->paginate(20);
+            }
+            elseif($arrange == 'price_desc' AND $r_price == 'big_10000'){
+            $products=Product::where('name', 'LIKE' , "%$keyword%")->where('price', '>=','10000000')->orderBy('Price', 'desc')->paginate(20);
+            }
+            elseif($arrange == 'price_asc' AND $r_price == 'small_500'){
+            $products=Product::where('name', 'LIKE' , "%$keyword%")->where('price', '<=','500000')->orderBy('Price', 'asc')->paginate(20);
+            }
+            elseif($arrange == 'price_asc' AND $r_price == '500_1000'){
+            $products=Product::where('name', 'LIKE' , "%$keyword%")->where('price', '>=','500000')->where('price','<=','1000000')->orderBy('Price', 'asc')->paginate(20);
+            }
+            elseif($arrange == 'price_asc' AND $r_price == '1000_5000'){
+            $products=Product::where('name', 'LIKE' , "%$keyword%")->where('price', '>=','1000000')->where('price','<=','5000000')->orderBy('Price', 'asc')->paginate(20);
+            }
+            elseif($arrange == 'price_asc' AND $r_price == '5000_10000'){
+            $products=Product::where('name', 'LIKE' , "%$keyword%")->where('price', '>=','5000000')->where('price','<=','10000000')->orderBy('Price', 'asc')->paginate(20);
+            }
+            elseif($arrange == 'price_asc' AND $r_price == 'big_10000'){
+            $products=Product::where('name', 'LIKE' , "%$keyword%")->where('price', '>=','10000000')->orderBy('Price', 'asc')->paginate(20);
+            }
+
         }
         elseif($id != 0)
         {
-            $ctg = Product_categories::where('id', $id)->first();
+            $ctgs = Product_categories::where('id', $id)->first();
+            if ($ctgs) {
+                // Transform the result into the desired format
+                $ctg = [
+                    'id' => $ctgs->id,
+                    'name' => $ctgs->name,
+                ];
+            }
+
+
             $category = Product_categories::select('id')->where('id',$id)->get();
             $category_select = array();
 
-            //Duyệt tất cả danh mục con của Điện thoại
+
             foreach ($category as $selects)
             {
-
                 $category_select[] = $selects->id;
                 if(count($selects->children) > 0)
                 {
@@ -113,11 +206,83 @@ class GuestController extends Controller
                     }
                 }
             }
-            $products=Product::whereIn('category_id', $category_select)->orderBy('id', 'DESC')->paginate(3);
+            if($arrange == 'desc' AND $r_price == ''){
+                $products=Product::whereIn('category_id', $category_select)->where('name', 'LIKE' , "%$keyword%")->orderBy('id', 'DESC')->paginate(20);
+                }
+                elseif($arrange == 'asc' AND $r_price == ''){
+                $products=Product::whereIn('category_id', $category_select)->where('name', 'LIKE' , "%$keyword%")->orderBy('id', 'ASC')->paginate(20);
+                }
+                elseif($arrange == 'price_desc' AND $r_price == ''){
+                $products=Product::whereIn('category_id', $category_select)->where('name', 'LIKE' , "%$keyword%")->orderBy('Price', 'DESC')->paginate(20);
+                }
+                elseif($arrange == 'price_asc' AND $r_price == ''){
+                $products=Product::whereIn('category_id', $category_select)->where('name', 'LIKE' , "%$keyword%")->orderBy('Price', 'ASC')->paginate(20);
+                }
+                elseif($arrange == 'desc' AND $r_price == 'small_500'){
+                $products=Product::whereIn('category_id', $category_select)->where('price', '<=','500000')->where('name', 'LIKE' , "%$keyword%")->orderBy('id', 'DESC')->paginate(20);
+                }
+                elseif($arrange == 'desc' AND $r_price == '500_1000'){
+                $products=Product::whereIn('category_id', $category_select)->where('name', 'LIKE' , "%$keyword%")->where('price', '>=','500000')->where('price','<=','1000000')->orderBy('id', 'DESC')->paginate(20);
+                }
+                elseif($arrange == 'desc' AND $r_price == '1000_5000'){
+                $products=Product::whereIn('category_id', $category_select)->where('name', 'LIKE' , "%$keyword%")->where('price', '>=','1000000')->where('price','<=','5000000')->orderBy('id', 'DESC')->paginate(20);
+                }
+                elseif($arrange == 'desc' AND $r_price == '5000_10000'){
+                $products=Product::whereIn('category_id', $category_select)->where('name', 'LIKE' , "%$keyword%")->where('price', '>=','5000000')->where('price','<=','10000000')->orderBy('id', 'DESC')->paginate(20);
+                }
+                elseif($arrange == 'desc' AND $r_price == 'big_10000'){
+                $products=Product::whereIn('category_id', $category_select)->where('name', 'LIKE' , "%$keyword%")->where('price', '>=','10000000')->orderBy('id', 'DESC')->paginate(20);
+                }
+                elseif($arrange == 'asc' AND $r_price == 'small_500'){
+                $products=Product::whereIn('category_id', $category_select)->where('name', 'LIKE' , "%$keyword%")->where('price', '<=','500000')->orderBy('id', 'ASC')->paginate(20);
+                }
+                elseif($arrange == 'asc' AND $r_price == '500_1000'){
+                $products=Product::whereIn('category_id', $category_select)->where('name', 'LIKE' , "%$keyword%")->where('price', '>=','500000')->where('price','<=','1000000')->orderBy('id', 'ASC')->paginate(20);
+                }
+                elseif($arrange == 'asc' AND $r_price == '1000_5000'){
+                $products=Product::whereIn('category_id', $category_select)->where('name', 'LIKE' , "%$keyword%")->where('price', '>=','1000000')->where('price','<=','5000000')->orderBy('id', 'ASC')->paginate(20);
+                }
+                elseif($arrange == 'asc' AND $r_price == '5000_10000'){
+                $products=Product::whereIn('category_id', $category_select)->where('name', 'LIKE' , "%$keyword%")->where('price', '>=','5000000')->where('price','<=','10000000')->orderBy('id', 'ASC')->paginate(20);
+                }
+                elseif($arrange == 'asc' AND $r_price == 'big_10000'){
+                $products=Product::whereIn('category_id', $category_select)->where('name', 'LIKE' , "%$keyword%")->where('price', '>=','10000000')->orderBy('id', 'ASC')->paginate(20);
+                }
+                elseif($arrange == 'price_desc' AND $r_price == 'small_500'){
+                $products=Product::whereIn('category_id', $category_select)->where('name', 'LIKE' , "%$keyword%")->where('price', '<=','500000')->orderBy('Price', 'desc')->paginate(20);
+                }
+                elseif($arrange == 'price_desc' AND $r_price == '500_1000'){
+                $products=Product::whereIn('category_id', $category_select)->where('name', 'LIKE' , "%$keyword%")->where('price', '>=','500000')->where('price','<=','1000000')->orderBy('Price', 'desc')->paginate(20);
+                }
+                elseif($arrange == 'price_desc' AND $r_price == '1000_5000'){
+                $products=Product::whereIn('category_id', $category_select)->where('name', 'LIKE' , "%$keyword%")->where('price', '>=','1000000')->where('price','<=','5000000')->orderBy('Price', 'desc')->paginate(20);
+                }
+                elseif($arrange == 'price_desc' AND $r_price == '5000_10000'){
+                $products=Product::whereIn('category_id', $category_select)->where('name', 'LIKE' , "%$keyword%")->where('price', '>=','5000000')->where('price','<=','10000000')->orderBy('Price', 'desc')->paginate(20);
+                }
+                elseif($arrange == 'price_desc' AND $r_price == 'big_10000'){
+                $products=Product::whereIn('category_id', $category_select)->where('name', 'LIKE' , "%$keyword%")->where('price', '>=','10000000')->orderBy('Price', 'desc')->paginate(20);
+                }
+                elseif($arrange == 'price_asc' AND $r_price == 'small_500'){
+                $products=Product::whereIn('category_id', $category_select)->where('name', 'LIKE' , "%$keyword%")->where('price', '<=','500000')->orderBy('Price', 'asc')->paginate(20);
+                }
+                elseif($arrange == 'price_asc' AND $r_price == '500_1000'){
+                $products=Product::whereIn('category_id', $category_select)->where('name', 'LIKE' , "%$keyword%")->where('price', '>=','500000')->where('price','<=','1000000')->orderBy('Price', 'asc')->paginate(20);
+                }
+                elseif($arrange == 'price_asc' AND $r_price == '1000_5000'){
+                $products=Product::whereIn('category_id', $category_select)->where('name', 'LIKE' , "%$keyword%")->where('price', '>=','1000000')->where('price','<=','5000000')->orderBy('Price', 'asc')->paginate(20);
+                }
+                elseif($arrange == 'price_asc' AND $r_price == '5000_10000'){
+                $products=Product::whereIn('category_id', $category_select)->where('name', 'LIKE' , "%$keyword%")->where('price', '>=','5000000')->where('price','<=','10000000')->orderBy('Price', 'asc')->paginate(20);
+                }
+                elseif($arrange == 'price_asc' AND $r_price == 'big_10000'){
+                $products=Product::whereIn('category_id', $category_select)->where('name', 'LIKE' , "%$keyword%")->where('price', '>=','10000000')->orderBy('Price', 'asc')->paginate(20);
+                }
         }
 
 
-        return view('guest.product.main',compact('categories', 'id', 'category','ctg', 'products', 'categories_post'));
+        return view('guest.product.main',compact('categories', 'id','ctg', 'products', 'categories_post', 'arrange', 'r_price'));
+
     }
     public function product_detail(Request $request, $id){
         $categories_post = Post_categories::all();
@@ -258,4 +423,60 @@ class GuestController extends Controller
     }
     }
 
+
+
+    public function Post_main(Request $request, $id = 0){
+
+        if($id == 0){
+        $ctg = 'Tất cả bài viết';
+        $posts = Post::orderBy('id', 'DESC')->paginate(7);
+        }
+        elseif($id != 0)
+        {
+            $ctg = Post_categories::where('id', $id)->pluck('name')->first();
+
+            $category = Post_categories::select('id')->where('id',$id)->get();
+            $category_select = array();
+
+
+            foreach ($category as $selects)
+            {
+                $category_select[] = $selects->id;
+                if(count($selects->children) > 0)
+                {
+                    foreach ($selects->children as $select)
+                    {
+                        $category_select[] = $select->id;
+                            if(count($select->children) > 0)
+                            {
+                                foreach($select->children as $child)
+                                {
+                                    $category_select[] = $child->id;
+                                }
+                            }
+                    }
+                }
+            }
+            $posts=Post::whereIn('category_id', $category_select)->orderBy('id', 'DESC')->paginate(7);
+        }
+        $categories = Post_categories::whereNull('parent_id')->with('children.children')->get();
+        $topProductIDs = Order_item::select('product_id', DB::raw('SUM(quantity) as total_quantity'))
+        ->groupBy('product_id')
+        ->orderByDesc('total_quantity')
+        ->take(10)
+        ->pluck('product_id');
+        $topProducts = Product::whereIn('id', $topProductIDs)->get();
+        return view('guest.post.main', compact('topProducts', 'posts', 'categories', 'ctg'));
+    }
+    public function Post_detail($id){
+        $post = Post::find($id);
+        $categories = Post_categories::whereNull('parent_id')->with('children.children')->get();
+        $topProductIDs = Order_item::select('product_id', DB::raw('SUM(quantity) as total_quantity'))
+        ->groupBy('product_id')
+        ->orderByDesc('total_quantity')
+        ->take(10)
+        ->pluck('product_id');
+        $topProducts = Product::whereIn('id', $topProductIDs)->get();
+        return view('guest.post.detail', compact('topProducts', 'categories', 'post'));
+    }
 }
