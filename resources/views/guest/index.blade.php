@@ -6,7 +6,14 @@
         <div class="main-content fl-right">
             <div class="section" id="slider-wp">
                 <div class="section-detail">
+                    @foreach ($sliders as $slider)
                     <div class="item">
+                        <a href="{{ route('product.detail', $slider->url) }}">
+                            <img src="{{ asset('storage/photos/1/'.$slider->images->url) }} " alt="">
+                        </a>
+                    </div>
+                    @endforeach
+                    {{--  <div class="item">
                         <img src="public/guest/images/slider-01.png" alt="">
                     </div>
                     <div class="item">
@@ -14,7 +21,7 @@
                     </div>
                     <div class="item">
                         <img src="public/guest/images/slider-03.png" alt="">
-                    </div>
+                    </div>  --}}
                 </div>
             </div>
             <div class="section" id="support-wp">

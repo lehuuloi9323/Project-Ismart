@@ -18,10 +18,11 @@
         <div class="main-content fl-right">
             <div class="section" id="detail-product-wp">
                 <div class="section-detail clearfix">
+
                     <div class="thumb-wp fl-left">
                         <a title="" id="main-thumb">
                             <img id="zoom" src="{{ asset('storage/photos/1/Product/'.getImageUrlForProduct($product->id)) }}" style="width: 350px; height: 350px;"
-                             data-zoom-image="{{ asset('storage/photos/1/Product/'.getImageUrlForProduct($product->id)) }}"/>
+                             data-zoom-image=""/>
                         </a>
                         <div id="list-thumb">
                             @foreach ($images as $image)
@@ -29,26 +30,14 @@
                                 <img id="zoom" src="{{ asset('storage/photos/1/Product/'.$image->url) }}" />
                             </a>
                             @endforeach
-                            {{--  <a href="" data-image="https://media3.scdn.vn/img2/2017/10_30/BlccRg_simg_ab1f47_350x350_maxb.jpg" data-zoom-image="https://media3.scdn.vn/img2/2017/10_30/BlccRg_simg_70aaf2_700x700_maxb.jpg">
-                                <img id="zoom" src="https://media3.scdn.vn/img2/2017/10_30/BlccRg_simg_02d57e_50x50_maxb.jpg" />
-                            </a>
-                            <a href="" data-image="https://media3.scdn.vn/img2/2017/10_30/sxlpFs_simg_ab1f47_350x350_maxb.jpg" data-zoom-image="https://media3.scdn.vn/img2/2017/10_30/sxlpFs_simg_70aaf2_700x700_maxb.jpg">
-                                <img id="zoom" src="https://media3.scdn.vn/img2/2017/10_30/sxlpFs_simg_02d57e_50x50_maxb.jpg" />
-                            </a>
-                            <a href="" data-image="https://media3.scdn.vn/img2/2017/10_30/BlccRg_simg_ab1f47_350x350_maxb.jpg" data-zoom-image="https://media3.scdn.vn/img2/2017/10_30/BlccRg_simg_70aaf2_700x700_maxb.jpg">
-                                <img id="zoom" src="https://media3.scdn.vn/img2/2017/10_30/BlccRg_simg_02d57e_50x50_maxb.jpg" />
-                            </a>
-                            <a href="" data-image="https://media3.scdn.vn/img2/2017/10_30/sxlpFs_simg_ab1f47_350x350_maxb.jpg" data-zoom-image="https://media3.scdn.vn/img2/2017/10_30/sxlpFs_simg_70aaf2_700x700_maxb.jpg">
-                                <img id="zoom" src="https://media3.scdn.vn/img2/2017/10_30/sxlpFs_simg_02d57e_50x50_maxb.jpg" />
-                            </a>
-                            <a href="" data-image="https://media3.scdn.vn/img2/2017/10_30/BlccRg_simg_ab1f47_350x350_maxb.jpg" data-zoom-image="https://media3.scdn.vn/img2/2017/10_30/BlccRg_simg_70aaf2_700x700_maxb.jpg">
-                                <img id="zoom" src="https://media3.scdn.vn/img2/2017/10_30/BlccRg_simg_02d57e_50x50_maxb.jpg" />
-                            </a>  --}}
+
                         </div>
                     </div>
-                    <div class="thumb-respon-wp fl-left">
+
+
+                    {{--  <div class="thumb-respon-wp fl-left">
                         <img src="public/images/img-pro-01.png" alt="">
-                    </div>
+                    </div>  --}}
                     <div class="info fl-right">
                         <h3 class="product-name">{{ $product->name }}</h3>
                         <div class="desc">

@@ -190,7 +190,7 @@
                         </ul>
                     </li>
                     <li class="nav-link {{ $module_active == 'permission'?'active':'' }}">
-                        <a href="?view=permission">
+                        <a href="{{ route('permission.add') }}">
                             <div class="nav-link-icon d-inline-flex">
                                 <i class="far fa-folder"></i>
                             </div>
@@ -201,6 +201,19 @@
                             <li><a href="{{ route('permission.add') }}">Quyền</a></li>
                             <li><a href="{{ route('role.add') }}">Thêm vai trò</a></li>
                             <li><a href="{{ route('role.list') }}">Danh sách vai trò</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-link {{ $module_active == 'slider'?'active':'' }}">
+                        <a href="">
+                            <div class="nav-link-icon d-inline-flex">
+                                <i class="far fa-folder"></i>
+                            </div>
+                            Sliders
+                        </a>
+                        <i class="arrow fas fa-angle-right"></i>
+                        <ul class="sub-menu">
+                            <li><a href="{{ route('slider.list') }}">Danh sách</a></li>
+                            <li><a href="{{ route('slider.add') }}">Thêm ảnh slider</a></li>
                         </ul>
                     </li>
 

@@ -15,7 +15,15 @@ class CreateSlidersTable extends Migration
     {
         Schema::create('sliders', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('image_id');
+            $table->string('title');
+            $table->string('description');
+            $table->string('url');
+            $table->tinyInteger('display_order');
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
+            $table->foreign('image_id')->references('id')->on('images')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

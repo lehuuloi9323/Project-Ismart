@@ -17,12 +17,14 @@ use App\Models\Order;
 use App\Models\Post;
 use App\Models\Customer;
 use App\Models\Order_item;
+use App\Models\Slider;
 use Illuminate\Support\Facades\DB;
 
 class GuestController extends Controller
 {
     //
     public function index(){
+        $sliders = Slider::where('display_order','>', 0)->orderBy('display_order','asc')->get();
         $topProductIDs = Order_item::select('product_id', DB::raw('SUM(quantity) as total_quantity'))
         ->groupBy('product_id')
         ->orderByDesc('total_quantity')
@@ -64,7 +66,7 @@ class GuestController extends Controller
         $laptops = Product::whereIn('category_id', $categories_all_laptop)->orderBy('id', 'DESC')->take(10)->get();
 
 
-        return view('guest.index', compact('categories', 'product_is_features', 'phones','laptops', 'categories_post', 'topProducts'));
+        return view('guest.index', compact('categories', 'product_is_features','sliders', 'phones','laptops', 'categories_post', 'topProducts'));
     }
 
     public function product_main(Request $request, $id = 0){
