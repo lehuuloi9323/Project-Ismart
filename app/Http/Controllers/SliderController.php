@@ -135,7 +135,6 @@ class SliderController extends Controller
     $images = Image::find($slider->image_id);
     $image = Str::after($request->img, '1/');
     $file_size=File::size(public_path('storage/photos/1/').$image); // Lấy kích thước ảnh đơn vị bytes
-
     $images->update([
         'url' => $image,
         'size_img' => $file_size
@@ -144,5 +143,10 @@ class SliderController extends Controller
 
 
     return redirect()->route('slider.list')->with('status', 'Cập nhật thành công !!');
+    }
+    public function delete($id){
+        $slider = Slider::find($id);
+        $slider->delete();
+        return redirect()->route('slider.list')->with('status', 'Bạn đã xóa thành công !!');
     }
 }

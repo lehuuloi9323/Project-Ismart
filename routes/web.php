@@ -125,6 +125,7 @@ Route::get('admin/role/delete/{role}', [App\Http\Controllers\RoleController::cla
 Route::get('admin/slider/add', [App\Http\Controllers\SliderController::class, 'add'])->name('slider.add');
 Route::post('admin/slider/storeadd', [App\Http\Controllers\SliderController::class, 'storeadd'])->name('slider.storeadd');
 Route::get('admin/slider/edit/{id}', [App\Http\Controllers\SliderController::class, 'edit'])->name('slider.edit');
+Route::get('admin/slider/delete/{id}', [App\Http\Controllers\SliderController::class, 'delete'])->name('slider.delete');
 Route::post('admin/slider/update/{id}', [App\Http\Controllers\SliderController::class, 'update'])->name('slider.update');
 Route::get('admin/slider/list', [App\Http\Controllers\SliderController::class, 'list'])->name('slider.list');
 });

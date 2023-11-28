@@ -65,8 +65,8 @@
                             @endif
 
                         <td>
-                            <a href="{{ route('slider.edit', $slider->id) }}" class="btn btn-success btn-sm rounded-0 text-white" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
-                            <a href="#" class="btn btn-danger btn-sm rounded-0 text-white" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></a>
+                            <a href="{{ route('slider.edit', $slider->id) }}" onclick="return confirm('Bạn chắc chắn muốn sửa slider ảnh này ?')" class="btn btn-success btn-sm rounded-0 text-white" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
+                            <a href="{{ route('slider.delete', $slider->id) }}" onclick="return confirm('Bạn chắc chắn muốn xóa slider ảnh này ?')" class="btn btn-danger btn-sm rounded-0 text-white" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></a>
                         </td>
                     </tr>
                     @endforeach
