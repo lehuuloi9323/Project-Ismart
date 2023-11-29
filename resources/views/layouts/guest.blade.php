@@ -59,7 +59,7 @@
                                         <a href="{{ route('post') }}" title="">Bài viết</a>
                                     </li>
                                     <li>
-                                        <a href="?page=blog" title="">Liên hệ</a>
+                                        <a href="{{ route('post.detail', 7) }}" title="">Liên hệ</a>
                                     </li>
 
 
@@ -246,7 +246,7 @@
                                 <a href="?page=blog" title>Blog</a>
                             </li>
                             <li>
-                                <a href="#" title>Liên hệ</a>
+                                <a href="{{ route('post.detail', 7) }}" title>Liên hệ</a>
                             </li>
                         </ul>
                     </div>

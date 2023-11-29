@@ -22,6 +22,9 @@
                 </div>
                 <div class="section-detail">
                     <ul class="list-item">
+                        @if($posts->total() > 0)
+
+
                         @foreach ($posts as $post)
                         <li class="clearfix">
                             <a href="{{ route('post.detail', $post->id) }}" title="" class="thumb fl-left">
@@ -34,7 +37,9 @@
                             </div>
                         </li>
                         @endforeach
-
+                        @else
+                        <div class="text-center">Không có bài viết nào !!</div>
+                        @endif
                     </ul>
                 </div>
             </div>

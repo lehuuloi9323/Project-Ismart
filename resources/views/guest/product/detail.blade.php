@@ -20,8 +20,9 @@
                 <div class="section-detail clearfix">
 
                     <div class="thumb-wp fl-left">
+
                         <a title="" id="main-thumb">
-                            <img id="zoom" src="{{ asset('storage/photos/1/Product/'.getImageUrlForProduct($product->id)) }}" style="width: 350px; height: 350px;"
+                            <img id="zoom" src="{{ asset('storage/photos/1/Product/'.getImageUrlForProduct($product->id)) }}"
                              data-zoom-image=""/>
                         </a>
                         <div id="list-thumb">
