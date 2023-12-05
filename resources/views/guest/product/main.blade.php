@@ -20,7 +20,7 @@
                 <div class="section-head clearfix">
                     <h3 class="section-title fl-left">{{ $ctg['name'] }}</h3>
                     <div class="filter-wp fl-right">
-                        <p class="desc">Hiển thị 45 trên 50 sản phẩm</p>
+                        <p class="desc">Hiển thị {{ $products->count() }} trên {{ $products->total() }} sản phẩm</p>
                         <div class="form-filter">
                             <form method="GET">
                                 <select name="arrange">
