@@ -26,16 +26,16 @@ Route::get('/admin',function(){
 
 //guest
 Route::get('/',[App\Http\Controllers\GuestController::class, 'index'])->name('index');
-Route::get('product/{id?}',[App\Http\Controllers\GuestController::class, 'product_main'])->name('product.main');
-Route::get('product/detail/{id}',[App\Http\Controllers\GuestController::class, 'product_detail'])->name('product.detail');
+Route::get('san-pham/{slug?}',[App\Http\Controllers\GuestController::class, 'product_main'])->name('product.main');
+Route::get('san-pham/chi-tiet/{slug}',[App\Http\Controllers\GuestController::class, 'product_detail'])->name('product.detail');
 
 //Order
-Route::get('cart/add/{id}',[App\Http\Controllers\GuestController::class, 'add_cart'])->name('cart.add');
-Route::get('cart',[App\Http\Controllers\GuestController::class, 'cart'])->name('cart');
-Route::get('cart/remove/{rowId}',[App\Http\Controllers\GuestController::class, 'remove_cart'])->name('cart.remove');
-Route::get('cart/destroy',[App\Http\Controllers\GuestController::class, 'destroy_cart'])->name('cart.destroy');
-Route::get('cart/checkout/{id?}',[App\Http\Controllers\GuestController::class, 'checkout'])->name('cart.checkout');
-Route::post('cart/payment',[App\Http\Controllers\GuestController::class, 'payment'])->name('cart.payment');
+Route::get('gio-hang/them/{slug}',[App\Http\Controllers\GuestController::class, 'add_cart'])->name('cart.add');
+Route::get('gio-hang',[App\Http\Controllers\GuestController::class, 'cart'])->name('cart');
+Route::get('gio-hang/xoa/{rowId}',[App\Http\Controllers\GuestController::class, 'remove_cart'])->name('cart.remove');
+Route::get('gio-hang/xoa-toan-bo',[App\Http\Controllers\GuestController::class, 'destroy_cart'])->name('cart.destroy');
+Route::get('gio-hang/thanh-toan/{slug?}',[App\Http\Controllers\GuestController::class, 'checkout'])->name('cart.checkout');
+Route::post('gio-hang/payment',[App\Http\Controllers\GuestController::class, 'payment'])->name('cart.payment');
 
 Route::get('post/{id?}',[App\Http\Controllers\GuestController::class, 'post_main'])->name('post');
 Route::get('post/detail/{id}',[App\Http\Controllers\GuestController::class, 'post_detail'])->name('post.detail');

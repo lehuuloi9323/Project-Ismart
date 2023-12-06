@@ -24,7 +24,6 @@
         <link href="{{ asset('guest/style.css') }}" rel="stylesheet" type="text/css"/>
         {{--  <link href="public/responsive.css" rel="stylesheet" type="text/css"/>  --}}
         <link href="{{ asset('guest/responsive.css') }}" rel="stylesheet" type="text/css"/>
-
         {{--  <script src="public/js/jquery-2.2.4.min.js" type="text/javascript"></script>  --}}
         <script src="{{ asset('guest/js/jquery-2.2.4.min.js') }}" type="text/javascript"></script>
         {{--  <script src="public/js/elevatezoom-master/jquery.elevatezoom.js" type="text/javascript"></script>  --}}
@@ -70,7 +69,7 @@
 
                     <div id="head-body" class="clearfix">
                         <div class="wp-inner">
-                            <a href="?page=home" title="" id="logo" class="fl-left"><img src="public/guest/images/logo.png"/></a>
+                            <a href="{{ route('index') }}" title="" id="logo" class="fl-left"><img src="public/guest/images/logo.png"/></a>
                             <div id="search-wp" class="fl-left">
                                 <form method="GET" action="{{ route('product.main') }}">
                                     <input type="text" name="keyword" id="s" placeholder="Nhập từ khóa tìm kiếm tại đây!">
@@ -97,11 +96,11 @@
                                         <ul class="list-cart">
                                             @foreach(Cart::content() as $cart)
                                             <li class="clearfix">
-                                                <a href="" title="" class="thumb fl-left">
-                                                    <img src="public/guest/images/img-pro-11.png" alt="">
+                                                <a href="{{ route('product.detail', $cart->options->slug) }}" title="" class="thumb fl-left">
+                                                    <img src="{{ asset('storage/photos/1/Product/'.$cart->options->thumbnail) }}" alt="">
                                                 </a>
                                                 <div class="info fl-right">
-                                                    <a href="" title="" class="product-name">{{ $cart->name }}</a>
+                                                    <a href="{{ route('product.detail', $cart->options->slug) }}" title="" class="product-name">{{ $cart->name }}</a>
                                                     <p class="price">{{ number_format($cart->total, 0, '', '.') }}đ</p>
                                                     <p class="qty">Số lượng: <span>{{ $cart->qty }}</span></p>
                                                 </div>

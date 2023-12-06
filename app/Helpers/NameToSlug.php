@@ -8,7 +8,8 @@ function NameToSlug($str) {
         'ò', 'ó', 'ọ', 'ỏ', 'õ', 'ô', 'ồ', 'ố', 'ộ', 'ổ', 'ỗ', 'ơ', 'ờ', 'ớ', 'ợ', 'ở', 'ỡ',
         'ù', 'ú', 'ụ', 'ủ', 'ũ', 'ư', 'ừ', 'ứ', 'ự', 'ử', 'ữ',
         'ỳ', 'ý', 'ỵ', 'ỷ', 'ỹ',
-        'đ'
+        'đ',
+        '/',
     );
 
     $vietnameseNonAccents = array(
@@ -19,7 +20,8 @@ function NameToSlug($str) {
         'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o',
         'u', 'u', 'u', 'u', 'u', 'u', 'u', 'u', 'u', 'u', 'u',
         'y', 'y', 'y', 'y', 'y',
-        'd'
+        'd',
+        '-'
     );
 
     $str = str_replace($vietnameseAccents, $vietnameseNonAccents, $str);

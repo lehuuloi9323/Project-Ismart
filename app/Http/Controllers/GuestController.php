@@ -69,7 +69,7 @@ class GuestController extends Controller
         return view('guest.index', compact('categories', 'product_is_features','sliders', 'phones','laptops', 'categories_post', 'topProducts'));
     }
 
-    public function product_main(Request $request, $id = 0){
+    public function product_main(Request $request, $slug = 0){
         $keyword = '';
         if($request->input('keyword')){
             $keyword = $request->input('keyword');
@@ -84,8 +84,8 @@ class GuestController extends Controller
             $r_price = $request->input('r_price');
         }
         $categories = Product_categories::whereNull('parent_id')->with('children.children')->get();
-        if($id == 0){
-            $ctg = ['id' => 0, 'name' => 'Tất cả sản phẩm'];
+        if($slug == 0){
+            $ctg = ['id' => 0, 'name' => 'Tất cả sản phẩm', 'slug' => 0];
 
             $category = Product_categories::select('id')->where('name', 'LIKE', '%Điện thoại%')->get();
             // // $categories_filter = Product_categories::whereNull('parent_id')->where('id','id')->with('children.children')->get();
@@ -174,19 +174,20 @@ class GuestController extends Controller
             }
 
         }
-        elseif($id != 0)
+        elseif($slug != 0)
         {
-            $ctgs = Product_categories::where('id', $id)->first();
+            $ctgs = Product_categories::where('slug', $slug)->first();
             if ($ctgs) {
                 // Transform the result into the desired format
                 $ctg = [
                     'id' => $ctgs->id,
                     'name' => $ctgs->name,
+                    'slug' => $ctgs->slug,
                 ];
             }
 
 
-            $category = Product_categories::select('id')->where('id',$id)->get();
+            $category = Product_categories::select('id')->where('slug',$slug)->get();
             $category_select = array();
 
 
@@ -283,19 +284,19 @@ class GuestController extends Controller
         }
 
 
-        return view('guest.product.main',compact('categories', 'id','ctg', 'products', 'categories_post', 'arrange', 'r_price'));
+        return view('guest.product.main',compact('categories', 'slug','ctg', 'products', 'categories_post', 'arrange', 'r_price'));
 
     }
-    public function product_detail(Request $request, $id){
+    public function product_detail(Request $request, $slug){
         $categories_post = Post_categories::all();
         $categories = Product_categories::whereNull('parent_id')->with('children.children')->get();
-        $product = Product::where('id', $id)->first();
+        $product = Product::where('slug', $slug)->first();
         $product_same_category = Product::where('category_id', $product->category_id)->orderBy('id', 'DESC')->take(10)->get();
-        $images = Product_image::where('product_id', $id)->join('images', 'product_images.image_id', '=', 'images.id')->select('images.url')->get();
-        return view('guest.product.detail', compact('id', 'product', 'categories_post', 'categories', 'images','product_same_category'));
+        $images = Product_image::where('product_id', $product->id)->join('images', 'product_images.image_id', '=', 'images.id')->select('images.url')->get();
+        return view('guest.product.detail', compact('slug', 'product', 'categories_post', 'categories', 'images','product_same_category'));
     }
 
-    public function add_cart(Request $request, $id){
+    public function add_cart(Request $request, $slug){
 
         if($request->input('num_order')){
             $qty = $request->input('num_order');
@@ -303,7 +304,7 @@ class GuestController extends Controller
             $qty = 1;
         }
 
-        $product = Product::find($id);
+        $product = Product::where('slug',$slug)->first();
 
         Cart::add([
             'id' => $product->id,
@@ -312,6 +313,7 @@ class GuestController extends Controller
             'price' => $product->price,
             'options' => ['thumbnail' => getImageUrlForProduct($product->id),
             'max_order' => $product->stock_quantity,
+            'slug' => $product->slug,
             ]
         ]);
         // return Cart::content();
@@ -331,15 +333,15 @@ class GuestController extends Controller
         return redirect()->route('cart');
     }
 
-    public function checkout($id = 0){
+    public function checkout($slug = 0){
         $categories_post = Post_categories::all();
 
-        if($id == 0)
+        if($slug == 0)
         {
         return view('guest.order.checkout', compact('categories_post'));
         }
-        elseif($id != 1){
-            $product = Product::find($id);
+        elseif($slug != 0){
+            $product = Product::where('slug', $slug)->first();
 
             Cart::add([
                 'id' => $product->id,

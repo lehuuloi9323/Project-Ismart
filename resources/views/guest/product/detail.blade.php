@@ -10,7 +10,7 @@
                         <a href="" title="">Trang chủ</a>
                     </li>
                     <li>
-                        <a href="" title="">Điện thoại</a>
+                        <a href="{{ route('product.detail', $product->Product_categories->slug) }}" title="">{{ $product->Product_categories->name }}</a>
                     </li>
                 </ul>
             </div>
@@ -49,7 +49,7 @@
                             <span class="status">Còn hàng</span>
                         </div>
                         <p class="price">{{ number_format($product->price, 0, '', '.') }}đ</p>
-                    <form action="{{ route('cart.add', $product->id) }}" method="GET">
+                    <form action="{{ route('cart.add', $product->slug) }}" method="GET">
                         <div id="num-order-wp">
                             {{--  <a title="" id="minus"><i class="fa fa-minus"></i></a>  --}}
                             <label for="num-order">Số lượng: </label>
@@ -78,17 +78,17 @@
                     <ul class="list-item">
                         @foreach ($product_same_category as $same_category)
                         <li>
-                            <a href="{{ route('product.detail', $same_category->id) }}" title="" class="thumb">
+                            <a href="{{ route('product.detail', $same_category->slug) }}" title="" class="thumb">
                                 <img src="{{ asset('storage/photos/1/Product/'.getImageUrlForProduct($same_category->id)) }}">
                             </a>
-                            <a href="{{ route('product.detail', $same_category->id) }}" title="" class="product-name">{{ $same_category->name }}</a>
+                            <a href="{{ route('product.detail', $same_category->slug) }}" title="" class="product-name">{{ $same_category->name }}</a>
                             <div class="price">
                                 <span class="new">{{ number_format($same_category->price, 0, '', '.') }}đ</span>
                                 <span class="old">{{ number_format($same_category->old_price, 0, '', '.') }}đ</span>
                             </div>
                             <div class="action clearfix">
-                                <a href="{{ route('cart.add', $same_category->id) }}" title="" class="add-cart fl-left">Thêm giỏ hàng</a>
-                                <a href="{{ route('cart.checkout', $same_category->id) }}" title="" class="buy-now fl-right">Mua ngay</a>
+                                <a href="{{ route('cart.add', $same_category->slug) }}" title="" class="add-cart fl-left">Thêm giỏ hàng</a>
+                                <a href="{{ route('cart.checkout', $same_category->slug) }}" title="" class="buy-now fl-right">Mua ngay</a>
                             </div>
                         </li>
                         @endforeach
@@ -105,17 +105,17 @@
                     <ul class="list-item">
                         @foreach ($categories as $category)
                         <li>
-                            <a href="{{ route('product.main', $category->id) }}" title="{{ $category->name }}">{{ $category->name }}</a>
+                            <a href="{{ route('product.main', $category->slug) }}" title="{{ $category->name }}">{{ $category->name }}</a>
                             @if(count($category->children))
                             <ul class="sub-menu">
                                 @foreach ($category->children as $child)
                                 <li>
-                                    <a href="{{ route('product.main', $child->id) }}" title="{{ $child->name }}">{{ $child->name }}</a>
+                                    <a href="{{ route('product.main', $child->slug) }}" title="{{ $child->name }}">{{ $child->name }}</a>
                                     @if(count($child->children))
                                     <ul class="sub-menu">
                                         @foreach ($child->children as $children)
                                         <li>
-                                            <a href="{{ route('product.main', $children->id) }}" title="{{ $children->name }}">{{ $children->name }}</a>
+                                            <a href="{{ route('product.main', $children->slug) }}" title="{{ $children->name }}">{{ $children->name }}</a>
                                         </li>
                                         @endforeach
                                     </ul>

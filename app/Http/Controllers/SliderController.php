@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Image;
 use App\Models\Slider;
+use App\Models\Product;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Auth;
@@ -44,9 +45,14 @@ class SliderController extends Controller
             'img' => 'Ảnh slider'
         ]
     );
+    $jsondata = Product::select('slug')->where('id', '=', $request->url)->get();
+    $data =  json_decode($jsondata, true);
+    $url = $data[0]['slug'];
+
+
+
 
     $old_sliders = Slider::where('display_order', $request->display_order)->get();
-
     if ($old_sliders->count() > 0) {
             $old_slider->update([
                 'display_order' => 0,
@@ -67,7 +73,7 @@ class SliderController extends Controller
         'image_id' => $add_image->id,
         'title' => $request->title,
         'description' => $request->description,
-        'url' => $request->url,
+        'url' => $url,
         'display_order' => $request->display_order,
         'user_id' => Auth::user()->id
     ]);

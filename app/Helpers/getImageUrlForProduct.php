@@ -14,7 +14,7 @@ function getImageUrlForProduct($productId)
         die("Connection failed: " . mysqli_connect_error());
     }
     //Lấy danh sách sản phẩm có ID = $productId
-    $product = "select * from Products where id = '$productId'";
+    $product = "select * from products where id = '$productId'";
     $result_product = $conn->query($product);
     if ($result_product->num_rows > 0)
     {

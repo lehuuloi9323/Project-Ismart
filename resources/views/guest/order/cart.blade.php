@@ -34,15 +34,16 @@
                         @if(Cart::count() > 0)
                         @foreach (Cart::content() as $row)
                         <tr>
+
                             <td>#{{ $row->id }}</td>
                             <td>
-                                <a href="{{ route('product.detail', $row->id) }}" title="" class="thumb">
+                                <a href="{{ route('product.detail', $row->options->slug) }}" title="" class="thumb">
                                     <img src="{{ asset('storage/photos/1/Product/'.$row->options->thumbnail) }}" alt="">
                                 </a>
                             </td>
                             {{--  {{ asset('storage/photos/1/Product/'.$row->options->thumbnail }}  --}}
                             <td>
-                                <a href="{{ route('product.detail', $row->id) }}" title="" class="name-product">{{ $row->name }}</a>
+                                <a href="{{ route('product.detail', $row->options->slug) }}" title="" class="name-product">{{ $row->options->slug }}</a>
                             </td>
                             <td>{{ number_format($row->price, 0, '', '.') }}đ</td>
                             <td>

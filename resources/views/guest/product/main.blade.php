@@ -10,7 +10,7 @@
                         <a href="{{ route('index') }}" title="">Trang chủ</a>
                     </li>
                     <li>
-                        <a href="{{ route('product.main', $ctg['id']) }}" title="">{{ $ctg['name'] }}</a>
+                        <a href="{{ route('product.main', $ctg['slug']) }}" title="">{{ $ctg['name'] }}</a>
                     </li>
                 </ul>
             </div>
@@ -44,7 +44,7 @@
 
                         @foreach ($products as $product)
                         <li>
-                            <a href="?page=detail_product" title="" class="thumb">
+                            <a href="{{ route('product.detail', $product->slug) }}" title="" class="thumb">
                                 <img src="{{ asset('storage/photos/1/Product/'. getImageUrlForProduct($product->id)) }}">
                             </a>
                             <a href="?page=detail_product" title="" class="product-name">{{ $product->name }}</a>
@@ -92,17 +92,17 @@
                     <ul class="list-item">
                         @foreach ($categories as $category)
                         <li>
-                            <a href="{{ route('product.main', $category->id) }}" title="{{ $category->name }}">{{ $category->name }}</a>
+                            <a href="{{ route('product.main', $category->slug) }}" title="{{ $category->name }}">{{ $category->name }}</a>
                             @if(count($category->children))
                             <ul class="sub-menu">
                                 @foreach ($category->children as $child)
                                 <li>
-                                    <a href="{{ route('product.main', $child->id) }}" title="{{ $child->name }}">{{ $child->name }}</a>
+                                    <a href="{{ route('product.main', $child->slug) }}" title="{{ $child->name }}">{{ $child->name }}</a>
                                     @if(count($child->children))
                                     <ul class="sub-menu">
                                         @foreach ($child->children as $children)
                                         <li>
-                                            <a href="{{ route('product.main', $children->id) }}" title="{{ $children->name }}">{{ $children->name }}</a>
+                                            <a href="{{ route('product.main', $children->slug) }}" title="{{ $children->name }}">{{ $children->name }}</a>
                                         </li>
                                         @endforeach
                                     </ul>
