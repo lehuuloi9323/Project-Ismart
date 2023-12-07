@@ -183,7 +183,8 @@
                                     <span class="new">{{ number_format($topProduct->price, 0, '', '.') }}đ</span>
                                     <span class="old">{{ number_format($topProduct->old_price, 0, '', '.') }}đ</span>
                                 </div>
-                                <a href="{{ route('cart.checkout', $topProduct->slug) }}" title="Mua ngay" class="buy-now">Mua ngay</a>
+                                <a href="{{ route('cart.checkout', [($topProduct->slug)]) }}" title="Mua ngay" class="buy-now">Mua ngay</a>
+                                {{--  <a href="{{ route('cart.checkout', $topProduct->slug) }}" title="Mua ngay" class="buy-now">Mua ngay</a>  --}}
                             </div>
                         </li>
                         @endforeach

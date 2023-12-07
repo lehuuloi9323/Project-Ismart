@@ -47,14 +47,14 @@
                             <a href="{{ route('product.detail', $product->slug) }}" title="" class="thumb">
                                 <img src="{{ asset('storage/photos/1/Product/'. getImageUrlForProduct($product->id)) }}">
                             </a>
-                            <a href="?page=detail_product" title="" class="product-name">{{ $product->name }}</a>
+                            <a href="{{ route('product.detail', $product->slug) }}" title="" class="product-name">{{ $product->name }}</a>
                             <div class="price">
                                 <span class="new">{{ number_format($product->price, 0, '', '.') }}đ</span>
                                 <span class="old">{{ number_format($product->old_price, 0, '', '.') }}đ</span>
                             </div>
                             <div class="action clearfix">
-                                <a href="{{ route('cart.add', $product->id) }}" title="Thêm giỏ hàng" class="add-cart fl-left">Thêm giỏ hàng</a>
-                                <a href="{{ route('cart.checkout', $product->id) }}" title="Mua ngay" class="buy-now fl-right">Mua ngay</a>
+                                <a href="{{ route('cart.add', $product->slug) }}" title="Thêm giỏ hàng" class="add-cart fl-left">Thêm giỏ hàng</a>
+                                <a href="{{ route('cart.checkout', $product->slug) }}" title="Mua ngay" class="buy-now fl-right">Mua ngay</a>
                             </div>
                         </li>
                         @endforeach

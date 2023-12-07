@@ -7,10 +7,10 @@
             <div class="secion-detail">
                 <ul class="list-item clearfix">
                     <li>
-                        <a href="" title="">Trang chủ</a>
+                        <a href="{{ route('index') }}" title="Trang chủ">Trang chủ</a>
                     </li>
                     <li>
-                        <a href="{{ route('product.detail', $product->Product_categories->slug) }}" title="">{{ $product->Product_categories->name }}</a>
+                        <a  title="{{ $product->Product_categories->name }}">{{ $product->Product_categories->name }}</a>
                     </li>
                 </ul>
             </div>

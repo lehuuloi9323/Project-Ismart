@@ -27,7 +27,7 @@
 
                         @foreach ($posts as $post)
                         <li class="clearfix">
-                            <a href="{{ route('post.detail', $post->id) }}" title="" class="thumb fl-left">
+                            <a href="{{ route('post.detail', $post->slug) }}" title="" class="thumb fl-left">
                                 <img src="{{ asset('storage/photos/1/Post/'. $post->image->url) }}" alt="">
                             </a>
                             <div class="info fl-right">
@@ -61,17 +61,17 @@
                     <ul class="list-item">
                         @foreach ($categories as $category)
                         <li>
-                            <a href="{{ route('post', $category->id) }}" title="{{ $category->name }}">{{ $category->name }}</a>
+                            <a href="{{ route('post', $category->slug) }}" title="{{ $category->name }}">{{ $category->name }}</a>
                             @if(count($category->children))
                             <ul class="sub-menu">
                                 @foreach ($category->children as $child)
                                 <li>
-                                    <a href="{{ route('post', $child->id) }}" title="{{ $child->name }}">{{ $child->name }}</a>
+                                    <a href="{{ route('post', $child->slug) }}" title="{{ $child->name }}">{{ $child->name }}</a>
                                     @if(count($child->children))
                                     <ul class="sub-menu">
                                         @foreach ($child->children as $children)
                                         <li>
-                                            <a href="{{ route('post', $children->id) }}" title="{{ $children->name }}">{{ $children->name }}</a>
+                                            <a href="{{ route('post', $children->slug) }}" title="{{ $children->name }}">{{ $children->name }}</a>
                                         </li>
                                         @endforeach
                                     </ul>
@@ -94,16 +94,16 @@
                     <ul class="list-item">
                         @foreach ($topProducts as $topProduct)
                         <li class="clearfix">
-                            <a href="{{ route('product.detail', $topProduct->id) }}" title="{{ $topProduct->name }}" class="thumb fl-left">
+                            <a href="{{ route('product.detail', $topProduct->slug) }}" title="{{ $topProduct->name }}" class="thumb fl-left">
                                 <img src="{{ asset('storage/photos/1/Product/'. getImageUrlForProduct($topProduct->id)) }}" alt="{{ $topProduct->name }}">
                             </a>
                             <div class="info fl-right">
-                                <a href="{{ route('product.detail', $topProduct->id) }}" title="" class="product-name">{{ $topProduct->name }}</a>
+                                <a href="{{ route('product.detail', $topProduct->slug) }}" title="" class="product-name">{{ $topProduct->name }}</a>
                                 <div class="price">
                                     <span class="new">{{ number_format($topProduct->price, 0, '', '.') }}đ</span>
                                     <span class="old">{{ number_format($topProduct->old_price, 0, '', '.') }}đ</span>
                                 </div>
-                                <a href="{{ route('cart.checkout', $topProduct->id) }}" title="Mua ngay" class="buy-now">Mua ngay</a>
+                                <a href="{{ route('cart.checkout', $topProduct->slug) }}" title="Mua ngay" class="buy-now">Mua ngay</a>
                             </div>
                         </li>
                         @endforeach

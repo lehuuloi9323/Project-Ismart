@@ -35,12 +35,12 @@ Route::get('gio-hang',[App\Http\Controllers\GuestController::class, 'cart'])->na
 Route::get('gio-hang/xoa/{rowId}',[App\Http\Controllers\GuestController::class, 'remove_cart'])->name('cart.remove');
 Route::get('gio-hang/xoa-toan-bo',[App\Http\Controllers\GuestController::class, 'destroy_cart'])->name('cart.destroy');
 Route::post('gio-hang/cap-nhat',[App\Http\Controllers\GuestController::class, 'update_cart'])->name('cart.update');
-Route::get('gio-hang/check',[App\Http\Controllers\GuestController::class, 'check'])->name('cart.check');
+// Route::get('gio-hang/check',[App\Http\Controllers\GuestController::class, 'check'])->name('cart.check');
 Route::get('gio-hang/thanh-toan/{slug?}',[App\Http\Controllers\GuestController::class, 'checkout'])->name('cart.checkout');
 Route::post('gio-hang/payment',[App\Http\Controllers\GuestController::class, 'payment'])->name('cart.payment');
 
-Route::get('post/{id?}',[App\Http\Controllers\GuestController::class, 'post_main'])->name('post');
-Route::get('post/detail/{id}',[App\Http\Controllers\GuestController::class, 'post_detail'])->name('post.detail');
+Route::get('bai-viet/{slug?}',[App\Http\Controllers\GuestController::class, 'post_main'])->name('post');
+Route::get('bai-viet/chi-tiet/{slug}',[App\Http\Controllers\GuestController::class, 'post_detail'])->name('post.detail');
 
 
 

@@ -291,6 +291,7 @@ class GuestController extends Controller
         $categories_post = Post_categories::all();
         $categories = Product_categories::whereNull('parent_id')->with('children.children')->get();
         $product = Product::where('slug', $slug)->first();
+        // return $product->category_id;
         $product_same_category = Product::where('category_id', $product->category_id)->orderBy('id', 'DESC')->take(10)->get();
         $images = Product_image::where('product_id', $product->id)->join('images', 'product_images.image_id', '=', 'images.id')->select('images.url')->get();
         return view('guest.product.detail', compact('slug', 'product', 'categories_post', 'categories', 'images','product_same_category'));
@@ -360,7 +361,7 @@ class GuestController extends Controller
         }
         elseif($slug != 0){
             $product = Product::where('slug', $slug)->first();
-
+            // return $product->id;
             Cart::add([
                 'id' => $product->id,
                 'name' => $product->name,
@@ -368,11 +369,13 @@ class GuestController extends Controller
                 'price' => $product->price,
                 'options' => ['thumbnail' => getImageUrlForProduct($product->id),
                 'max_order' => $product->stock_quantity,
+                'slug' => $product->slug,
                 ]
             ]);
         return view('guest.order.checkout', compact('categories_post'));
         }
-
+        // $product = Product::where('slug', $slug)->first();
+        // return $product;
 
     }
 
@@ -447,17 +450,17 @@ class GuestController extends Controller
 
 
 
-    public function Post_main(Request $request, $id = 0){
+    public function Post_main(Request $request, $slug = 0){
 
-        if($id == 0){
+        if($slug == 0){
         $ctg = 'Tất cả bài viết';
         $posts = Post::orderBy('id', 'DESC')->paginate(7);
         }
-        elseif($id != 0)
+        elseif($slug != 0)
         {
-            $ctg = Post_categories::where('id', $id)->pluck('name')->first();
+            $ctg = Post_categories::where('slug', $slug)->pluck('name')->first();
 
-            $category = Post_categories::select('id')->where('id',$id)->get();
+            $category = Post_categories::select('id')->where('slug',$slug)->get();
             $category_select = array();
 
 
@@ -490,8 +493,8 @@ class GuestController extends Controller
         $topProducts = Product::whereIn('id', $topProductIDs)->get();
         return view('guest.post.main', compact('topProducts', 'posts', 'categories', 'ctg'));
     }
-    public function Post_detail($id){
-        $post = Post::find($id);
+    public function Post_detail($slug){
+        $post = Post::where('slug', $slug)->first();
         $categories = Post_categories::whereNull('parent_id')->with('children.children')->get();
         $topProductIDs = Order_item::select('product_id', DB::raw('SUM(quantity) as total_quantity'))
         ->groupBy('product_id')
