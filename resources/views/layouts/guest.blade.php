@@ -7,7 +7,7 @@
         <base href="http://localhost/adminIsmart/">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         {{--  <link href="public/css/bootstrap/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>  --}}
         <link href="{{ asset('guest/css/bootstrap/bootstrap-theme.min.css') }}" rel="stylesheet" type="text/css"/>
         {{--  <link href="public/css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css"/>  --}}
@@ -39,7 +39,9 @@
 
     </head>
     <body>
-
+        <div class="spinner-border text-secondary text z-3 position-fixed w-3 p-4" role="status" style="left: 50%; top: 50%; font-size: 100px;" id="spinner">
+            <span class="visually-hidden">Loading...</span>
+        </div>
         <div id="site">
             <div id="container">
                 <div id="header-wp">

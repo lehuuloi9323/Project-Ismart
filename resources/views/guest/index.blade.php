@@ -13,15 +13,6 @@
                         </a>
                     </div>
                     @endforeach
-                    {{--  <div class="item">
-                        <img src="public/guest/images/slider-01.png" alt="">
-                    </div>
-                    <div class="item">
-                        <img src="public/guest/images/slider-02.png" alt="">
-                    </div>
-                    <div class="item">
-                        <img src="public/guest/images/slider-03.png" alt="">
-                    </div>  --}}
                 </div>
             </div>
             <div class="section" id="support-wp">

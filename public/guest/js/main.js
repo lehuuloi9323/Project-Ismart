@@ -147,6 +147,10 @@ function tab() {
     $('.tabItem:first-child').show();
 }
 
+//Spiner
+$(document).ready(function () {
+    $("#spinner").hide();
+});
 
 
 

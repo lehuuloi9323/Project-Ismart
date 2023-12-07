@@ -333,6 +333,24 @@ class GuestController extends Controller
         return redirect()->route('cart');
     }
 
+    public function update_cart(Request $request){
+        $product_id = $request->input('product_id');
+        $num_order = $request->input('num_order');
+        Cart::update($product_id, $num_order);
+        $Nsub_total = Cart::get($product_id)->subtotal;
+        $sub_total = number_format($Nsub_total, 0, '', '.').'đ';
+        $total = Cart::total();
+        return response()->json(['success' => true, 'product_id' => $product_id, 'num_order' => $num_order, 'sub_total' => $sub_total, 'total' => $total]);
+        // return Cart::content();
+    }
+    public function check(Request $request){
+        $cart = Cart::get('c8cca0ca79afa4a3640774a2375b4b5f');
+        // foreach($cart as $c){
+        //     $total = $c->subtotal;
+        // }
+        return Cart::total();
+    }
+
     public function checkout($slug = 0){
         $categories_post = Post_categories::all();
 

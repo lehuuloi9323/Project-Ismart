@@ -47,13 +47,50 @@
                             </td>
                             <td>{{ number_format($row->price, 0, '', '.') }}đ</td>
                             <td>
-                                <input type="number" name="num-order" value="{{ $row->qty }}" class="num-order" max="{{ $row->options->max_order }}" style="width: 50px;">
+                                <input type="number" id="num_order_{{ $row->id }}" name="num_order" data-{{ $row->id }} = {{ $row->rowId }}  value="{{ $row->qty }}" class="num-order" max="{{ $row->options->max_order }}" min="1" style="width: 50px;">
                             </td>
-                            <td>{{ number_format($row->total, 0, '', '.') }}đ</td>
+                            <td id="sub_total_{{ $row->id }}">{{ number_format($row->total, 0, '', '.') }}đ</td>
                             <td>
                                 <a href="{{ route('cart.remove', $row->rowId) }}" title="" class="del-product"><i class="fa fa-trash-o"></i></a>
                             </td>
                         </tr>
+                        <script>
+                            $(document).ready(function(){
+                                $('#num_order_{{ $row->id }}').change(function(){
+                                    var product_id = $(this).data('{{ $row->id }}');
+                                    var num_order = $(this).val();
+                                    //var data = {num_order: num_order}
+                                    //console.log(data);
+                                    //console.log(product_id);
+                                     $.ajax({
+                                         url: '{{ route('cart.update') }}',
+                                         method: 'POST',
+                                         data:
+                                         {
+                                            _token: '{{ csrf_token() }}',
+                                            'product_id': product_id,
+                                            'num_order': num_order,
+                                         },
+                                         success: function (response) {
+                                             if (response.success) {
+                                                console.log(response.num_order);
+                                                console.log(response.product_id);
+                                                console.log(response.sub_total);
+                                                console.log(response.total);
+                                                $('#sub_total_{{ $row->id }}').text(response.sub_total);
+                                                $('#total').text(response.total);
+                                                }
+                                            else{
+                                                return alert('No Ok!');
+                                            }
+                                         },
+                                         error: function (error) {
+                                             console.log(error);
+                                         },
+                                     });
+                                });
+                            });
+                        </script>
                         @endforeach
                         @else
                         <tr>
@@ -65,7 +102,7 @@
                         <tr>
                             <td colspan="7">
                                 <div class="clearfix">
-                                    <p id="total-price" class="fl-right">Tổng giá: <span>{{ Cart::total() }}đ</span></p>
+                                    <p id="total-price" class="fl-right">Tổng giá: <span id="total">{{ Cart::total() }}</span></p>
                                 </div>
                             </td>
                         </tr>
@@ -73,7 +110,7 @@
                             <td colspan="7">
                                 <div class="clearfix">
                                     <div class="fl-right">
-                                        <a href="" title="" id="update-cart">Cập nhật giỏ hàng</a>
+                                        {{--  <a href="" title="" id="update-cart">Cập nhật giỏ hàng</a>  --}}
                                         <a href="{{ route('cart.checkout') }}" title="" id="checkout-cart">Thanh toán</a>
                                     </div>
                                 </div>
