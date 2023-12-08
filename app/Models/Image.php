@@ -11,6 +11,6 @@ class Image extends Model
     protected $fillable = ['url' , 'name' , 'size_img', 'user_id'];
     public function post()
     {
-        return $this->hasOne(Post::class);
+        return $this->hasOne(post::class);
     }
 }

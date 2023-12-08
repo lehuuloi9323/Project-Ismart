@@ -71,7 +71,7 @@
 
                     <div id="head-body" class="clearfix">
                         <div class="wp-inner">
-                            <a href="{{ route('index') }}" title="" id="logo" class="fl-left"><img src="public/guest/images/logo.png"/></a>
+                            <a href="{{ route('index') }}" title="" id="logo" class="fl-left"><img src="{{ asset('guest/images/logo.png') }}"/></a>
                             <div id="search-wp" class="fl-left">
                                 <form method="GET" action="{{ route('product.main') }}">
                                     <input type="text" name="keyword" id="s" placeholder="Nhập từ khóa tìm kiếm tại đây!">

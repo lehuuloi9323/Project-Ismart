@@ -16,10 +16,10 @@ class Post extends Model
         return $this->belongsTo(Image::class);
     }
     public function Product_categories() {
-        return $this->belongsTo('App\Models\Post_categories', 'category_id', 'id');
+        return $this->belongsTo('App\Models\post_categories', 'category_id', 'id');
     }
     public function Users() {
-        return $this->belongsTo('App\Models\User', 'user_id', 'id');
+        return $this->belongsTo('App\Models\user', 'user_id', 'id');
     }
 
 }

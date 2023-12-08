@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\User;
-use App\Models\Role;
+use App\Models\user;
+use App\Models\role;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
@@ -20,7 +20,7 @@ class UserController extends Controller
     }
     public function checksql(Request $request){
         $keyword ="";
-        $users = User::onlyTrashed()
+        $users = user::onlyTrashed()
         ->where('name','LIKE',"%{$keyword}%")->orWhere('email','LIKE',"%{$keyword}%")
         ->orWhere('email','LIKE',"%{$keyword}%");
 
@@ -32,26 +32,26 @@ class UserController extends Controller
 
     public function list(Request $request){
     $keyword ="";
-    $counttrash = User::onlyTrashed()->count();
+    $counttrash = user::onlyTrashed()->count();
     $userslock = [];
     $status = $request->input('status');
     if($status == 'all'){
         if($request->input('keyword')){
             $keyword=$request->input('keyword');
         }
-        $userslock = User::onlyTrashed()
+        $userslock = user::onlyTrashed()
     ->where('name','LIKE',"%{$keyword}%")
     ->paginate(7);
 
-    $users = User::where('name','LIKE',"%{$keyword}%")
+    $users = user::where('name','LIKE',"%{$keyword}%")
     ->orwhere('email','LIKE',"%{$keyword}%")
     ->paginate(7);
     }
 
     elseif($status == 'trash'){
-    // $users = User::onlyTrashed()
+    // $users = user::onlyTrashed()
     // ->paginate(3);
-    $users = User::onlyTrashed()
+    $users = user::onlyTrashed()
     ->where('name','LIKE',"%{$keyword}%")
     ->paginate(7);
 
@@ -60,15 +60,15 @@ class UserController extends Controller
         if($request->input('keyword')){
             $keyword=$request->input('keyword');
         }
-    $users = User::where('name','LIKE',"%{$keyword}%")
+    $users = user::where('name','LIKE',"%{$keyword}%")
     ->orwhere('email','LIKE',"%{$keyword}%")
     ->paginate(7);
 
     }
-    $count = User::where('name','LIKE',"%{$keyword}%")
+    $count = user::where('name','LIKE',"%{$keyword}%")
     ->orwhere('email','LIKE',"%{$keyword}%")
     ->count();
-    // $countAll = User::all()->where('name','LIKE',"%{$keyword}%")
+    // $countAll = user::all()->where('name','LIKE',"%{$keyword}%")
     // ->orwhere('email','LIKE',"%{$keyword}%")
     // ->count();
     $countAll = $count + $counttrash;
@@ -78,7 +78,7 @@ class UserController extends Controller
 
 
     public function add(Request $request){
-        $roles = Role::all();
+        $roles = role::all();
         return view('user.add',compact('roles'));
     }
     public function handle_add(Request $request){
@@ -102,7 +102,7 @@ class UserController extends Controller
                 'password' => 'Mật khẩu'
             ]
             );
-        $user = User::create([
+        $user = user::create([
             'name' => $request->input('name'),
             'email' => $request->input('email'),
             'password' => $request->input('password'),
@@ -112,12 +112,12 @@ class UserController extends Controller
     }
 
     public function edit(Request $request, $id){
-        $user = User::find($id);
-        $roles = Role::all();
+        $user = user::find($id);
+        $roles = role::all();
         return view('user.edit', compact('user','roles'));
     }
     public function update(Request $request, $id){
-        $user = User::find($id);
+        $user = user::find($id);
         $request->validate(
            [
                'name' => 'required|string|max:255',
@@ -156,7 +156,7 @@ class UserController extends Controller
     public function delete($id){
 
         if(Auth::id()!= $id){
-            $user = User::find($id);
+            $user = user::find($id);
             $user->delete();
             return redirect('admin/user/list')->with('status', 'Bạn đã xóa người dùng thành công!');
             }else
@@ -179,17 +179,17 @@ class UserController extends Controller
         if(!empty($list_check)){
             $act = $request->input('actions');
             if($act=='block'){
-                User::destroy($list_check);
+                user::destroy($list_check);
                 return redirect('admin/user/list')->with('status', 'Khóa user thành công');
             }
             if($act=='restore'){
-                User::withTrashed($list_check)
+                user::withTrashed($list_check)
                 ->whereIn('id', $list_check)
                 ->restore();
                 return redirect('admin/user/list')->with('status', 'Khổi phục tài khoản thành công');
             }
             if($act = 'delete'){
-                User::withTrashed()
+                user::withTrashed()
                 ->whereIn('id',$list_check)
                 ->forceDelete();
                 return redirect('admin/user/list')->with('status', 'Bạn đã xóa vĩnh viễn');

@@ -3,14 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Permission;
+use App\Models\permission;
 
 class PermissionController extends Controller
 {
     //
     //view thêm
     public function add(Request $request){
-        $permissions = Permission::all()->groupBy(function ($permission){
+        $permissions = permission::all()->groupBy(function ($permission){
             return explode('.', $permission->slug)[0];
         });
         return view('permission.add',compact('permissions'));
@@ -31,7 +31,7 @@ class PermissionController extends Controller
             'add_slug' => 'Slug'
         ]);
 
-        Permission::create([
+        permission::create([
             'name' => $request->input('add_name_permission'),
             'slug' => $request->input('add_slug'),
             'description'=>$request->input('description'),
@@ -42,15 +42,15 @@ class PermissionController extends Controller
         }
 
         public function delete($id){
-            Permission::where('id', $id)->delete();
+            permission::where('id', $id)->delete();
             return redirect()->route('permission.add')->with('status', 'Bạn đã xóa thành công quyền đã chọn !');
         }
 
         public function edit($id){
-            $permissions = Permission::all()->groupBy(function ($permission){
+            $permissions = permission::all()->groupBy(function ($permission){
                 return explode('.', $permission->slug)[0];
             });
-            $permission = Permission::find($id);
+            $permission = permission::find($id);
             return view('permission.edit', compact('id','permissions','permission'));
         }
 
@@ -67,7 +67,7 @@ class PermissionController extends Controller
                 'add_slug' => 'Slug'
             ]);
 
-            Permission::where('id', '=',$id)->update([
+            permission::where('id', '=',$id)->update([
                 'name' => $request->input('add_name_permission'),
                 'slug' => $request->input('add_slug'),
                 'description' => $request->input('description'),

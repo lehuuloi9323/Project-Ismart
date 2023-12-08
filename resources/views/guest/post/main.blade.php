@@ -31,7 +31,7 @@
                                 <img src="{{ asset('storage/photos/1/Post/'. $post->image->url) }}" alt="">
                             </a>
                             <div class="info fl-right">
-                                <a href="{{ route('post.detail', $post->id) }}" title="" class="title">{{ $post->title }}</a>
+                                <a href="{{ route('post.detail', $post->slug) }}" title="" class="title">{{ $post->title }}</a>
                                 <span class="create-date">{{ $post->created_at }}</span>
                                 <p class="desc">{!! $post->excerpt !!}</p>
                             </div>

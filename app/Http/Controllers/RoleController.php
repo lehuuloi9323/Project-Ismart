@@ -1,29 +1,29 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Role;
+use App\Models\role;
 use Illuminate\Http\Request;
-use App\Models\Permission;
+use App\Models\permission;
 use Illuminate\Support\Facades\Auth;
-use App\Models\Users;
+use App\Models\users;
 class RoleController extends Controller
 {
     //
     public function list(Request $request){
-        // return Auth::user()->hasPermission('page.delete');
-        // if(Auth::user()->hasPermission('product.add')){
+        // return Auth::user()->haspermission('page.delete');
+        // if(Auth::user()->haspermission('product.add')){
         //     dd('Bạn được phép truy cập quyền thêm sản phẩm');
         // }
         // else{
         //     dd('Bạn không có đủ quyền truy cập');
         // }
-        $roles = Role::all();
+        $roles = role::all();
         return view('role.list', compact('roles'));
 // return $role;
     }
 
     public function add(Request $request){
-        $permissions = Permission::all()->groupBy(function ($permission){
+        $permissions = permission::all()->groupBy(function ($permission){
             return explode('.', $permission->slug)[0];
         });
         return view('role.add',compact('permissions'));
@@ -44,7 +44,7 @@ class RoleController extends Controller
         ]);
 
         // return $request->input('permission_id');
-        $role = Role::create([
+        $role = role::create([
             'name' => $request->input('name'),
             'description' => $request->input('description')
         ]);
@@ -53,14 +53,14 @@ class RoleController extends Controller
         return redirect()->route('role.list')->with('status', 'Thêm vai trò thành công !!');
     }
 
-    public function edit(Role $role) {
+    public function edit(role $role) {
         // return $role;
-        $permissions = Permission::all()->groupBy(function ($permission){
+        $permissions = permission::all()->groupBy(function ($permission){
             return explode('.', $permission->slug)[0];
         });
         return view('role.edit',compact('permissions', 'role'));
     }
-    public function update(Role $role, Request $request) {
+    public function update(role $role, Request $request) {
         // return $permission_id;
         $request->validate([
             'name' => 'required|unique:roles,name,'.$role->id,
@@ -77,7 +77,7 @@ class RoleController extends Controller
 
     return redirect()->route('role.list')->with('status', 'Cập nhật quyền thành công');
     }
-    public function delete(Role $role) {
+    public function delete(role $role) {
         $role->delete();
         return redirect()->route('role.list')->with('status', 'Bạn đã xóa quyền thành công');
     }

@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Image;
-use App\Models\Slider;
-use App\Models\Product;
+use App\Models\image;
+use App\Models\slider;
+use App\Models\product;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Auth;
@@ -45,14 +45,14 @@ class SliderController extends Controller
             'img' => 'Ảnh slider'
         ]
     );
-    $jsondata = Product::select('slug')->where('id', '=', $request->url)->get();
+    $jsondata = product::select('slug')->where('id', '=', $request->url)->get();
     $data =  json_decode($jsondata, true);
     $url = $data[0]['slug'];
 
 
 
 
-    $old_sliders = Slider::where('display_order', $request->display_order)->get();
+    $old_sliders = slider::where('display_order', $request->display_order)->get();
     if ($old_sliders->count() > 0) {
             $old_slider->update([
                 'display_order' => 0,
@@ -61,7 +61,7 @@ class SliderController extends Controller
     $image = Str::after($request->img, '1/');
     $file_size=File::size(public_path('storage/photos/1/').$image); // Lấy kích thước ảnh đơn vị bytes
 
-    $add_image = Image::create([
+    $add_image = image::create([
         'url' => $image,
         'name' => $request->input('title'),
         'size_img' => $file_size,
@@ -69,7 +69,7 @@ class SliderController extends Controller
     ]);
     // return $add_image->id;
 
-    $add_slider = Slider::create([
+    $add_slider = slider::create([
         'image_id' => $add_image->id,
         'title' => $request->title,
         'description' => $request->description,
@@ -82,20 +82,20 @@ class SliderController extends Controller
 
     public function list(Request $request){
         $status = $request->input('status');
-        $count_show = Slider::where('display_order','>','0')->count();
-        $count_hide = Slider::where('display_order','=','0')->count();
+        $count_show = slider::where('display_order','>','0')->count();
+        $count_hide = slider::where('display_order','=','0')->count();
         if($status == 'show' or $status == ''){
-            $sliders = Slider::where('display_order','>','0')->paginate(7);
+            $sliders = slider::where('display_order','>','0')->paginate(7);
         }
         if($status == 'hide'){
-            $sliders = Slider::where('display_order','=','0')->paginate(7);
+            $sliders = slider::where('display_order','=','0')->paginate(7);
         }
 
         return view('slider.list', compact('sliders','count_show', 'count_hide'));
     }
 
     public function edit(Request $request, $id){
-        $slider = Slider::find($id);
+        $slider = slider::find($id);
         return view('slider.edit', compact('slider'));
     }
 
@@ -121,8 +121,8 @@ class SliderController extends Controller
             'img' => 'Ảnh slider'
         ]
     );
-    $slider = Slider::find($id);
-    $old_sliders = Slider::where('display_order', $request->display_order)->get();
+    $slider = slider::find($id);
+    $old_sliders = slider::where('display_order', $request->display_order)->get();
     if ($old_sliders->count() > 0) {
 
         foreach ($old_sliders as $old_slider) {
@@ -138,7 +138,7 @@ class SliderController extends Controller
         'display_order' => $request->display_order,
         'user_id' => Auth::user()->id
     ]);
-    $images = Image::find($slider->image_id);
+    $images = image::find($slider->image_id);
     $image = Str::after($request->img, '1/');
     $file_size=File::size(public_path('storage/photos/1/').$image); // Lấy kích thước ảnh đơn vị bytes
     $images->update([
@@ -151,7 +151,7 @@ class SliderController extends Controller
     return redirect()->route('slider.list')->with('status', 'Cập nhật thành công !!');
     }
     public function delete($id){
-        $slider = Slider::find($id);
+        $slider = slider::find($id);
         $slider->delete();
         return redirect()->route('slider.list')->with('status', 'Bạn đã xóa thành công !!');
     }

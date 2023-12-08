@@ -42,7 +42,7 @@ class User extends Authenticatable implements MustVerifyEmail
     ];
 
     public function roles(){
-        return $this->belongsToMany(Role::class, 'user_role');
+        return $this->belongsToMany(role::class, 'user_role');
     }
     public function hasPermission($permission){
         foreach($this->roles as $role) {
@@ -55,10 +55,10 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     public function product_category(){
-        return $this->hasOne('App\Models\Product_categories');
+        return $this->hasOne('App\Models\product_categories');
     }
     public function Posts(){
-        return $this->hasMany('App\Models\Post');
+        return $this->hasMany('App\Models\post');
     }
 
 

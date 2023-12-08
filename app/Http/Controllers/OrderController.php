@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Order;
-use App\Models\Order_item;
-use App\Models\Customer;
+use App\Models\order;
+use App\Models\order_item;
+use App\Models\customer;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -23,54 +23,54 @@ class OrderController extends Controller
         if($request->input('keyword')){
             $keyword = $request->input('keyword');
         }
-        $count_pending = Order::where('customers.name', 'LIKE', "%{$keyword}%")->where('orders.status', 'pending')
+        $count_pending = order::where('customers.name', 'LIKE', "%{$keyword}%")->where('orders.status', 'pending')
         ->join('customers', 'orders.customer_id', '=', 'customers.id')
         ->select('orders.*', 'customers.name')->count();
-        $count_processing = Order::where('customers.name', 'LIKE', "%{$keyword}%")->where('orders.status', 'processing')
+        $count_processing = order::where('customers.name', 'LIKE', "%{$keyword}%")->where('orders.status', 'processing')
         ->join('customers', 'orders.customer_id', '=', 'customers.id')
         ->select('orders.*', 'customers.name')->count();
-        $count_shipped = Order::where('customers.name', 'LIKE', "%{$keyword}%")->where('orders.status', 'shipped')
+        $count_shipped = order::where('customers.name', 'LIKE', "%{$keyword}%")->where('orders.status', 'shipped')
         ->join('customers', 'orders.customer_id', '=', 'customers.id')
         ->select('orders.*', 'customers.name')->count();
-        $count_delivered = Order::where('customers.name', 'LIKE', "%{$keyword}%")->where('orders.status', 'delivered')
+        $count_delivered = order::where('customers.name', 'LIKE', "%{$keyword}%")->where('orders.status', 'delivered')
         ->join('customers', 'orders.customer_id', '=', 'customers.id')
         ->select('orders.*', 'customers.name')->count();
-        $count_canceled = Order::where('customers.name', 'LIKE', "%{$keyword}%")->where('orders.status', 'canceled')
+        $count_canceled = order::where('customers.name', 'LIKE', "%{$keyword}%")->where('orders.status', 'canceled')
         ->join('customers', 'orders.customer_id', '=', 'customers.id')
         ->select('orders.*', 'customers.name')->count();
         if($status == 'pending' or $status == ''){
-            $orders = Order::where('customers.name', 'LIKE', "%{$keyword}%")->where('orders.status', 'pending')
+            $orders = order::where('customers.name', 'LIKE', "%{$keyword}%")->where('orders.status', 'pending')
             ->join('customers', 'orders.customer_id', '=', 'customers.id')
             ->select('orders.*', 'customers.name')->orderBy('id', 'DESC')
             ->paginate(7);
         }
         elseif($status == 'processing'){
-            $orders = Order::where('customers.name', 'LIKE', "%{$keyword}%")->where('orders.status', 'processing')
+            $orders = order::where('customers.name', 'LIKE', "%{$keyword}%")->where('orders.status', 'processing')
             ->join('customers', 'orders.customer_id', '=', 'customers.id')->orderBy('id', 'DESC')
             ->select('orders.*', 'customers.name')
             ->paginate(7);
 
         }
         elseif($status == 'shipped'){
-            $orders = Order::where('customers.name', 'LIKE', "%{$keyword}%")->where('orders.status', 'shipped')
+            $orders = order::where('customers.name', 'LIKE', "%{$keyword}%")->where('orders.status', 'shipped')
             ->join('customers', 'orders.customer_id', '=', 'customers.id')->orderBy('id', 'DESC')
             ->select('orders.*', 'customers.name')
             ->paginate(7);
         }
         elseif($status == 'delivered'){
-            $orders = Order::where('customers.name', 'LIKE', "%{$keyword}%")->where('orders.status', 'delivered')
+            $orders = order::where('customers.name', 'LIKE', "%{$keyword}%")->where('orders.status', 'delivered')
             ->join('customers', 'orders.customer_id', '=', 'customers.id')->orderBy('id', 'DESC')
             ->select('orders.*', 'customers.name')
             ->paginate(7);
         }
         elseif($status == 'canceled'){
-            $orders = Order::where('customers.name', 'LIKE', "%{$keyword}%")->where('orders.status', 'canceled')
+            $orders = order::where('customers.name', 'LIKE', "%{$keyword}%")->where('orders.status', 'canceled')
             ->join('customers', 'orders.customer_id', '=', 'customers.id')->orderBy('id', 'DESC')
             ->select('orders.*', 'customers.name')
             ->paginate(7);
         }
 
-        // $order_item = Order::find(4)->Order_items()->pluck('id')->toArray();
+        // $order_item = order::find(4)->order_items()->pluck('id')->toArray();
         // return show_array($order_item);
         // $product = get_name_product_from_order_item($order_item);
         // return show_array($product);
@@ -83,7 +83,7 @@ class OrderController extends Controller
             $act = $request->input('actions');
             if($act == 'pending'){
                 foreach($list_check as $k => $id){
-                    $order = Order::find($id);
+                    $order = order::find($id);
                     $order->status = 'pending';
                     $order->save();
                 }
@@ -91,7 +91,7 @@ class OrderController extends Controller
             }
             if($act == 'processing'){
                 foreach($list_check as $k => $id){
-                    $order = Order::find($id);
+                    $order = order::find($id);
                     $order->status = 'processing';
                     $order->save();
                 }
@@ -99,7 +99,7 @@ class OrderController extends Controller
             }
             if($act == 'shipped'){
                 foreach($list_check as $k => $id){
-                    $order = Order::find($id);
+                    $order = order::find($id);
                     $order->status = 'shipped';
                     $order->save();
                 }
@@ -107,7 +107,7 @@ class OrderController extends Controller
             }
             if($act == 'delivered'){
                 foreach($list_check as $k => $id){
-                    $order = Order::find($id);
+                    $order = order::find($id);
                     $order->status = 'delivered';
                     $order->save();
                 }
@@ -115,7 +115,7 @@ class OrderController extends Controller
             }
             if($act == 'canceled'){
                 foreach($list_check as $k => $id){
-                    $order = Order::find($id);
+                    $order = order::find($id);
                     $order->status = 'canceled';
                     $order->save();
                 }
@@ -126,12 +126,12 @@ class OrderController extends Controller
 
     }
     public function delete($id) {
-        $order = Order::find($id);
+        $order = order::find($id);
         $order->delete();
         return redirect()->route('order.list')->with('status', 'Bạn đã xóa đơn hàng thành công !');
     }
     public function edit($id) {
-        $order = Order::where('orders.id', $id)
+        $order = order::where('orders.id', $id)
             ->join('customers', 'orders.customer_id', '=', 'customers.id')
             ->select('orders.*', 'customers.*')
             ->first();
@@ -161,8 +161,8 @@ class OrderController extends Controller
             'payment_method' => 'Phương thức thanh toán'
         ]);
         // return $request->all();
-        $order = Order::find($id);
-        $customer = Customer::find($order->customer_id);
+        $order = order::find($id);
+        $customer = customer::find($order->customer_id);
         $customer->update([
             'name' => $request->input('name'),
             'email' => $request->input('email'),
@@ -178,9 +178,9 @@ class OrderController extends Controller
     }
 
     public function detail($id){
-        $order = Order::find($id);
-        $customer = Customer::find($order->customer_id);
-        $order_items = Order_item::where('order_items.order_id', $order->id)
+        $order = order::find($id);
+        $customer = customer::find($order->customer_id);
+        $order_items = order_item::where('order_items.order_id', $order->id)
         ->join('products', 'products.id', '=', 'order_items.product_id')
         ->select('order_items.*', 'products.*')->get();
 

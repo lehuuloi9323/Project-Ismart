@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Product_categories;
+use App\Models\product_categories;
 use Illuminate\Support\Facades\Auth;
 class ProductCategoryController extends Controller
 
@@ -11,7 +11,7 @@ class ProductCategoryController extends Controller
     public function index(){
 
 
-        $categories = Product_categories::whereNull('parent_id')->with('children.children')->get();
+        $categories = product_categories::whereNull('parent_id')->with('children.children')->get();
 
         return view('product.cat', compact('categories'));
     }
@@ -35,7 +35,7 @@ class ProductCategoryController extends Controller
 
     $parent_id = $request->parent_id == ''? null : $request->parent_id;
 
-    $product_category = Product_categories::create([
+    $product_category = product_categories::create([
         'name' => ucfirst($request->name),
         'slug' => strtolower($request->slug),
         'description' => ucfirst($request->description),
@@ -48,14 +48,14 @@ class ProductCategoryController extends Controller
 
     public function edit($id){
         // return $id;
-        $product_categories = Product_categories::all();
+        $product_categories = product_categories::all();
 
-        $product_category = Product_categories::find($id);
+        $product_category = product_categories::find($id);
         return view('product.cat.edit', compact('product_categories', 'product_category'));
     }
 
     public function update(Request $request, $id){
-        $product_category = Product_categories::find($id);
+        $product_category = product_categories::find($id);
         $request->validate([
             'name' => 'required|string|max:255|unique:product_categories,name,'.$product_category->id,
             'slug' => 'required|string|max:255|unique:product_categories,slug,'.$product_category->id,
@@ -85,7 +85,7 @@ class ProductCategoryController extends Controller
     }
 
     public function delete($id){
-        $product_category = Product_categories::find($id);
+        $product_category = product_categories::find($id);
         $product_category->delete();
         return redirect()->route('product.cat')->with('status', 'Bạn đã xóa thành công !');
     }

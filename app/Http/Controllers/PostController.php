@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
-use App\Models\Post_categories;
+use App\Models\post_categories;
 use Illuminate\Support\Facades\Auth;
-use App\Models\Image;
-use App\Models\Post;
+use App\Models\image;
+use App\Models\post;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\File;
 
@@ -20,7 +20,7 @@ class PostController extends Controller
         });
     }
     public function add(Request $request){
-        $categories = Post_categories::whereNull('parent_id')->with('children.children')->get();
+        $categories = post_categories::whereNull('parent_id')->with('children.children')->get();
         return view('post.add', compact('categories'));
     }
     public function storeadd(Request $request){
@@ -47,15 +47,16 @@ class PostController extends Controller
         ]);
         $url = Str::after($request->post_img, 'Post/');
         $file_size=File::size(public_path('storage/photos/1/Post/').$url);
-        $image = Image::create([
+        $image = image::create([
             'url' => $url,
             'name' => $request->title,
             'size_img' => $file_size,
             'user_id' => Auth::user()->id,
         ]);
-        $post = Post::create([
+        $post = post::create([
             'title' => $request->title,
-            'slug' => NameToSlug($request->title),
+            'slug' => Str::slug($request->title),
+            // 'slug' => NameToSlug($request->title),
             'excerpt' => $request->excerpt,
             'content' => $request->content,
             'status' => $request->status,
@@ -73,24 +74,24 @@ class PostController extends Controller
     public function list(Request $request){
         $keyword = '';
         $status = $request->input('status');
-        $count_published = Post::where('status', 'published')->count();
-        $count_archived = Post::where('status', 'archived')->count();
-        $count_draft = Post::where('status', 'draft')->count();
-        $count_pending = Post::where('status', 'pending')->count();
+        $count_published = post::where('status', 'published')->count();
+        $count_archived = post::where('status', 'archived')->count();
+        $count_draft = post::where('status', 'draft')->count();
+        $count_pending = post::where('status', 'pending')->count();
         if($request->input('keyword')){
             $keyword = $request->input('keyword');
         }
         if($status == 'published' or $status == ''){
-            $posts = Post::where('title', 'LIKE', "%{$keyword}%")->where('status', 'published')->paginate(3);
+            $posts = post::where('title', 'LIKE', "%{$keyword}%")->where('status', 'published')->paginate(3);
         }
         elseif($status == 'archived'){
-            $posts = Post::where('title', 'LIKE', "%{$keyword}%")->where('status', 'archived')->paginate(3);
+            $posts = post::where('title', 'LIKE', "%{$keyword}%")->where('status', 'archived')->paginate(3);
         }
         elseif($status == 'draft'){
-            $posts = Post::where('title', 'LIKE', "%{$keyword}%")->where('status', 'draft')->paginate(3);
+            $posts = post::where('title', 'LIKE', "%{$keyword}%")->where('status', 'draft')->paginate(3);
         }
         elseif($status == 'pending'){
-            $posts = Post::where('title', 'LIKE', "%{$keyword}%")->where('status', 'pending')->paginate(3);
+            $posts = post::where('title', 'LIKE', "%{$keyword}%")->where('status', 'pending')->paginate(3);
         }
 
 
@@ -104,7 +105,7 @@ class PostController extends Controller
             $act = $request->input('action');
             if($act == 'archived'){
                 foreach($list_check as $k => $id){
-                    $post = Post::find($id);
+                    $post = post::find($id);
                     $post->status = 'archived';
                     $post->save();
 
@@ -113,7 +114,7 @@ class PostController extends Controller
             }
             elseif($act == 'pending'){
                 foreach($list_check as $k => $id){
-                    $post = Post::find($id);
+                    $post = post::find($id);
                     $post->status = 'pending';
                     $post->save();
                 }
@@ -121,7 +122,7 @@ class PostController extends Controller
             }
             elseif($act == 'draft'){
                 foreach($list_check as $k => $id){
-                    $post = Post::find($id);
+                    $post = post::find($id);
                     $post->status = 'draft';
                     $post->save();
                 }
@@ -129,7 +130,7 @@ class PostController extends Controller
             }
             elseif($act == 'published'){
                 foreach($list_check as $k => $id){
-                    $post = Post::find($id);
+                    $post = post::find($id);
                     $post->status = 'published';
                     $post->save();
                 }
@@ -139,18 +140,18 @@ class PostController extends Controller
         return redirect()->route('post.list');
     }
     public function delete($id){
-        $post = Post::find($id);
-        $delete_image = Image::find($post->image_id)->delete();
+        $post = post::find($id);
+        $delete_image = image::find($post->image_id)->delete();
         $post->delete();
         return redirect()->route('post.list')->with('status', 'Bài viết đã xóa thành công !');
     }
     public function edit($id){
-        $categories = Post_categories::whereNull('parent_id')->with('children.children')->get();
-        $post = Post::find($id);
+        $categories = post_categories::whereNull('parent_id')->with('children.children')->get();
+        $post = post::find($id);
         return view('post.edit', compact('categories', 'post'));
     }
     public function update($id, Request $request){
-        $post = Post::find($id);
+        $post = post::find($id);
         $request->validate([
             'title' => 'required|string|max:255|unique:posts,title,'.$id,
             'excerpt' => 'required|string',
@@ -174,7 +175,7 @@ class PostController extends Controller
 
         $url = Str::after($request->post_img, 'Post/'); //Lấy dữ liệu sau chuỗi Product/
         $file_size = File::size(public_path('storage/photos/1/Post/').$url);
-        $image = Image::find($post->image_id);
+        $image = image::find($post->image_id);
         $image->update([
             'url' => $url,
             'name' => $request->title,
@@ -184,7 +185,8 @@ class PostController extends Controller
 
         $post->update([
             'title' => $request->title,
-            'slug' => NameToSlug($request->title),
+            'slug' => Str::slug($request->title),
+            // 'slug' => NameToSlug($request->title),
             'except' => $request->except,
             'content' => $request->content,
             'status' => $request->status,
